@@ -1,0 +1,33 @@
+ 
+
+
+.homepage-link {
+    padding: 3px;
+}
+
+.images {
+    /* background-image: url('./../img/NBA-logo.png'); */
+    width: auto;
+    height: 300px;
+}
+
+.images > img {
+    width: 500px;
+    height: 150px;
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+.images > .football-logo > img:nth-child(1) {
+    width: 170px;
+    height: 150px;
+}
+.images > .football-logo > img:nth-child(2) {
+    height: 170px;
+    width: 230px;
+}
+.images > .football-logo > img:nth-child(3) {
+    width: 170px;
+    height: 170px;
+}

@@ -2,3 +2,19 @@
   text-align: center;
 }
 
+h2 {
+  background-color: lightgray;
+  font-size: 200%;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+}
+
+.App > a {
+  padding: 10px 20px;
+  margin: 44px;
+  background-color: lightgray;
+  border-radius: 25px;
+  text-decoration: none;
+  width: 30px;
+  color: black;
+}
