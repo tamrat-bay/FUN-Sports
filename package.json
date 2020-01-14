@@ -1,8 +1,4 @@
 {
-  "name": "FUN-Sports-Web",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "name": "fun-app",
   "version": "0.1.0",
   "private": true,
