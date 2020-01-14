@@ -9,12 +9,12 @@ class Homepage extends Component {
             <div>
                 <div className='images'>
                 <div className='football-logo'>
-                        <img src='img/serie-a-logo.png'></img>
-                        <img src='img/Premier-League.png'></img>
-                        <img src='img/la-liga.png'></img>
+                        <img src='img/serie-a-logo.png' alt="FunSport"></img>
+                        <img src='img/Premier-League.png' alt="FunSport"></img>
+                        <img src='img/la-liga.png' alt="FunSport"></img>
                     </div>
-                        <img src='img/NBA-logo.png'></img>
-                        <img src='img/UFC_Logo-SVG.svg'></img>              
+                        <img src='img/NBA-logo.png' alt="FunSport"></img>
+                        <img src='img/UFC_Logo-SVG.svg' alt="FunSport"></img>              
                     </div>
 
             </div>
