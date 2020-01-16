@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Homepage.css';
 import Nav from 'react-bootstrap/Nav';
 import Login from './Login';
-import Signin from './Signin';
+import Signin from './Signup';
 import Mainpage from './Mainpage';
 
 
@@ -24,13 +24,13 @@ class Homepage extends Component {
             <div className="Hompage frame">
                     <Nav className="justify-content-center" activeKey="/home">
                         <Nav.Item>
-                        <Nav.Link onClick={()=>this.setState({loginFlag:true})}>Login</Nav.Link>
+                            <Nav.Link onClick={()=>this.setState({signInFlag:true})}>Sign up</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                        <Nav.Link onClick={()=>this.setState({signInFlag:true})}>Sign In</Nav.Link>
+                            <Nav.Link onClick={()=>this.setState({loginFlag:true})}>Login</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                        <Nav.Link onClick={()=>this.setState({guestFlag:true})}>Guest</Nav.Link>
+                            <Nav.Link onClick={()=>this.setState({guestFlag:true})}>Guest</Nav.Link>
                         </Nav.Item>
                     </Nav>
                     {/* <div className="Homepage_logo"> */}
