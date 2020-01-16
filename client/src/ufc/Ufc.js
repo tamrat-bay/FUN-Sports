@@ -5,7 +5,7 @@ export default class Ufc extends Component {
     render() {
         return (
             <div>
-                <h2>UFC</h2>
+                {/* ufc page */}
             </div>
         )
     }
