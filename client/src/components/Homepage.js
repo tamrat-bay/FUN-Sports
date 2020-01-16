@@ -21,7 +21,7 @@ class Homepage extends Component {
             return   <Signin/>
         }
         return (
-            <div>
+            <div className="Hompage frame">
                     <Nav className="justify-content-center" activeKey="/home">
                         <Nav.Item>
                         <Nav.Link onClick={()=>this.setState({loginFlag:true})}>Login</Nav.Link>
