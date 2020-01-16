@@ -1,15 +1,7 @@
 {
   "name": "fun-app",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
   "private": true,
-  "dependencies": {
-    "concurrently": "^5.0.2",
-    "express": "^4.17.1",
-    "mongoose": "^5.8.7",
-    "sherdog": "^0.1.10"
-  },
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
@@ -26,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/tamrat-bay/FUN-Sports-Web/issues"
   },
-  "homepage": "https://github.com/tamrat-bay/FUN-Sports-Web#readme"
+  "homepage": "https://github.com/tamrat-bay/FUN-Sports-Web#readme",
+  "dependencies": {
+    "concurrently": "^5.0.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.7",
+    "sherdog": "^0.1.10"
+  }
 }

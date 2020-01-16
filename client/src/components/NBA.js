@@ -4,7 +4,7 @@ class NBA extends Component {
     render() {
         return (
             <div>
-                NBA page
+                this is NBA page
             </div>
         );
     }

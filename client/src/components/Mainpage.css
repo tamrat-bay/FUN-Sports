@@ -1,21 +1,12 @@
 
-.nav-bar {
-    background-color: lightgray;
-    padding: 15px;
-    margin-top: 10px;
+
+
+.mr-auto > a {
+    margin: 0 150px;
 }
 
-.nav-bar > a {
-    margin: 0 100px;
-    text-decoration: none;
-}
 
-.nav-bar > a:hover {
-    color: red;
-    transition: 0.2s;
-}
-
-.main-news {
+/* .main-news {
     margin: 30px 150px;
 }
 
@@ -32,7 +23,7 @@
     border: solid black 1px;
     float: left;
     margin: 50px 0;
-}
+} */
 
 /* .news-rigth {
     width: 200px;

@@ -4,7 +4,7 @@ class Football extends Component {
     render() {
         return (
             <div>
-                football page
+                this is football page
             </div>
         );
     }
