@@ -33,6 +33,9 @@ class Homepage extends Component {
                         <Nav.Link onClick={()=>this.setState({guestFlag:true})}>Guest</Nav.Link>
                         </Nav.Item>
                     </Nav>
+                    {/* <div className="Homepage_logo"> */}
+                         {/* <img src="img/LogoPlusSlogan.svg" alt="Logo" /> */}
+                    {/* </div> */}
                 <div className='images'>
                 <div className='football-logo'>
                         <img src='img/serie-a-logo.png' alt="FunSport"></img>
