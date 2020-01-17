@@ -23,6 +23,10 @@
     "concurrently": "^5.0.2",
     "express": "^4.17.1",
     "mongoose": "^5.8.7",
+    "radium": "^0.26.0",
+    "react": "^16.12.0",
+    "react-coverflow": "^0.2.20",
+    "react-dom": "^16.12.0",
     "sherdog": "^0.1.10"
   }
 }
