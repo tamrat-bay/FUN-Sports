@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Ufc from './ufc/Ufc';
+// import Ufc from './ufc/Ufc';
 import Homepage from './components/Homepage';
 
 

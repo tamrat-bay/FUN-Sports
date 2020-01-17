@@ -70,6 +70,8 @@ let fighters = [
 
 // })
 
+
+
 module.exports.getFighter = function getFighter (req,res){
   let info ,
   fighter = req.params.fighter,

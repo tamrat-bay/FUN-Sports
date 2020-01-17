@@ -7,7 +7,6 @@ import Mainpage from './Mainpage';
 
 
 
-
 class Homepage extends Component {
     state={loginFlag:false, signInFlag:false, guestFlag:false}
     render() {
@@ -21,7 +20,7 @@ class Homepage extends Component {
             return   <Mainpage/>
         }
         return (
-            <div className="Hompage frame">
+            <div className="Homepage frame">
                     <Nav className="justify-content-center" activeKey="/home">
                         <Nav.Item>
                             <Nav.Link onClick={()=>this.setState({signInFlag:true})}>Sign up</Nav.Link>
@@ -33,9 +32,9 @@ class Homepage extends Component {
                             <Nav.Link onClick={()=>this.setState({guestFlag:true})}>Guest</Nav.Link>
                         </Nav.Item>
                     </Nav>
-                    {/* <div className="Homepage_logo"> */}
-                         {/* <img src="img/LogoPlusSlogan.svg" alt="Logo" /> */}
-                    {/* </div> */}
+                    {/* <div className="Homepage_logo">
+                         <img src="img/LogoPlusSlogan.svg" alt="Logo" />
+                    </div> */}
                 <div className='images'>
                 <div className='football-logo'>
                         <img src='img/serie-a-logo.png' alt="FunSport"></img>

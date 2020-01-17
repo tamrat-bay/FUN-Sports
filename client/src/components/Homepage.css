@@ -5,12 +5,15 @@
 .images {
     /* background-image: url('./../img/NBA-logo.png'); */
     /* background-image: url(./../img/NBA-logo.png); */
+    box-sizing: border-box;
+    /* background-image: url(./../img/NBA-logo.png); */
+    /* background-image: url(./../img/NBA-logo.png); */
     width: auto;
     height: 300px;
     background-color: #f5f5f5bd;
-    height: 75%;
+    height: 70%;
     width: 80%;
-    margin: 5% auto;
+    margin: 0% auto;
     transform: rotateX(45deg);
     border-radius: 10px;
 }
@@ -47,7 +50,15 @@ a.nav-link{
 a.nav-link:hover{
     transform: scale(1.2);
 }
-
+.Homepage_logo{
+  height: 30%;
+  width: 20%;
+  margin: 0 auto;
+}
+.Homepage_logo img{
+height: 100%;
+width: 100%;
+}
 
 .images > .football-logo > img:nth-child(1) {
     /* width: 170px;
@@ -67,17 +78,17 @@ a.nav-link:hover{
     width: 170px;
     height: 225px;
 }
-.frame {
-    height: 90vh;
-    width: 90vw;
-    margin: 5vh 5vw;
-    background-color: #eee;
-    background-position: center;
-    background-size: cover;
-    animation: image 35s infinite linear;
-    height: 100vh;
-    width: 100%;
-    margin: 0;
+.Homepage.frame {
+  height: 90vh;
+  width: 90vw;
+  margin: 5vh 5vw;
+  background-color: #eee;
+  background-position: center;
+  background-size: cover;
+  animation: image 35s infinite linear;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
   }
   
   @keyframes image {

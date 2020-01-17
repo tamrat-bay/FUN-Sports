@@ -14,7 +14,7 @@ class Main extends Component {
   {/* Stack the columns on mobile by making one full-width and the other half-width */}
   <Row>
     <Col xs={12} md={8}>
-   <iframe className="Main_iframe" src={this.state.video} frameBorder="0"
+   <iframe className="Main_iframe" title="Football"  src={this.state.video} frameBorder="0"
     width="100%" height="100%" allowFullScreen allow="autoplay; fullscreen"
      ></iframe>
     </Col>
