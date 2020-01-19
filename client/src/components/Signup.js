@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import Homepage from './Homepage';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import './Signup.css';
 
 
 class Signup extends Component {
@@ -12,33 +15,41 @@ class Signup extends Component {
         return <Homepage/>
       }
         return (
-            <div>
-                <input type='text' placeholder='username'></input><br></br>
-                <input type='email' placeholder='email'></input><br></br>
-                <input type='password' placeholder='password'></input><br></br>
-                <input type='checkbox'></input><br></br>
-                <button>Sign up</button>
-                <button onClick={() => this.setState({buttonflag: true})}>Return</button>
-
-                {/* <Form>
-  <Form.Group controlId="formBasicEmail">
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-    </Form.Text>
+            <div className='signupdiv'>
+              <h2>Sign up</h2>
+              <Form className='signup'>
+  <Form.Group as={Row} controlId="formHorizontalEmail">
+    <Form.Label column sm={2}>
+      Email
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="email" placeholder="Email" />
+    </Col>
   </Form.Group>
 
-  <Form.Group controlId="formBasicUsername">
-    <Form.Control type="text" placeholder="username" />
+  <Form.Group as={Row} controlId="formHorizontalPassword">
+    <Form.Label column sm={2}>
+      Password
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="password" placeholder="Password" />
+    </Col>
   </Form.Group>
-  
-    <Form.Group controlId="formBasicPassword">
-    <Form.Control type="password" placeholder="Password" />
+  <Form.Group as={Row} controlId="formHorizontalPassword">
+    <Form.Label column sm={2}>
+      Confirm Password
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="password" placeholder="Password" />
+    </Col>
   </Form.Group>
-  
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form> */}
+
+  <Form.Group as={Row}>
+    <Col sm={{ span: 10, offset: 2 }}>
+      <Button type="submit">Sign in</Button>
+    </Col>
+  </Form.Group>
+</Form>
             </div>
         );
     }

@@ -15,9 +15,6 @@ class Main extends Component {
                 
                 <Row>
     <Col xs={12} md={8}>
-   <iframe className="Main_iframe" title="Football"  src={this.state.video} frameBorder="0"
-    width="100%" height="100%" allowFullScreen allow="autoplay; fullscreen"
-     ></iframe>
    <p>Today's Football Highlights: {this.state.game}</p>
     </Col>
     <Col xs={6} md={4}>
@@ -67,22 +64,39 @@ class Main extends Component {
           console.log(response);
 
           console.log(response.data.lscd[4].mscd.g[200].gdte.split("-")[2]);
+          let index = new Date().getMonth()+4;
+          // console.log(response.data.lscd[index].mscd.g[0].gdte.split('-')[2], 'date');
+          let d = new Date().getDate().toString();
+          if(d.toString().length < 2) {d = '0'+d}
+          // console.log(d, 'this is d');
           
-          let games = [];
-            for(let i=110; i<121; i++) {
-              let day = response.data.lscd[4].mscd.g[i].gdte.split("-")[2];
-              let month = response.data.lscd[4].mscd.g[i].gdte.split("-")[1];
-              let year = response.data.lscd[4].mscd.g[i].gdte.split("-")[0];
-              let date = `${day}-${month}-${year}`;
+          let gArray = response.data.lscd[index].mscd.g;
+          // console.log(gArray, 'arr');
+          let gameList = [];
 
+          for(let i=0; i<gArray.length; i++) {
+            if(Number(gArray[i].gdte.split("-")[2]) >= Number(d)) {
+              // console.log(gArray[i]);
+              gameList.push(gArray[i]);
+              if(gameList.length === 11) {
+                break;
+              }
+            }
+          }
 
-              let home = response.data.lscd[4].mscd.g[i].h.tc;
-                let homeNick =response.data.lscd[4].mscd.g[i].h.tn;
-                let away = response.data.lscd[4].mscd.g[i].v.tc;
-                let awayNick = response.data.lscd[4].mscd.g[i].v.tn;
-                 games.push(`${date}: ${homeNick} VS ${awayNick}`);
-            }            
-            this.setState({nbagames: games})
+          function reverseString(str) {
+            var splitString = str.split("-");
+            var reverseArray = splitString.reverse();
+            var joinArray = reverseArray.join("-");
+            return joinArray;
+        }
+          let date = gameList.map(g => reverseString(g.gdte));
+            console.log(date);
+          console.log(gameList);
+            let upcomingGames = gameList.map((g, i) => `${date[i]}: ${g.h.tn} VS ${g.v.tn}`)
+            console.log(upcomingGames);
+      
+              this.setState({nbagames: upcomingGames})
         })
         .catch((error)=> {
             console.log(error);
