@@ -11,7 +11,9 @@ import Nav from 'react-bootstrap/Nav';
 import Main from './Main';
 
 class Mainpage extends Component {
+    
     render() {
+        const {userName} = this.props;
         return (
             <BrowserRouter>
             <div>
@@ -21,6 +23,7 @@ class Mainpage extends Component {
                         <Link to="/Football">Football</Link>
                         <Link to="/NBA">NBA</Link>
                         <Link to="/Ufc">UFC</Link>
+                        {userName ? <p className="userWelcome">Welcome {userName}</p> : ''}
                     </Nav>
                 </Navbar>
                 <Switch>

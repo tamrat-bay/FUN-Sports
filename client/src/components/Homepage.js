@@ -36,6 +36,7 @@ class Homepage extends Component {
                          <img src="img/LogoPlusSlogan.svg" alt="Logo" />
                     </div> */}
                 <div className='images'>
+                    <img src='img/logodefault.png' alt="logo"/>
                 <div className='football-logo'>
                         <img src='img/serie-a-logo.png' alt="FunSport"></img>
                         <img src='img/Premier-League.png' alt="FunSport"></img>

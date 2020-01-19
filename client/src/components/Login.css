@@ -1,14 +1,22 @@
-.login {
+.Login {
     margin-top: 15px;
     padding: 50px;
 }
-
+.Login h2 {
+    text-align: center;
+    background-color: inherit;
+}
+.Login_form{
+    padding: 50px;
+    width: 60%;
+    margin: 0 auto;
+}
 input, button {
     margin: 10px;
     padding: 10px 40px;
     border-radius: 20px;
 }
 
-button {
+.Login button {
     cursor: pointer;
 }
