@@ -59,7 +59,6 @@ class Main extends Component {
         // NBA
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
         .then((response)=> {
-<<<<<<< HEAD
           console.log(response);
 
           console.log(response.data.lscd[4].mscd.g[200].gdte.split("-")[2]);
@@ -72,16 +71,10 @@ class Main extends Component {
           let gArray = response.data.lscd[index].mscd.g;
           // console.log(gArray, 'arr');
           let gameList = [];
-=======
           // console.log(response);
           // console.log(response.data.lscd[4].mscd.g[200].gdte.split("-")[2]);
           let games = [];
-            for(let i=110; i<121; i++) {
-              let day = response.data.lscd[4].mscd.g[i].gdte.split("-")[2];
-              let month = response.data.lscd[4].mscd.g[i].gdte.split("-")[1];
-              let year = response.data.lscd[4].mscd.g[i].gdte.split("-")[0];
-              let date = `${day}-${month}-${year}`;
->>>>>>> ec32120b25c0f8298ce5a73911d1e0e590107eca
+
 
           for(let i=0; i<gArray.length; i++) {
             if(Number(gArray[i].gdte.split("-")[2]) >= Number(d)) {
@@ -106,29 +99,23 @@ class Main extends Component {
             console.log(upcomingGames);
       
               this.setState({nbagames: upcomingGames})
-              // let home = response.data.lscd[4].mscd.g[i].h.tc;
-                let homeNick =response.data.lscd[4].mscd.g[i].h.tn;
-                // let away = response.data.lscd[4].mscd.g[i].v.tc;
-                let awayNick = response.data.lscd[4].mscd.g[i].v.tn;
-                 games.push(`${date}: ${homeNick} VS ${awayNick}`);
-            }            
-            this.setState({nbagames: games})
+
         })
         .catch((error)=> {
             console.log(error);
         });
         
         // UFC
-        axios.get('/ufc/Khabib')
-      .then((response)=> {
-        console.log(response);
-        let name = response.data.name;
-        console.log(response.data.name);
-        this.setState({mma: name})
-      })
-      .catch((error)=> {
-          console.log(error);
-      });
+      //   axios.get('/ufc/Khabib')
+      // .then((response)=> {
+      //   console.log(response);
+      //   let name = response.data.name;
+      //   console.log(response.data.name);
+      //   this.setState({mma: name})
+      // })
+      // .catch((error)=> {
+      //     console.log(error);
+      // });
     }
 
 }
