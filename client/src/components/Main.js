@@ -49,10 +49,9 @@ class Main extends Component {
       // FOOTBALL
       axios.get('https://www.scorebat.com/video-api/v1/')
       .then((response)=> {
-            console.log(response.data[0]);
+            // console.log(response.data[0]);
             let game = response.data[0].title;
             let video = response.data[1].videos[0].embed;
-
             // console.log(game);
             // console.log(video);
             this.setState({video: video.split("'")[3], game: game});
@@ -60,14 +59,11 @@ class Main extends Component {
         .catch((error)=> {
             console.log(error);
         });
-
         // NBA
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
         .then((response)=> {
-          console.log(response);
-
-          console.log(response.data.lscd[4].mscd.g[200].gdte.split("-")[2]);
-          
+          // console.log(response);
+          // console.log(response.data.lscd[4].mscd.g[200].gdte.split("-")[2]);
           let games = [];
             for(let i=110; i<121; i++) {
               let day = response.data.lscd[4].mscd.g[i].gdte.split("-")[2];
@@ -76,9 +72,9 @@ class Main extends Component {
               let date = `${day}-${month}-${year}`;
 
 
-              let home = response.data.lscd[4].mscd.g[i].h.tc;
+              // let home = response.data.lscd[4].mscd.g[i].h.tc;
                 let homeNick =response.data.lscd[4].mscd.g[i].h.tn;
-                let away = response.data.lscd[4].mscd.g[i].v.tc;
+                // let away = response.data.lscd[4].mscd.g[i].v.tc;
                 let awayNick = response.data.lscd[4].mscd.g[i].v.tn;
                  games.push(`${date}: ${homeNick} VS ${awayNick}`);
             }            

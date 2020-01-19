@@ -1,18 +1,18 @@
-.App {
-  text-align: center;
-}
 html ,body{
   margin: 0;
   padding: 0;
 }
-h2 {
-  background-color: lightgray;
-  font-size: 200%;
+.userWelcome{
+  color: white;
   letter-spacing: 2px;
-  word-spacing: 2px;
+  font-size: 1.3em;
+  font-family: cursive;
+  text-transform: capitalize;
+  /* padding: 0; */
+  margin: 0;
 }
 
-.App > a {
+/* .App > a {
   padding: 10px 20px;
   margin: 44px;
   background-color: lightgray;
@@ -20,4 +20,4 @@ h2 {
   text-decoration: none;
   width: 30px;
   color: black;
-}
+} */

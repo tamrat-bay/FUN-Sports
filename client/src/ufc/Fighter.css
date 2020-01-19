@@ -1,0 +1,20 @@
+.Fighter{
+    text-align: center;
+    background-color: black;
+    color: aliceblue;
+    border-radius: 8px;
+    width: 22%;
+    margin: 10px 0;
+    box-shadow: 2px 2px 10px #707070;
+    height: 454px;
+}
+.Fighter img{
+    height: 280px;
+    box-sizing: border-box;
+}
+.Ufc-fighters{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    align-items: center;
+}

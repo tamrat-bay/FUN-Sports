@@ -1,19 +1,79 @@
 import React, { Component } from 'react';
 import './Login.css'
-import Homepage from './Homepage';
+// import Homepage from './Homepage';
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+import Mainpage from './Mainpage'
 
 class Login extends Component {
-    state = {buttonflag: false}
+    state = {btnFlag:false,user:{name:''}}
+    
+    loginData = {
+        email:'',
+        password:''
+    }
+    getInputsData = (e,type)=>{
+      return type === 'email' ?this.loginData.email = e.target.value :
+      this.loginData.password = e.target.value 
+    }
+    changeState = ()=>{
+        this.setState({btnFlag:true})
+        console.log(this.state.btnFlag,'inside func');
+    }
+    loginRequest = ()=>{
+        axios.post('/users/login/', this.loginData)
+          .then((response)=> {
+            console.log(response.data,'resdata');
+            if (response.status === 200) {   
+                console.log(response.data);
+                
+                // localStorage.user.name = response.data;
+               this.setState({btnFlag:true,user: response.data})
+            }
+          })
+          .catch((error)=> {
+            console.log(error);
+          });
+          
+    }
     render() {
-        if(this.state.buttonflag) {
-            return <Homepage/>
+        if(this.state.btnFlag) {
+            return <Mainpage userName={this.state.user.name}/>
         }
         return (
-            <div className='login'>
-                <input type='email' placeholder='email'></input> <br></br>
+            <div className='Login'>
+                <h2>Login</h2>
+                {/* <input type='email' placeholder='email'></input> <br></br>
                 <input type='password' placeholder='password'></input> <br></br>
                 <button>Log in</button>
-                <button onClick={() => this.setState({buttonflag: true})}>Return</button>
+                <button onClick={() => this.setState({buttonflag: true})}>Return</button> */}
+                <Form className="Login_form">
+                    <Form.Group as={Row} controlId="formHorizontalEmail">
+                        <Form.Label column sm={2}>
+                        Email
+                        </Form.Label>
+                        <Col sm={10}>
+                        <Form.Control type="email" onChange={(e)=>this.getInputsData(e,'email')} placeholder="Email" />
+                        </Col>
+                    </Form.Group>
+
+                    <Form.Group as={Row} controlId="formHorizontalPassword">
+                        <Form.Label column sm={2}>
+                        Password
+                        </Form.Label>
+                        <Col sm={10}>
+                        <Form.Control type="password" onChange={(e)=>this.getInputsData(e,'password')} placeholder="Password" />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group as={Row}>
+                        <Col sm={{ span: 10, offset: 2 }}>
+                        <Button onClick={this.loginRequest} >Login</Button>
+                        </Col>
+                    </Form.Group>
+                    </Form>
             </div>
         );
     }
