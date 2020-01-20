@@ -22,11 +22,10 @@
 .justify-content-center{
     justify-content: center!important;
     background-color: #00000075;
-    /* color: white; */
-    height: 80px;
+    height: 60px;
     align-items: center;
-    font-size: 1.7em;
-    transition: all 1.6s;
+    font-size: 1.4em;
+    transition: all .8s;
 }
 .justify-content-center:hover{
     background-color: #050505d2;
@@ -38,11 +37,11 @@ a.nav-link{
     font-family: inherit;
     font-weight: 200;
     background-color: transparent;
-    transition: all .4s;
+    transition: all .1s;
 
 }
 a.nav-link:hover{
-    transform: scale(1.2);
+    transform: scale(1.03);
 }
 .Homepage_logo{
   height: 30%;
@@ -76,14 +75,11 @@ width: 100%;
     width: 14%;
 }
 .Homepage.frame {
-  height: 90vh;
-  width: 90vw;
-  margin: 5vh 5vw;
   background-color: #eee;
   background-position: center;
   background-size: cover;
   animation: image 35s infinite linear;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   margin: 0;
   }

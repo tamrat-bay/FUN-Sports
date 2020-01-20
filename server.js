@@ -2,34 +2,10 @@ const express = require('express'),
 app = express(),
 UFC = require('./mod'),
 mongoose = require('mongoose'),
-passport = require('passport'),
 port = process.env.PORT || 8080 ;
 users = require('./UsersModule');
 app.use(express.json());
-// const flash = require('connect-flash'),
-// session = require('express-session')
 
-
-// app.use(
-//     session({
-//       secret: 'secret',
-//       resave: true,
-//       saveUninitialized: true
-//     })
-//   );
-// // app.use(express.urlencoded({extended:false}));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// // Connect flash
-// app.use(flash());
-// app.use(function(req, res, next) {
-//     res.locals.success_msg = req.flash('success_msg');
-//     res.locals.error_msg = req.flash('error_msg');
-//     res.locals.error = req.flash('error');
-//     next();
-//   });
-//?Require passport config
-// require('./config/passport')(passport)
 
 //? DB Config 
 const db = require('./config/Keys').MongoURI;
@@ -39,6 +15,21 @@ mongoose.connect(db,{useNewUrlParser:true,useUnifiedTopology:true }).then(()=>co
 
 app.get('/ufc/:fighter',(req,res)=>{
     UFC.getFighter(req,res);
+});
+
+const posts = [{username:'tamrat',title:'tamrat Post'}, {username:'yuval',title:'yuval post'}];
+
+// function getPost(req,res){
+//  
+// // }
+app.get('/post',users.authenticateToken,(req,res)=>{
+    // console.log(posts[0].username);
+    // console.log(req.user);
+    
+  return  res.json(posts.filter(post=> post.username === req.user.name))
+    // console.log(req.headers);
+    //    return res.sendStatus(200);
+//   users.getPost(req,res)
 });
 
 app.post('/users/register',(req,res)=>{

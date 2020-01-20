@@ -1,11 +1,16 @@
 
 
 
-.mr-auto > a {
+/* .mr-auto > a {
     margin: 0 150px;
+} */
+.MainPage_nav{
+    display: flex;
+    justify-content: space-evenly;
 }
-
-
+.MainPage_nav > a {
+    margin: 0 150px;
+} 
 /* .main-news {
     margin: 30px 150px;
 }

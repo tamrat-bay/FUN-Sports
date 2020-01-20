@@ -9,7 +9,7 @@ import axios from 'axios';
 import Mainpage from './Mainpage'
 
 class Login extends Component {
-    state = {btnFlag:false,user:{name:''}}
+    state = {btnFlag:false,user:localStorage}
     
     loginData = {
         email:'',
@@ -23,15 +23,16 @@ class Login extends Component {
         this.setState({btnFlag:true})
         console.log(this.state.btnFlag,'inside func');
     }
-    loginRequest = ()=>{
+    loginRequest = (e)=>{
+        e.preventDefault();
         axios.post('/users/login/', this.loginData)
           .then((response)=> {
             console.log(response.data,'resdata');
             if (response.status === 200) {   
-                console.log(response.data);
-                
-                // localStorage.user.name = response.data;
-               this.setState({btnFlag:true,user: response.data})
+                // console.log(this.state.btnFlag);          
+                localStorage.name = response.data.name;
+                localStorage.token =response.data.token;
+               this.setState({btnFlag:true,user: localStorage})
             }
           })
           .catch((error)=> {
@@ -41,16 +42,12 @@ class Login extends Component {
     }
     render() {
         if(this.state.btnFlag) {
-            return <Mainpage userName={this.state.user.name}/>
+            return <Mainpage />
         }
         return (
             <div className='Login'>
                 <h2>Login</h2>
-                {/* <input type='email' placeholder='email'></input> <br></br>
-                <input type='password' placeholder='password'></input> <br></br>
-                <button>Log in</button>
-                <button onClick={() => this.setState({buttonflag: true})}>Return</button> */}
-                <Form className="Login_form">
+                <Form onSubmit={(e)=>this.loginRequest(e)} className="Login_form">
                     <Form.Group as={Row} controlId="formHorizontalEmail">
                         <Form.Label column sm={2}>
                         Email
@@ -69,8 +66,9 @@ class Login extends Component {
                         </Col>
                     </Form.Group>
                     <Form.Group as={Row}>
-                        <Col sm={{ span: 10, offset: 2 }}>
-                        <Button onClick={this.loginRequest} >Login</Button>
+                        <Col sm={{span: 10, offset: 2 }}>
+                        <Button type="submit" >Login</Button>
+                        <Button name="login" onClick={this.props.returnToHome} >Return</Button>
                         </Col>
                     </Form.Group>
                     </Form>
