@@ -1,0 +1,15 @@
+.FightersDetails{
+    border: 3px solid black;
+    height: 685px;
+    width: 90%;
+    background-color: blueviolet;
+    z-index: 15 !important;
+        position: fixed;
+    top: 4%;
+}
+
+
+.FightersDetails h3{
+    text-align: center;
+    cursor: pointer;
+}

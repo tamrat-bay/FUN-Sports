@@ -31,6 +31,7 @@ class Login extends Component {
             if (response.status === 200) {   
                 // console.log(this.state.btnFlag);          
                 localStorage.name = response.data.name;
+                localStorage.id = response.data.id;
                 localStorage.token =response.data.token;
                this.setState({btnFlag:true,user: localStorage})
             }

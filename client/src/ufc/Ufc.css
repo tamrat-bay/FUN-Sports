@@ -30,3 +30,10 @@
     width: 35px;
     border-radius: 24px;
 }
+.Ufc_singleFighter{
+display: contents;
+
+}
+.Ufc-fighters{
+    position: relative;
+}

@@ -7,23 +7,30 @@ import CarouselComp from '../components/CarouselComp'
 import './Ufc.css'
 import Fighter from './Fighter';
 import fightersList from './FightersList';
-
+import FightersDetails from './FightersDetails';
 
 export default class Ufc extends Component {
-    // state = {name:'',age:'',class:'',img:'',record:'',nickname:''}
+    state = {fighterData:true,singleFighterData:{}}
 
-    // fighterData = (fighterObj,fullName)=>{
-    //     return axios.get(`/ufc/${fullName}`)
-    //     .then((response)=> {
-    //         console.log(response.data);
-    //         fighterObj.data = response
-    //     })
-    //     .catch((error)=> {
-    //         console.log(error);
-    //     });
-    //     }
+backToUfcPage=()=>{
+// console.log('back yto life');
+
+    this.setState({fighterData:false,clickedName:''});
+
+}
+ fighterDetailes=(e,data)=>{
+     if (e.target.className === 'Fighter') {
+        console.log(e.target.id);
+       this.setState({fighterData:!this.state.fighterData,singleFighterData:data});
+     }else{
+         console.log(e.target.parentElement.id);    
+         this.setState({fighterData:!this.state.fighterData,singleFighterData:data});
+        }
+ }
     render() {
-        const fighters = fightersList.map((f,i)=> <Fighter key={i} name={f.name} />)
+        console.log(this.state.singleFighterData);
+        
+        const fighters = fightersList.map((f,i)=>  <Fighter key={i} name={f.name} fighterDetailes={this.fighterDetailes} />)
         return (
             <div className="Ufc">
               <CarouselComp img1='img/UFCImages/ConorVsCowboy.jpg' img4='img/UFCImages/Tony.jpg'
@@ -31,24 +38,10 @@ export default class Ufc extends Component {
                 <h1>UFC</h1>
                 
                 <div className="Ufc-fighters">
-                {fighters}
+                { fighters}
+                {this.state.fighterData ? <FightersDetails backToUfcPage={this.backToUfcPage} name='' /> : '' }
+             
                 </div>
-                {/* <Container>
-                <Row>
-                 <Col>
-                  <Fighter name='Israel Adesanya' />
-                 </Col>
-
-                    <Col>   
-                    <Fighter name='Yoel Romero' />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>1 of 3</Col>
-                    <Col>2 of 3</Col>
-                    <Col>3 of 3</Col>
-                </Row>
-                </Container> */}
             </div>
         )
     }
