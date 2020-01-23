@@ -1,0 +1,29 @@
+.week {
+    font-weight: bold;
+    font-size: 85%; 
+}
+
+.date {
+    font-weight: bold;
+    font-size: 105%;
+    color: #1570B5;
+}
+
+.date-time {
+    float: left;
+}
+
+.city-div span {
+    font-weight: bold;
+    font-size: 80%;
+}
+
+.time-zone {
+    float: left;
+    padding: 0 115px;
+
+}
+
+.detail-section {
+    color: gray;
+}

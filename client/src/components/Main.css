@@ -40,3 +40,7 @@
     font-size:18px;
     line-height: 26px
   }
+
+.nba-Schedule, .football-vid {
+  font-weight: bold;
+}

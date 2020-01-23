@@ -10,6 +10,7 @@ import Navbar from 'react-bootstrap/Navbar';
 // import Nav from 'react-bootstrap/Nav';
 import Main from './Main';
 
+
 class Mainpage extends Component {
     static defaultProps = {
         user:localStorage
@@ -28,7 +29,7 @@ class Mainpage extends Component {
                         <Link to="/Football">Football</Link>
                         <Link to="/NBA">NBA</Link>
                         <Link to="/Ufc">UFC</Link>
-                        {user.name ? <p className="userWelcome">Welcome {user.name}</p> : <p className="userWelcome">Wellcome Guest</p>}
+                        {user.name ? <p className="userWelcome">Welcome {user.name}</p> : <p className="userWelcome">Welcome Guest</p>}
                     </div>
                 </Navbar>
                 <Switch>
@@ -36,9 +37,13 @@ class Mainpage extends Component {
                     <Route exact path='/Football' component={Football}/>
                     <Route exact path='/NBA' component={NBA}/>
                     <Route exact path='/Ufc' component={Ufc}/>
-                </Switch>                
+                </Switch>      
+                          
             </div>
+            
             </BrowserRouter>
+
+
         );
     }
 }

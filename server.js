@@ -10,7 +10,7 @@ app.use(express.json());
 //? DB Config 
 const db = require('./config/Keys').MongoURI;
 //? Connect to mongo
-mongoose.connect(db,{useNewUrlParser:true,useUnifiedTopology:true }).then(()=>console.log('MongoDB is Conenected ...'))
+mongoose.connect(db,{useNewUrlParser:true, useUnifiedTopology:true }).then(()=>console.log('MongoDB is Conenected...'))
 .catch(err=>console.log(err))
 
 app.get('/ufc/:fighter',(req,res)=>{

@@ -9,39 +9,107 @@
     justify-content: space-evenly;
 }
 .MainPage_nav > a {
-    margin: 0 150px;
+    margin: 0 110px !important;
 } 
-/* .main-news {
-    margin: 30px 150px;
+
+/*general styles*/
+
+/* body{padding: 3em;background-color: #ccc;}
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;} */
+
+
+/*slideshow styles*/
+
+.slideshow {
+  width: 625px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: solid 1px white;
 }
 
-.news-left {
-    width: 550px;
-    height: 320px;
-    border: solid black 1px;
-    float: left;
+.slideshow-container {
+  width: 2500px;
+  font-size: 0;
+  transition: 1s ease;
+  height: 225px;
 }
 
-.news-left2 {
-    width: 550px;
-    height: 320px;
-    border: solid black 1px;
-    float: left;
-    margin: 50px 0;
-} */
-
-/* .news-rigth {
-    width: 200px;
-    height: 320px;
-    border: solid black 1px;
-    float: left;
-    margin-left: 225px;
+.slideshow-container:hover {
+  animation-play-state: paused;
 }
 
-.news-bottom {
-    width: 100%;
-    height: 150px;
-    border: solid black 1px;
-    clear: both;
-    margin-top: 110px;
+.slideshow-container img, .text-container {
+  width: 600px;
+  height: auto;
+  display: inline-block;
+  font-size: 16px;
+  text-align: center;
+}
+
+.text-container {
+  height: 225px;
+  position: relative;
+}
+
+
+.para {
+  position: relative;
+  top: -45%;
+  padding: 5px;
+}
+
+.slide p {
+  animation: slide 24s ease infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  
+  12.5% {
+    transform: translateX(0%);
+  }
+  
+  25% {
+    transform: translateX(-25%);
+  }
+  
+  37.5% {
+    transform: translateX(-25%);
+  }
+  
+  50% {
+    transform: translateX(-50%);
+  }
+  
+  62.5% {
+    transform: translateX(-50%);
+  }
+  
+  75% {
+    transform: translateX(-75%);
+  }
+  
+  87.5% {
+    transform: translateX(-75%);
+  }
+  
+  99% {
+    transform: translateX(-75%);
+  }
+  
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.p {
+  margin-top: 140px;
+  text-align: center;
+}
+
+/* .slid-img {
+  width: 30px;
 } */

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
+// import Container from 'react-bootstrap/Container';
+// import Row from 'react-bootstrap/Row';
 import CarouselComp from '../components/CarouselComp'
 import './Ufc.css'
 import Fighter from './Fighter';
