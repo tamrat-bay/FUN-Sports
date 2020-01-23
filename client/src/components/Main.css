@@ -18,11 +18,11 @@
     100% {margin-top: 0;}
   }
 .Main_tickerv-wrap {
-    /* background: rgb(241, 241, 241); */
-    box-sizing: content-box;
-    height: 67%;
-    overflow: hidden;
-    padding: 10px;
+  box-sizing: content-box;
+  height: 51%;
+  overflow: hidden;
+  padding: 10px;
+  position: fixed;
   } 
 .Main_tickerv-wrap ul {
     padding:0;

@@ -17,27 +17,15 @@ app.get('/ufc/:fighter',(req,res)=>{
     UFC.getFighter(req,res);
 });
 
-const posts = [{username:'tamrat',title:'tamrat Post'}, {username:'yuval',title:'yuval post'}];
 
-// function getPost(req,res){
-//  
-// // }
 app.get('/post',users.authenticateToken,(req,res)=>{
-    // console.log(posts[0].username);
-    // console.log(req.user);
-    
-  return  res.json(posts.filter(post=> post.username === req.user.name))
-    // console.log(req.headers);
-    //    return res.sendStatus(200);
-//   users.getPost(req,res)
+users.getPost(req,res);
 });
-
+//?Register handler
 app.post('/users/register',(req,res)=>{
-    // const {name,email,password} = req.body
-    // console.log(req.body);
-    // res.sendStatus(201);
     users.registerHandler(req,res)
 });
+//?Login Handler
 app.post('/users/login',(req,res)=>{
     users.loginHandler(req,res)
 });

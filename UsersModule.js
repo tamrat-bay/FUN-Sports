@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 const express = require('express'),
 Joi = require('@hapi/joi'),
 mongoose = require('mongoose'),
@@ -59,9 +57,10 @@ function loginHandler(req,res){
         bcrypt.compare(password,user.password,(err,isMatch)=>{
             if(err) throw err;      
             if(isMatch){
-              const accessToken =  jwt.sign(user.name,process.env.ACCESS_TOKEN_SECRET)
-              const response = {name:user.name, token : accessToken}
-              return res.status(200).send(response)
+            jwt.sign({user},'secretkey',{expiresIn: '30m'},(err,token)=>{
+                const responseData = {name:user.name, id: user.id, token : token}
+                res.status(200).send(responseData);
+            })
             }else{
                 return res.status(400).send('Incorrect Password')
             }
@@ -71,9 +70,16 @@ function loginHandler(req,res){
     
 }
 const post = [{username:'tamrat',title:'tamrat Post'}, {username:'yuval',title:'yuval'}]
-// function getPost(req,res, authenticateToken){
-//  res.json(post.fillter(post=> post.username === req.user.name))
-// }
+
+function getPost(req,res,){
+    //!Verify the correct user
+jwt.verify(req.token,'secretkey',(err,authData)=>{
+    if (err){ return res.status(403).send('token is not valid')}
+    else{
+        return  res.json(post.filter(p=>p.username === authData.user.name))
+    }
+})
+}
 
 function userValidation(newUserObj){
     let schema = Joi.object({
@@ -89,19 +95,11 @@ function authenticateToken(req,res,next){
 //!get the token
 const authHeader = req.headers['authorization'];
 const token = authHeader && authHeader.split(' ')[1];
-// Bearer Token
-//!Verify the correct user
-if (token == null) return res.status(401).send('No token was send')
-jwt.verify(token, process.env.ACCESS_TOKEN_SECRET,(err,user)=>{
-    if (err) return res.status(403).send('token is not valid');
-    //? here we have verify USER
-    req.user = user;
-    next();
-})
-//! return the user
+req.token = token;
+next()
 }
 
 module.exports.authenticateToken = authenticateToken;
 module.exports.registerHandler = registerHandler;
 module.exports.loginHandler = loginHandler;
-// module.exports.getPost = getPost;
+module.exports.getPost = getPost;
