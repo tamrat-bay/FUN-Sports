@@ -17,7 +17,7 @@ class Football extends Component
                             <h5>{g.game}</h5>
                             <div className="video-div">
                                 <iframe className="embed-responsive-item" src={g.video} frameBorder="0"
-                                    width="100%" height="100%" allowFullScreen allow="autoplay; fullscreen">
+                                    width="100%" height="100%" title="Football" allowFullScreen allow="autoplay; fullscreen">
                                 </iframe>
                             </div>
                         </div>

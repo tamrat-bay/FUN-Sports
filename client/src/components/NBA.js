@@ -33,8 +33,12 @@ class NBA extends Component {
                     <td className='teams'>
                         <p>{g.team1} {g.team1Nick}</p> 
                         <p>{g.team2} {g.team2Nick}</p>
-                        {console.log(g.team1)}
-                        {/* {console.log(g.team1 == 'Denver')} */}
+                        {/* {console.log(g.team1)} */}
+                        {/* {console.log('Charlotte')} */}
+                        {/* {console.log(g.team1 == 'Charlotte')} */}
+                        {/* {g.team1 == 'Charlotte'}?{console.log(g.team1, 'good')}:{console.log(g.team1, 'bad')} */}
+                        {/* {g.team1 == 'Charlotte'}?<span>icon</span>:{console.log(g.team1, 'bad')} */}
+
                     </td>
                     <td>
                         {g.arena} <br></br>
@@ -53,7 +57,7 @@ class NBA extends Component {
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
       .then((res)=> {
 
-            let date = new Date().getDate();           
+            // let date = new Date().getDate();           
             let index = new Date().getMonth()+4;
             let todayDay = new Date().getDate(); 
             let monthGames = res.data.lscd[index].mscd.g;
@@ -70,7 +74,7 @@ class NBA extends Component {
 
             let todayGames = currentMonthGames.filter((g, i) => g.gdte.split("-")[2] == todayDay);
 
-            let timeTeamsArena = [],  team1 = [];
+            let timeTeamsArena = []; // team1 = [];
             for(let i=0; i<todayGames.length; i++)
             {
                 let ttaObj = 
