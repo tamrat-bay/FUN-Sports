@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
-// import Col from 'react-bootstrap/Col';
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-import CarouselComp from '../components/CarouselComp'
+import CarouselComp from '../CarouselComp/CarouselComp'
 import './Ufc.css'
 import Fighter from './Fighter';
 import fightersList from './FightersList';
@@ -42,18 +38,6 @@ backToUfcPage=()=>{
                 </div>
             </div>
         )
-    }
-    componentDidMount(){
-        // axios.get(`/ufc/Conor McGregor`)
-        // .then((response)=> {
-        //     console.log(response.data);
-        //     let data = response.data
-        //     this.setState({name:data.name, age:data.age , class:data.weight_class,img:`https://www.sherdog.com${data.image_url}`,nickname:data.nickname})
-        // })
-        // .catch((error)=> {
-        //     console.log(error);
-        // });
-        
     }
 }
 

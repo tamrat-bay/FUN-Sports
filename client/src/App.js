@@ -1,16 +1,16 @@
 import React, { Component }  from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Homepage from './components/Homepage';
-import Main from './components/Main';
-import Football from './components/Football';
-import NBA from './components/NBA';
-import Ufc from './ufc/Ufc'
+import Homepage from './components/Homepage/Homepage';
+import Main from './components/Main/Main';
+import Football from './components/Football/Football';
+import NBA from './components/NBA/NBA';
+import Ufc from './components/UFC/Ufc'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import NavbarComp from './components/NavbarComp';
-import Footer from './components/Footer'
-import Login from './components/Login';
-import Signup from './components/Signup';
+import NavbarComp from './components/NavbarComp/NavbarComp';
+import Footer from './components/Footer/Footer'
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 
 
 export default class App extends Component {

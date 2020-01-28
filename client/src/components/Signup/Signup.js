@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-// import Homepage from './Homepage';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './Signup.css';
 import axios from 'axios';
-import Login from './Login';
-// import { Redirect } from "react-router-dom";
-// import Main from './Main';
+import { Redirect } from "react-router-dom";
 
 class Signup extends Component {
-  state = {buttonflag: false}
+  state = {signInFlag: false}
   signUpData = {
     name:'',
     email:'',
@@ -34,7 +31,7 @@ class Signup extends Component {
           // console.log(response.data,'resdata');
           if (response.status === 201) {   
            
-           this.setState({buttonflag:true})
+           this.setState({signInFlag:true})
           }
         })
         .catch((error)=> {
@@ -47,8 +44,8 @@ class Signup extends Component {
         
   }
     render() {      
-      if(this.state.buttonflag) {
-        return <Login/>
+      if(this.state.signInFlag) {
+        return <Redirect to="Login"/>
       }
         return (
             <div className='signupdiv'>
