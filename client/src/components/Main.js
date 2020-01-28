@@ -62,15 +62,21 @@ class Main extends Component {
         // NBA
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
         .then((response)=> {
-          let index = new Date().getMonth()+4;
+          let index = new Date().getMonth() + 4;
 
           let d = new Date().getDate().toString();
-          if(d.toString().length < 2) {d = '0'+d};
+          // console.log(d, 'd');
+          if(d.toString().length < 2) 
+          {
+            d = '0'+d
+          }
+
           let gArray = response.data.lscd[index].mscd.g;
-          console.log(gArray, 'garr');
+          console.log(gArray, 'gArray');  // will gice the day of month
           
           let gameList = [];
-          for(let i=0; i<gArray.length; i++) {
+          for(let i=0; i<gArray.length; i++) 
+          {
             if(Number(gArray[i].gdte.split("-")[2]) >= Number(d)) {
               gameList.push(gArray[i]);
               if(gameList.length === 20) {
@@ -78,17 +84,20 @@ class Main extends Component {
               }
             }
           }
+          console.log(gameList, 'gameList');
+
           function reverseString(str) {
             var splitString = str.split("-");
             var reverseArray = splitString.reverse();
             var joinArray = reverseArray.join("-");
             return joinArray;
         }
+
           let date = gameList.map(g => reverseString(g.gdte));
-            let upcomingGames = gameList.map((g, i) => `${date[i]}: ${g.h.tn} VS ${g.v.tn}`)
-            console.log(upcomingGames,'upcoming');
+          let upcomingGames = gameList.map((g, i) => `${date[i]}: ${g.h.tn} VS ${g.v.tn}`)
+            // console.log(upcomingGames,'upcomingGames');
             // console.log(date,'date');
-            console.log(gameList,'gameList');
+            // console.log(gameList, 'gameList');
       
             this.setState({nbagames: upcomingGames})
 

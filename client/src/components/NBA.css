@@ -1,8 +1,12 @@
 .week {
     font-weight: bold;
-    font-size: 85%; 
+    font-size: 70%; 
+    color: gray;
 }
 
+.main-th {
+    color: gray;
+}
 .date {
     font-weight: bold;
     font-size: 105%;
@@ -20,10 +24,28 @@
 
 .time-zone {
     float: left;
-    padding: 0 115px;
-
+    margin: 0 145px;
 }
 
 .detail-section {
     color: gray;
+}
+
+.upcomingGames {
+    float: left;
+    margin-right: 145px;
+}
+
+.nba-title {
+    color: #c8102e;
+}
+
+.teams > p {
+    color: #1570B5;
+}
+
+.div-pic {
+    /* background-image: url(https://www.wallpaperup.com/uploads/wallpapers/2013/10/10/158384/028256269b11ff84514786aece1617b1-1000.jpg), linear-gradient(rgba(0, 0, 0, 0.096)); */
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.795), rgba(0, 0, 0, 0.918)), url(https://cdn.pixabay.com/photo/2015/09/09/20/33/basketball-933173_1280.jpg); */
+    /* background-color: white; */
 }

@@ -1,5 +1,22 @@
 .video-div {
-    width: 27%;
-    height: 30%;
+    width: 97%;
+    height: 270px;
+}
+
+.main-div {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+}
+
+.football-title {
+    color: #1570B5;
+    /* padding: 5px 0px 5px 39px; */
+}
+
+.each-game {
+    width: 45%;
+    height: 50%;
+    margin-bottom: 30px;
 }
 
