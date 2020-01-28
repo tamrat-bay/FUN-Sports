@@ -19,15 +19,15 @@
   margin: 5px auto;
   padding: 5px;
 }
-.justify-content-center{
-    justify-content: center!important;
+.justify-content-around{
+    /* justify-content: center!important; */
     background-color: #00000075;
     height: 60px;
     align-items: center;
     font-size: 1.4em;
     transition: all .8s;
 }
-.justify-content-center:hover{
+.justify-content-around:hover{
     background-color: #050505d2;
 }
 a.nav-link{

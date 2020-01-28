@@ -1,15 +1,36 @@
 .FightersDetails{
-    border: 3px solid black;
-    height: 685px;
-    width: 90%;
-    background-color: blueviolet;
+    width: 81%;
+    background-color: #fafafa;
     z-index: 15 !important;
-        position: fixed;
-    top: 4%;
+    position: fixed;
+    top: 8%;
+    box-sizing: border-box;
 }
-
+.FightersDetails h1 , h3{
+text-align: left;
+}
 
 .FightersDetails h3{
     text-align: center;
     cursor: pointer;
+}
+.FightersDetails_img{
+    width: 30%;
+    /* height: 70%; */
+    display: inline-block;
+    border: 3px solid rgb(0, 0, 0);
+    margin: 0px 12% 0 3%;
+    align-self: end;
+    background-color: black;
+    border-radius: 6px;
+    box-shadow: 3px 3px 10px black;
+}
+.FightersDetails_img img{
+    width: 74%;
+    display: block;
+    margin: 0 auto;
+}
+.FightersDetails_flex{
+    display: flex;
+    height: 100%;
 }

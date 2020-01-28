@@ -19,10 +19,12 @@
   }
 .Main_tickerv-wrap {
   box-sizing: content-box;
-  height: 51%;
+  height: 82%;
   overflow: hidden;
   padding: 10px;
-  position: fixed;
+  position: absolute;
+  top: 55px;
+  background-color: cadetblue;
   } 
 .Main_tickerv-wrap ul {
     padding:0;
