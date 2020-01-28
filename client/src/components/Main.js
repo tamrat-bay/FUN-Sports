@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 import './Main.css'
-// import MainCarusel from './MainCarusel';
+import MainCarusel from './MainCarusel';
 
 class Main extends Component {
     state = {video: '', game:'', nbagames: [], mma: ''}
@@ -17,7 +17,7 @@ class Main extends Component {
                     <Col xs={12} md={8}>
                       <p className="football-vid">Today's Football Highlights: {this.state.game}</p>
                       <iframe className="Main_iframe" src={this.state.video} frameBorder="0"
-                        width="100%" height="100%" allowFullScreen allow="autoplay; fullscreen">
+                        width="100%" height="100%" allowFullScreen allow="autoplay; fullscreen" title="Football">
                       </iframe>
                     </Col>
                     <Col xs={6} md={4}>
@@ -29,19 +29,7 @@ class Main extends Component {
                       </div>
                     </Col>
                   </Row>
-
-          {/* {this.state.mma} */}
-          {/* <MainCarusel/> */}
-          {/* <section className="slideshow">
-            <div className="slideshow-container slide">
-              <img className="slid-img" src="img/all-fighters/MASVIDAL_JORGE.png"/>
-              <div className="text-container">
-                <p className="para"> I work with text too! And I'm just testing length here and stuff it's cool you know because that's important to do I guess hey did I ever tell you about that time that I did that stuff with the thing</p>
-              </div>
-              <img src="img/all-fighters/MAIA_DEMIAN.png"/>
-              <img src="img/all-fighters/MCGREGOR_CONOR.png"/>
-            </div>
-          </section> */}
+             <MainCarusel />
               </Container>
             </div>
         );

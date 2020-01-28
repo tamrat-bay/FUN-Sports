@@ -8,6 +8,9 @@
     box-shadow: 2px 2px 10px #707070;
     height: 454px;
 }
+.Fighter h3{
+    text-align: center;
+}
 .Fighter img{
     height: 280px;
     box-sizing: border-box;

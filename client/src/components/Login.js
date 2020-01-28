@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import Mainpage from './Mainpage'
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
     state = {btnFlag:false,user:localStorage}
@@ -29,11 +29,12 @@ class Login extends Component {
           .then((response)=> {
             console.log(response.data,'resdata');
             if (response.status === 200) {   
-                // console.log(this.state.btnFlag);          
                 localStorage.name = response.data.name;
                 localStorage.id = response.data.id;
                 localStorage.token =response.data.token;
+                localStorage.guest = false;
                this.setState({btnFlag:true,user: localStorage})
+               this.props.loginHandler(true)
             }
           })
           .catch((error)=> {
@@ -41,9 +42,10 @@ class Login extends Component {
           });
           
     }
-    render() {
+    render() {        
         if(this.state.btnFlag) {
-            return <Mainpage />
+           
+            return <Redirect to="/Main" />
         }
         return (
             <div className='Login'>
@@ -69,7 +71,7 @@ class Login extends Component {
                     <Form.Group as={Row}>
                         <Col sm={{span: 10, offset: 2 }}>
                         <Button type="submit" >Login</Button>
-                        <Button name="login" onClick={this.props.returnToHome} >Return</Button>
+                        <Button name="login" href="/">Return</Button>
                         </Col>
                     </Form.Group>
                     </Form>

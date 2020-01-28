@@ -21,9 +21,7 @@ export default class Fighter extends Component {
         axios.get(`/ufc/${this.props.name}`)
         .then((response)=> {
             // console.log(response.data);
-            this.setState({fighter:response.data})
-            // this.setState({name:data.name, age:data.age , class:data.weight_class,img:`https://www.sherdog.com${data.image_url}`,nickname:data.nickname})
-        })
+            this.setState({fighter:response.data})})
         .catch((error)=> {
             console.log(error);
         });

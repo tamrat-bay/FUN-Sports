@@ -10,13 +10,11 @@ import fightersList from './FightersList';
 import FightersDetails from './FightersDetails';
 
 export default class Ufc extends Component {
-    state = {fighterData:true,singleFighterData:{}}
+    state = {fighterData:false,singleFighterData:{}}
 
 backToUfcPage=()=>{
-// console.log('back yto life');
 
     this.setState({fighterData:false,clickedName:''});
-
 }
  fighterDetailes=(e,data)=>{
      if (e.target.className === 'Fighter') {
@@ -39,7 +37,7 @@ backToUfcPage=()=>{
                 
                 <div className="Ufc-fighters">
                 { fighters}
-                {this.state.fighterData ? <FightersDetails backToUfcPage={this.backToUfcPage} name='' /> : '' }
+                {this.state.fighterData ? <FightersDetails backToUfcPage={this.backToUfcPage} data={this.state.singleFighterData} name='' /> : '' }
              
                 </div>
             </div>
