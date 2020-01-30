@@ -1,0 +1,31 @@
+.logos {
+    margin: 2% 2%;
+    background-color: #D6D6D624;
+    border-radius: 6px;
+    box-shadow: 4px 6px 5px black;
+}
+
+.logos > img {
+    width: 10%;
+    cursor: pointer;
+}
+
+.team-info {
+    width: 50%;
+    z-index: 18;
+    top: 10%;
+    right: 24%;
+    height: auto;
+    background-color: rgb(155, 255, 255);
+    position: fixed;
+    text-align: center;
+}
+
+.exit-btn {
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.logo-in-div {
+    width: 20%;
+}
