@@ -21,16 +21,14 @@ export default class Ufc extends Component {
             this.setState({fighterData:!this.state.fighterData,singleFighterData:data});
         }else
         {
-         console.log(e.target.parentElement.id, 'id');
-         this.setState({fighterData:!this.state.fighterData,singleFighterData:data});
+            console.log(e.target.parentElement.id, 'id');
+            this.setState({fighterData:!this.state.fighterData,singleFighterData:data});
         }
     }
 
-   
-
     render() {
         console.log(this.state.singleFighterData);
-        let fighters =this.state.fighters;
+        let fighters = this.state.fighters;
         const getFighterByDevision = (dev) =>
         {
             
@@ -52,7 +50,7 @@ export default class Ufc extends Component {
                 <h1>UFC</h1>
                 <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Heavyweight</button>
                 <div className="Ufc-fighters">
-                { fighters}
+                { fighters }
                 {this.state.fighterData ? <FightersDetails backToUfcPage={this.backToUfcPage} data={this.state.singleFighterData} name='' /> : '' }
              
                 </div>
