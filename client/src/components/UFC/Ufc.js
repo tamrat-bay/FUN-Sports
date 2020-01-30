@@ -21,12 +21,10 @@ export default class Ufc extends Component {
             this.setState({fighterData:!this.state.fighterData,singleFighterData:data});
         }else
         {
-         console.log(e.target.parentElement.id, 'id');
-         this.setState({fighterData:!this.state.fighterData,singleFighterData:data});
+            console.log(e.target.parentElement.id, 'id');
+            this.setState({fighterData:!this.state.fighterData,singleFighterData:data});
         }
     }
-
-   
 
     render() {
         console.log(this.state.singleFighterData);
@@ -66,11 +64,8 @@ export default class Ufc extends Component {
         )
     }
     componentDidMount(){
-       let fighters = fightersList.map((f,i)=>  <Fighter key={i} name={f.name}  fighterDetailes={this.fighterDetailes} />)
-        console.log(fighters[30],'figherlingth');
-        
+       let fighters = fightersList.map((f,i)=>  <Fighter key={i} name={f.name}  fighterDetailes={this.fighterDetailes} />)        
         this.setState({fighters: fighters})
     }
 }
 
-// Heavyweight

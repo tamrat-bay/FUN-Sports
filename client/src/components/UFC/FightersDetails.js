@@ -3,9 +3,7 @@ import './FightersDetails.css';
 import Table from 'react-bootstrap/Table'
 export default class FightersDetails extends Component {
     render() {
-     const {backToUfcPage,data} = this.props  
-      console.log(data);
-      
+     const {backToUfcPage,data} = this.props        
         return (
             <div className="FightersDetails">
                 <div className="FightersDetails_Icon" onClick={()=>backToUfcPage()}> <i class="fa fa-times-circle"></i></div>
@@ -36,8 +34,8 @@ export default class FightersDetails extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                       {data.fights.map(f=>
-                        <tr>
+                       {data.fights.map((f,i)=>
+                        <tr key={i}>
                             <td>{f.name.split('-')[0]}</td>
                             <td>{f.date}</td>
                             <td>{f.opponent}</td>
@@ -45,28 +43,6 @@ export default class FightersDetails extends Component {
                             <td>{f.method}</td>
                         </tr>
                         )}
-           
-                        {/* <tr>
-                        <td>{data.fights[0].name.split('-')[0]}</td>
-                        <td>{data.fights[0].date}</td>
-                        <td>{data.fights[0].opponent}</td>
-                        <td>{data.fights[0].result}</td>
-                        <td>{data.fights[0].method}</td>
-                        </tr>
-                        <tr>
-                        <td>{data.fights[1].name.split('-')[0]}</td>
-                        <td>{data.fights[1].date}</td>
-                        <td>{data.fights[1].opponent}</td>
-                        <td>{data.fights[1].result}</td>
-                        <td>{data.fights[1].method}</td>
-                        </tr>
-                        <tr>
-                        <td>{data.fights[2].name.split('-')[0]}</td>
-                        <td>{data.fights[2].date}</td>
-                        <td>{data.fights[2].opponent}</td>
-                        <td>{data.fights[2].result}</td>
-                        <td>{data.fights[2].method}</td>
-                        </tr> */}
                     </tbody>
                     </Table></div>
                 </div>

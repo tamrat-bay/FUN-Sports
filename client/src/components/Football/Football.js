@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './Football.css'
+import './Football.css';
 
 class Football extends Component 
 {
-    state = {choosenGames:[{}], competitionGamesVideo: [{}]}
+    state = {choosenGames:[{}], competitionGamesVideo: [{}], noGames:'No games', returnFlag: false, return: false}
     render() 
     {
         const getCountry = (country, data) =>
-        {
+        { 
+            this.setState({returnFlag: true});
             return data.filter((g, i) => g.competition.split(':')[0] === country);
         }
 
         const displayLeague = (e) =>
-        {
+        {           
+        
+
             let games =  getCountry(e.target.innerText, this.state.competitionGamesVideo);
             
             this.setState({choosenGames: games});
-            console.log(games, 'games');
+            console.log(this.state.choosenGames, 'games');
+            console.log(this.state.choosenGames.length, 'games length');
+            console.log(e.target.innerText);
+            
             
         }
-      
-        return (
-            <div>
+ 
+        if(this.state.returnFlag)
+        {
+            return (
+                <div>
                 <h1 className='football-title'>Football Highlights</h1>
                 <button onClick={(e) => displayLeague(e)}>ENGLAND</button>
                 <button onClick={(e) => displayLeague(e)}>SPAIN</button>
@@ -30,9 +38,10 @@ class Football extends Component
                 <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
                 <button onClick={(e) => displayLeague(e)}>FRANCE</button>
                 <button onClick={(e) => displayLeague(e)}>GERMANY</button>
-
-                <div className='main-div'>
-                    {this.state.choosenGames.length > 1 ? 
+                <button onClick={() => this.setState({returnFlag: false})}>Return</button>
+                     <div className='main-div'>
+                         
+               { this.state.choosenGames.length > 0 ? 
                     
                     this.state.choosenGames.map((g, i) => {
                     return (
@@ -45,21 +54,47 @@ class Football extends Component
                                 </iframe>
                             </div>
                         </div>
-                        )}) :
-                        this.state.competitionGamesVideo.map((g, i) => {
-                            if(i < 6)
-                            {
-                            return (
-                                <div key={i} className='each-game'>
-                                    <h4>{g.competition}</h4>
-                                    <h5>{g.game}</h5>
-                                    <div className="video-div">
-                                        <iframe className="embed-responsive-item" src={g.video} frameBorder="0"
-                                            width="100%" height="100%" title="Football" allowFullScreen allow="autoplay; fullscreen">
-                                        </iframe>
-                                    </div>
+                        )}) 
+                        :
+                            
+                                <div>
+                                    <h4>{this.state.noGames}</h4>
+                                    
                                 </div>
-                                )}})}
+
+                        }
+                         </div>
+                    </div>
+            )
+        }
+        return (
+            <div>
+                <h1 className='football-title'>Football Highlights</h1>
+                <button onClick={(e) => displayLeague(e)}>ENGLAND</button>
+                <button onClick={(e) => displayLeague(e)}>SPAIN</button>
+                <button onClick={(e) => displayLeague(e)}>ITALY</button>
+                <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
+                <button onClick={(e) => displayLeague(e)}>FRANCE</button>
+                <button onClick={(e) => displayLeague(e)}>GERMANY</button>
+                <button onClick={() => this.setState({returnFlag: false})}>Return</button>
+
+
+                <div className='main-div'>
+              {  this.state.competitionGamesVideo.map((g, i) => {
+                    if(i < 6)
+                    {
+                    return (
+                        <div key={i} className='each-game'>
+                            <h4>{g.competition}</h4>
+                            <h5>{g.game}</h5>
+                            <div className="video-div">
+                                <iframe className="embed-responsive-item" src={g.video} frameBorder="0"
+                                    width="100%" height="100%" title="Football" allowFullScreen allow="autoplay; fullscreen">
+                                </iframe>
+                            </div>
+                        </div>
+                        )}else{return ''}}
+                        )}
                 </div>
             </div>
         );
@@ -68,7 +103,6 @@ class Football extends Component
     {
         axios.get('https://www.scorebat.com/video-api/v1/')
       .then((res)=> {
-        console.log(res.data);
         let competitionGamesVideo = [];
         for(let i=0; i<res.data.length; i++)
         {

@@ -69,7 +69,7 @@ class NBA extends Component {
                 }
             }            
 
-            let todayGames = currentMonthGames.filter((g, i) => g.gdte.split("-")[2] == todayDay);
+            let todayGames = currentMonthGames.filter((g, i) => g.gdte.split("-")[2] === todayDay.toString());
 
             let timeTeamsArena = []; // team1 = [];
             for(let i=0; i<todayGames.length; i++)
@@ -89,7 +89,6 @@ class NBA extends Component {
                 timeTeamsArena.push(ttaObj);
 
             }
-            console.log(timeTeamsArena, 'timeTeamsArena');
             this.setState({timeTeamsArena: timeTeamsArena})
             
             this.setState({month: correntMonth, day: todayDay});
