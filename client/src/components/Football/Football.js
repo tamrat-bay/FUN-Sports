@@ -4,7 +4,7 @@ import './Football.css'
 
 class Football extends Component 
 {
-    state = {choosenGames:[{}], competitionGamesVideo: [{}], chooseLeague:''}
+    state = {choosenGames:[{}], competitionGamesVideo: [{}]}
     render() 
     {
         const getCountry = (country, data) =>
@@ -16,7 +16,7 @@ class Football extends Component
         {
             let games =  getCountry(e.target.innerText, this.state.competitionGamesVideo);
             
-            this.setState({chooseLeague: e.target.innerText, choosenGames: games});
+            this.setState({choosenGames: games});
             console.log(games, 'games');
             
         }

@@ -6,7 +6,7 @@ import fightersList from './FightersList';
 import FightersDetails from './FightersDetails';
 
 export default class Ufc extends Component {
-    state = {fighterData:false, singleFighterData:{}, fighters: []}
+    state = {fighterData:false, singleFighterData:{},fighters:[] }
 
     backToUfcPage=()=>
     {
@@ -30,18 +30,20 @@ export default class Ufc extends Component {
 
     render() {
         console.log(this.state.singleFighterData);
-        let fighters =this.state.fighters;
+        let fighters = this.state.fighters;
         const getFighterByDevision = (dev) =>
         {
             
             fighters = fightersList.map((f,i)=>  <Fighter key={i} name={f.name} dev={dev} fighterDetailes={this.fighterDetailes} />)
-                        console.log(fighters,'figherlingth');
+                        console.log(fighters[30],'figherlingth');
                         
                 this.setState({fighters: fighters})
+
+
             return fighters;
         }
         // console.log(fighters);
-        // const fighters = fightersList.map((f,i)=>  <Fighter key={i} name={f.name} fighterDetailes={this.fighterDetailes} />)
+        // const fightersDisplay = fightersList.map((f,i)=> i < 8 ?<Fighter key={i} name={f.name} fighterDetailes={this.fighterDetailes} /> : '')
         return (
             <div className="Ufc">
 
@@ -51,13 +53,23 @@ export default class Ufc extends Component {
 
                 <h1>UFC</h1>
                 <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Heavyweight</button>
+                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Welterweight</button>
+                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightweight</button>
+                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Middleweight</button>
+
                 <div className="Ufc-fighters">
-                { fighters}
+                { fighters }
                 {this.state.fighterData ? <FightersDetails backToUfcPage={this.backToUfcPage} data={this.state.singleFighterData} name='' /> : '' }
              
                 </div>
             </div>
         )
+    }
+    componentDidMount(){
+       let fighters = fightersList.map((f,i)=>  <Fighter key={i} name={f.name}  fighterDetailes={this.fighterDetailes} />)
+        console.log(fighters[30],'figherlingth');
+        
+        this.setState({fighters: fighters})
     }
 }
 
