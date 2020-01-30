@@ -10,24 +10,10 @@
 text-align: left;
 }
 
-.FightersDetails .FightersDetails_Icon{
-    text-align: center;
-    font-size: 25px;
-    padding: 5px 0;
-    opacity: .4;
-    color: darkred;
-    width: 10%;
-    margin: 0 auto;
-    transition: all .5s;
-    cursor: pointer;
-}
-.FightersDetails .FightersDetails_Icon:hover{
-    transform: scale(1.2);
-    opacity: 1;
-}
+
+
 .FightersDetails_img{
     width: 30%;
-    /* height: 70%; */
     display: inline-block;
     border: 3px solid rgb(0, 0, 0);
     margin: 0px 12% 0 3%;
@@ -45,18 +31,17 @@ text-align: left;
     display: flex;
     height: 100%;
 }
-
-.FightersDetails_Table{
-    max-height: 275px;
-    overflow: overlay;
-    border: 2px solid #b90000;
-    padding: -23px 0;
-    margin: 8px 0;
-}
-
-.FightersDetails .table {
-    width: 90%;
-    margin-bottom: 1rem;
+.FightersDetails .FightersDetails_Icon{
+    text-align: center;
+    font-size: 25px;
+    padding: 5px 0;
+    opacity: .4;
+    width: 10%;
     margin: 0 auto;
-    color: #212529;
+    transition: all .5s;
+    cursor: pointer;
+}
+.FightersDetails .FightersDetails_Icon:hover{
+    transform: scale(.5);
+    margin: 0 auto;
 }

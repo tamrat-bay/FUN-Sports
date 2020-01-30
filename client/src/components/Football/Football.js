@@ -17,7 +17,7 @@ class Football extends Component
                             <h5>{g.game}</h5>
                             <div className="video-div">
                                 <iframe className="embed-responsive-item" src={g.video} frameBorder="0"
-                                    width="100%" height="100%" allowFullScreen allow="autoplay; fullscreen">
+                                    width="100%" height="100%" allowFullScreen allow="autoplay" allowFullScreen="allowFullScreen">
                                 </iframe>
                             </div>
                         </div>
@@ -30,6 +30,8 @@ class Football extends Component
     {
         axios.get('https://www.scorebat.com/video-api/v1/')
       .then((res)=> {
+    let gamesForDb= [  {date:new Date().toDateString()} ,res.data]
+console.log(gamesForDb);
 
         let competitionGamesVideo = [];
         for(let i=0; i<res.data.length; i++)

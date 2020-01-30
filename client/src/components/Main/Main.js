@@ -8,6 +8,7 @@ import MainCarusel from './MainCarusel';
 
 class Main extends Component {
     state = {video: '', game:'', nbagames: [], mma: ''}
+    commnet = {txt:''}
     render() {
         return (
             <div className="Main">                 
@@ -15,13 +16,13 @@ class Main extends Component {
                 
                   <Row>
                     <Col xs={12} md={8}>
-                      <p className="football-vid">Today's Football Highlights: {this.state.game}</p>
+                      <h4 className="football-vid">Today's Football Highlights: {this.state.game}</h4>
                       <iframe className="Main_iframe" src={this.state.video} frameBorder="0"
                         width="100%" height="100%" allowFullScreen allow="autoplay; fullscreen" title="Football">
                       </iframe>
                     </Col>
                     <Col xs={6} md={4}>
-                      <p className="nba-Schedule">NBA Schedule:</p>  
+                      <h4 className="nba-Schedule">NBA Schedule:</h4>  
                       <div className="Main_tickerv-wrap">
                         <ul>
                           {this.state.nbagames.map((g, i) => <li className='nba-games' key={i}>{g}</li>)}
@@ -30,6 +31,15 @@ class Main extends Component {
                     </Col>
                   </Row>
              <MainCarusel />
+             <div  className="Main_forum"> 
+             <h1>Fun - Forum</h1>
+             <button>Add Comment</button>
+             <div className="Comment">
+             <textarea onChange={(e)=>this.commnet = e.target.value} rows="4" cols="50"></textarea> 
+            <button onClick={()=>console.log(localStorage.name +' Wrote',this.commnet)
+            }>Save</button>
+             </div>
+             </div>
               </Container>
             </div>
         );

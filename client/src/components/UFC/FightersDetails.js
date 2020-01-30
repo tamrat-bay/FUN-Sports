@@ -8,7 +8,8 @@ export default class FightersDetails extends Component {
       
         return (
             <div className="FightersDetails">
-                <h3 onClick={()=>backToUfcPage()}>Close Icon</h3>
+                <div className="FightersDetails_Icon" onClick={()=>backToUfcPage()}> <i class="fa fa-times-circle"></i></div>
+               
                 <div className="FightersDetails_flex" >
                 <div className="FightersDetails_img" >
                 <img  src={`https://www.sherdog.com${data.image_url}`} alt={data.name} />
@@ -23,7 +24,8 @@ export default class FightersDetails extends Component {
                 <p>{data.wins.knockouts} Wins came via knckouts , {data.wins.submissions} via submissions and {data.wins.decisions} via decisions</p>
                 <p>{data.losses.knockouts} losses came via knckouts , {data.losses.submissions} via submissions and {data.losses.decisions} via decisions</p>
                 <h4>Last Fights</h4>
-                <Table striped bordered hover variant="dark">
+                <div className="FightersDetails_Table">
+                <Table striped bordered hover variant="light">
                     <thead>
                         <tr>
                         <th>Event</th>
@@ -34,7 +36,17 @@ export default class FightersDetails extends Component {
                         </tr>
                     </thead>
                     <tbody>
+                       {data.fights.map(f=>
                         <tr>
+                            <td>{f.name.split('-')[0]}</td>
+                            <td>{f.date}</td>
+                            <td>{f.opponent}</td>
+                            <td>{f.result}</td>
+                            <td>{f.method}</td>
+                        </tr>
+                        )}
+           
+                        {/* <tr>
                         <td>{data.fights[0].name.split('-')[0]}</td>
                         <td>{data.fights[0].date}</td>
                         <td>{data.fights[0].opponent}</td>
@@ -54,9 +66,9 @@ export default class FightersDetails extends Component {
                         <td>{data.fights[2].opponent}</td>
                         <td>{data.fights[2].result}</td>
                         <td>{data.fights[2].method}</td>
-                        </tr>
+                        </tr> */}
                     </tbody>
-                    </Table>
+                    </Table></div>
                 </div>
                 </div>
             </div>

@@ -21,15 +21,13 @@ export default class App extends Component {
   render() {
        
     return (
-                  <div className="App">    
-                               <BrowserRouter>
-
-                       <NavbarComp loginHandler={this.loginHandler} />
-     
-                          <Switch>
-                   <Route exact path='/' component={Homepage}/>
-                   <Route exact path='/Login'  render={()=><Login loginHandler={this.loginHandler} />}/>
-                   <Route exact path='/Signup' component={Signup}/>
+          <div className="App">    
+            <BrowserRouter>
+                    <NavbarComp loginHandler={this.loginHandler} />
+                  <Switch>
+                    <Route exact path='/' component={Homepage}/>
+                    <Route exact path='/Login' render={()=><Login loginHandler={this.loginHandler} />}/>
+                    <Route exact path='/Signup' component={Signup}/>
                     <Route exact path='/Main' render={()=><Main/>}/>
                     <Route exact path='/Football' component={Football}/>
                     <Route exact path='/NBA' component={NBA}/>
@@ -37,31 +35,8 @@ export default class App extends Component {
                 </Switch>  
                 <Footer />                
             </BrowserRouter> 
-             </div>
+          </div>
     )
   }
 }
 
-// function App() {
-//   return (
-//     <div className="App">    
-//                                <BrowserRouter>
-
-//    <NavbarComp />
-     
-//        <Switch>
-//                    <Route exact path='/' component={Homepage}/>
-//                    <Route exact path='/Login' component={Login}/>
-//                    <Route exact path='/Signup' component={Signup}/>
-//                     <Route exact path='/Main' component={Main}/>
-//                     <Route exact path='/Football' component={Football}/>
-//                     <Route exact path='/NBA' component={NBA}/>
-//                     <Route exact path='/Ufc' component={Ufc}/>
-//                 </Switch>  
-//                 <Footer />                
-//             </BrowserRouter> 
-//     </div>
-//   )
-// }
-
-// export default App;
