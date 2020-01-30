@@ -9,21 +9,19 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
-    state = {btnFlag:false,user:localStorage}
+    state = {btnFlag: false, user: localStorage}
     
-    loginData = {
-        email:'',
-        password:''
-    }
+    loginData = {email:'', password:''}
+
     getInputsData = (e,type)=>{
-      return type === 'email' ?this.loginData.email = e.target.value :
+      return type === 'email' ? this.loginData.email = e.target.value :
       this.loginData.password = e.target.value 
     }
     changeState = ()=>{
-        this.setState({btnFlag:true})
+        this.setState({btnFlag: true})
         console.log(this.state.btnFlag,'inside func');
     }
-    loginRequest = (e)=>{
+    loginRequest = (e) => {
         e.preventDefault();
         axios.post('/users/login/', this.loginData)
           .then((response)=> {

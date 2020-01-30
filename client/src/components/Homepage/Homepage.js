@@ -16,7 +16,6 @@ class Homepage extends Component {
                         <img src='img/NBA-logo.png' alt="FunSport"></img>
                         <img src='img/UFC_Logo-SVG.svg' alt="FunSport"></img>              
                     </div>
-
             </div>
         );
     }
