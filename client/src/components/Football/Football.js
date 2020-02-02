@@ -30,7 +30,7 @@ class Football extends Component
         if(this.state.returnFlag)
         {
             return (
-                <div>
+                <div className='football'>
                 <h1 className='football-title'>Football Highlights</h1>
                 <button onClick={(e) => displayLeague(e)}>ENGLAND</button>
                 <button onClick={(e) => displayLeague(e)}>SPAIN</button>

@@ -1,6 +1,7 @@
 .FightersDetails{
-    width: 81%;
-    background-color: #fafafa;
+    width: 80%;
+    max-height: 84%;
+    background-color: #e1e1e1;
     z-index: 15 !important;
     position: fixed;
     top: 8%;
@@ -45,15 +46,13 @@ text-align: left;
     display: flex;
     height: 100%;
 }
-
 .FightersDetails_Table{
-    max-height: 275px;
+    max-height: 37%;
+    max-height: 220px;
     overflow: overlay;
-    border: 2px solid #b90000;
-    padding: -23px 0;
+    border: 2px solid #626262;
     margin: 8px 0;
 }
-
 .FightersDetails .table {
     width: 90%;
     margin-bottom: 1rem;

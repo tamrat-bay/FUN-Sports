@@ -51,17 +51,20 @@ class NBA extends Component {
     
     componentDidMount() 
     {
+        
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
       .then((res)=> {
-            // console.log(res);
-            // let date = new Date().getDate();           
+       
             let index = new Date().getMonth()+4;
             let todayDay = new Date().getDate(); 
+            if (todayDay.toString().length < 2) {
+                todayDay = '0'+todayDay.toString()
+            }
             let monthGames = res.data.lscd[index].mscd.g;
             let correntMonth = res.data.lscd[index].mscd.mon;
 
             let currentMonthGames = [];
-            for(let i=0; i<monthGames.length; i++)
+            for(let i=0; i < monthGames.length; i++)
             {
                 if(todayDay <= Number(monthGames[i].gdte.split("-")[2]))
                 {
@@ -89,6 +92,7 @@ class NBA extends Component {
                 timeTeamsArena.push(ttaObj);
 
             }
+            
             this.setState({timeTeamsArena: timeTeamsArena})
             
             this.setState({month: correntMonth, day: todayDay});
