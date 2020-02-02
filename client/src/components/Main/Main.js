@@ -52,6 +52,7 @@ class Main extends Component {
             let game = response.data[0].title;
             let video = response.data[1].videos[0].embed;
             this.setState({video: video.split("'")[3], game: game});
+            console.log(response.data);
         })
         .catch((error)=> {
             console.log(error);
@@ -61,9 +62,8 @@ class Main extends Component {
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
         .then((response)=> {
           let index = new Date().getMonth() + 4;
-
           let d = new Date().getDate().toString();
-          // console.log(d, 'd');
+          console.log(d, 'd');
           if(d.toString().length < 2) 
           {
             d = '0'+d
