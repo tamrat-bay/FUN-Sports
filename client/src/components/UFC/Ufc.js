@@ -6,7 +6,7 @@ import fightersList from './FightersList';
 import FightersDetails from './FightersDetails';
 
 export default class Ufc extends Component {
-    state = {fighterData:false, singleFighterData:{},fighters:[] }
+    state = {fighterData:false, singleFighterData:{},fighters:[],fightersDisplay:false }
 
     backToUfcPage=()=>
     {
@@ -33,15 +33,14 @@ export default class Ufc extends Component {
         {
             
             fighters = fightersList.map((f,i)=>  <Fighter key={i} name={f.name} dev={dev} fighterDetailes={this.fighterDetailes} />)
-                        console.log(fighters[30],'figherlingth');
+                        // console.log(fighters[30],'figherlingth');
                         
-                this.setState({fighters: fighters})
+                this.setState({fighters: fighters, fightersDisplay:true})
 
 
             return fighters;
         }
-        // console.log(fighters);
-        // const fightersDisplay = fightersList.map((f,i)=> i < 8 ?<Fighter key={i} name={f.name} fighterDetailes={this.fighterDetailes} /> : '')
+
         return (
             <div className="Ufc">
 
@@ -51,12 +50,16 @@ export default class Ufc extends Component {
 
                 <h1>UFC</h1>
                 <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Heavyweight</button>
-                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Welterweight</button>
-                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightweight</button>
+                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightheavyweight</button>
                 <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Middleweight</button>
+                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightweight</button>
+                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Featherweight</button>
+                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Bantamweight</button>
+                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Flyweight</button>
+
 
                 <div className="Ufc-fighters">
-                { fighters }
+                {!this.state.fightersDisplay ? this.state.fighters.map((f,i)=> i < 8 ? f : '') : this.state.fighters }
                 {this.state.fighterData ? <FightersDetails backToUfcPage={this.backToUfcPage} data={this.state.singleFighterData} name='' /> : '' }
              
                 </div>

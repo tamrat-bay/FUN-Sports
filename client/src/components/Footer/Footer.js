@@ -13,9 +13,9 @@ export default function Footer() {
                 <div className="footer-pad">
                 <h4>About Us</h4>
                 <ul className="list-unstyled">
-                    <li><a href="#"></a></li>
+                    {/* <li><a href="#"></a></li>
                     <li><a href="#">Payment Center</a></li>
-                    <li><a href="#">Contact Directory</a></li>
+                    <li><a href="#">Contact Directory</a></li> */}
                 </ul>
                 </div>
             </div>
@@ -24,9 +24,9 @@ export default function Footer() {
                 <div className="footer-pad">
                 <h4>Heading 2</h4>
                 <ul className="list-unstyled">
-                    <li><a href="#">Website Tutorial</a></li>
+                    {/* <li><a href="#">Website Tutorial</a></li>
                     <li><a href="#">Accessibility</a></li>
-                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Disclaimer</a></li> */}
                 </ul>
                 </div>
             </div>
@@ -35,18 +35,18 @@ export default function Footer() {
                 <div className="footer-pad">
                 <h4>Contact Us</h4>
                 <ul className="list-unstyled">
-                    <li><a href="#">Parks and Recreation</a></li>
-                    <li><a href="#">Public Works</a></li>
-                    <li><a href="#">Police Department</a></li>
+                    {/* <li><a href="#">Parks and Recreation</a></li> */}
+                    {/* <li><a href="#">Public Works</a></li>
+                    <li><a href="#">Police Department</a></li> */}
                 </ul>
                 </div>
             </div>
                 <div className="col-md-3">
                     <h4>Follow Us</h4>
                     <ul className="social-network social-circle">
-                    <li><a href="#" target="_blank" className="icoFacebook" title="Facebook"><i className="fa fa-facebook"></i></a></li>
-                    <li><a href="#" target="_blank" className="icoLinkedin" title="Linkedin"><i className="fa fa-linkedin"></i></a></li>
-                    <li><a href="#" target="_blank" className="icoLinkedin" title="Linkedin"><i className="fa fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/feed/" target="_blank" rel='noreferrer noopener' className="icoFacebook" title="Facebook"><i className="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank" rel='noreferrer noopener' className="icoLinkedin" title="Linkedin"><i className="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/tamrat-bay/FUN-Sports" rel='noreferrer noopener' target="_blank" className="icoLinkedin" title="Linkedin"><i className="fa fa-github"></i></a></li>
                     </ul>               
                 </div>
             </div>

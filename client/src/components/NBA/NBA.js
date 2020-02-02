@@ -51,10 +51,10 @@ class NBA extends Component {
     
     componentDidMount() 
     {
+        
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
       .then((res)=> {
-            // console.log(res);
-            // let date = new Date().getDate();           
+       
             let index = new Date().getMonth()+4;
             let todayDay = new Date().getDate(); 
             let monthGames = res.data.lscd[index].mscd.g;
