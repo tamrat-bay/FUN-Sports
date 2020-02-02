@@ -59,7 +59,7 @@ class TeamLogo extends Component {
         axios.get('https://www.balldontlie.io/api/v1/teams/')
         .then(res => {
             this.setState({teamsData:res.data.data});
-            console.log(res);
+            // console.log(res);
         })
         .catch((error) => {
             console.log(error);

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './NBA.css';
 import Table from 'react-bootstrap/Table';
-
 class NBA extends Component {
-    // state = {month:'', day:'', week:'', arena:'', city:'', cityAb:'', timeZone:'', upcomingGames:'', game:[]}
+
     state = {month:'', day:'', week:'',  timeTeamsArena: [{}]}
     render() 
     {
