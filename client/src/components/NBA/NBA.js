@@ -59,6 +59,8 @@ class NBA extends Component {
             let todayDay = new Date().getDate(); 
             let monthGames = res.data.lscd[index].mscd.g;
             let correntMonth = res.data.lscd[index].mscd.mon;
+            
+            console.log(res.data.lscd[5], 'res');
 
             let currentMonthGames = [];
             for(let i=0; i<monthGames.length; i++)

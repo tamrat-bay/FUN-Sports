@@ -62,9 +62,8 @@ class Main extends Component {
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
         .then((response)=> {
           let index = new Date().getMonth() + 4;
-
           let d = new Date().getDate().toString();
-          // console.log(d, 'd');
+          console.log(d, 'd');
           if(d.toString().length < 2) 
           {
             d = '0'+d
