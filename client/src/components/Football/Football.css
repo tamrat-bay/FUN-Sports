@@ -1,3 +1,11 @@
+.football {
+    /* background-color: violet;
+     */
+     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://cdn.pixabay.com/photo/2015/09/02/13/01/stadium-918830_1280.jpg);
+     background-attachment: fixed;
+    color: white;
+}
+
 .video-div {
     width: 97%;
     height: 270px;

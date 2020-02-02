@@ -46,6 +46,6 @@
 
 .div-pic {
     /* background-image: url(https://www.wallpaperup.com/uploads/wallpapers/2013/10/10/158384/028256269b11ff84514786aece1617b1-1000.jpg), linear-gradient(rgba(0, 0, 0, 0.096)); */
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.795), rgba(0, 0, 0, 0.918)), url(https://cdn.pixabay.com/photo/2015/09/09/20/33/basketball-933173_1280.jpg); */
-    /* background-color: white; */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://cdn.pixabay.com/photo/2015/09/09/20/33/basketball-933173_1280.jpg);
+    color: white;
 }

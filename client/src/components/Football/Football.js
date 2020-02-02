@@ -55,12 +55,10 @@ class Football extends Component
                             </div>
                         </div>
                         )}) 
-                        :
-                            
-                                <div>
-                                    <h4>{this.state.noGames}</h4>
-                                    
-                                </div>
+                        :                            
+                            <div className='no-games'>
+                                <h4>{this.state.noGames}</h4>
+                            </div>
 
                         }
                          </div>
@@ -68,7 +66,7 @@ class Football extends Component
             )
         }
         return (
-            <div>
+            <div className='football'>
                 <h1 className='football-title'>Football Highlights</h1>
                 <button onClick={(e) => displayLeague(e)}>ENGLAND</button>
                 <button onClick={(e) => displayLeague(e)}>SPAIN</button>

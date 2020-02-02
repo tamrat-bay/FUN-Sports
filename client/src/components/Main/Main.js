@@ -52,6 +52,7 @@ class Main extends Component {
             let game = response.data[0].title;
             let video = response.data[1].videos[0].embed;
             this.setState({video: video.split("'")[3], game: game});
+            console.log(response.data);
         })
         .catch((error)=> {
             console.log(error);
