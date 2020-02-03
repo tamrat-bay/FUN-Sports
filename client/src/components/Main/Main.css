@@ -93,3 +93,6 @@
   .UpdatePost input{
     margin: 0;
   }
+  .commentsDisplay{
+    background-color: rgb(141, 141, 141);
+  }

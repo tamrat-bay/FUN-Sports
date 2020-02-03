@@ -23,7 +23,7 @@ class Main extends Component {
   };
 
   post = { name: localStorage.name, subject: "",img:'', content: "" ,email:localStorage.email,id:'',comments:[]};
-
+  singleComment = {comment:''}
   newPost = () => {
     this.post.date = new Date().toDateString();
     const AuthStr = "Bearer " + localStorage.token;
@@ -59,6 +59,7 @@ class Main extends Component {
         console.log(err);
       });
   }
+
   updatePost = (id, index) => {
     console.log(id);
     this.post.date = new Date().toDateString();
@@ -75,6 +76,7 @@ class Main extends Component {
         console.log(err);
       });
   }
+
   render() {
     return (
       <div className="Main">
@@ -104,7 +106,7 @@ class Main extends Component {
                       <h2>User : {p.name}</h2>
                       <h4>{p.subject}</h4>
                       {p.img ? <img src={p.img} alt="img" /> : ''}
-                  {p.comments.length > 0 ? p.comments.map(c=><div>Comentetor : {c.comentor} <p>{c.body}</p></div>) : ''}
+              
                       <p>{p.content}</p>
                       {p.email === localStorage.email ? (
                         <div>
@@ -114,18 +116,30 @@ class Main extends Component {
                         </button>
                           <button  onClick={() => {
                             this.setState({updateFlag:true});
-                            this.post.id = p._id;
-                            this.post.index = p.index;
+                            this.post = this.state.posts[i]
+                            // this.post.id = p._id;
+                            this.post.index = i;
                             }}>
                           Update
                         </button>
                         </div>
                       ) : (
                         ""
-                      )} 
-                         <h4>Comment <i className="fa fa-comments"></i></h4>
+                      )}
+                         {p.comments.length > 0 ? p.comments.map((c,i)=>
+                         <div key={i} className="commentsDisplay">Comentetor : {c.comentor} <p>{c.body}</p></div>) : ''}
+                         <h4>Comments <i className="fa fa-comments"></i></h4>
                         <div className="comments">
-                          <input type="text"></input>
+                          <input type="text" onChange={(e)=>{this.singleComment.comment = e.target.value;
+                          }}></input>
+                          <button onClick={()=>{  
+                            this.post = this.state.posts[i]
+                            // this.post.id = p._id;
+                            // this.post.index = i;; 
+                        this.post.comments.push({comentor:localStorage.name,body:this.singleComment.comment,date: new Date().toDateString()});
+                        this.updatePost(p._id,i)  
+                        }
+                          }>Comment</button>
                         </div>
                     </div>
                   ))}

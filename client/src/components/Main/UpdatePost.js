@@ -7,6 +7,8 @@ export default class UpdatePost extends Component {
     // props.post = { name: localStorage.name, subject: "", content: "" ,email:localStorage.email};
 
     render() {
+        console.log(this.props.post);
+        
         return (
             <div className="UpdatePost">
                 <h3>Update Post</h3>
@@ -16,6 +18,7 @@ export default class UpdatePost extends Component {
                 <Form.Control
                   onChange={e => (this.props.post.subject = e.target.value)}
                   type="text"
+                  defaultValue={this.props.post.subject}
                   placeholder="UFC 246 / LAL vs "
                 />
               </Form.Group>
@@ -23,7 +26,7 @@ export default class UpdatePost extends Component {
                 <Form.Label>Image</Form.Label>
                 <Form.Control
                   onChange={e => (this.props.post.img = e.target.value)}
-                  type="text"
+                  type="text" defaultValue={this.props.post.img}
                   placeholder="url "
                 />
               </Form.Group>
@@ -31,7 +34,7 @@ export default class UpdatePost extends Component {
                 <Form.Label>Contenet</Form.Label>
                 <Form.Control
                   onChange={e => (this.props.post.content = e.target.value)}
-                  as="textarea"
+                  as="textarea" defaultValue={this.props.post.content}
                   rows="3"
                 />
 
@@ -39,7 +42,7 @@ export default class UpdatePost extends Component {
                   type="submit"
                   href="/Main"
                   onClick={() => {
-                    this.props.updatePost(this.props.post.id,this.props.post.index)}}
+                    this.props.updatePost(this.props.post._id,this.props.post.index)}}
                 >
                   Change post
                 </Button>
