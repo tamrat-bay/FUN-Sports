@@ -58,3 +58,9 @@
   margin: 0 auto;
   border:4px solid brown;
 }
+.Main_posts_singlePost{
+  background-color: blanchedalmond;
+    width: 70%;
+    text-align: center;
+    margin: .5% auto;
+}

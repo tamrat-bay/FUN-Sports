@@ -57,7 +57,7 @@ function loginHandler(req,res){
         bcrypt.compare(password,user.password,(err,isMatch)=>{
             if(err) throw err;      
             if(isMatch){
-            jwt.sign({user},'secretkey',{expiresIn: '30m'},(err,token)=>{
+            jwt.sign({user},'secretkey',{expiresIn: '20h'},(err,token)=>{
                 const responseData = {name:user.name, id: user.id, token : token}
                 res.status(200).send(responseData);
             })
@@ -69,11 +69,27 @@ function loginHandler(req,res){
     .catch(err=>{console.log(err);res.status(404).send(err)})
     
 }
-const post = [{username:'tamrat',title:'tamrat Post'}, {username:'yuval',title:'yuval'}]
+// const post = [{username:'tamrat',title:'tamrat Post'}, {username:'yuval',title:'yuval'}]
 
 function getPost(req,res,){
     //!Verify the correct user
+    console.log(req.token,'res tok');
 jwt.verify(req.token,'secretkey',(err,authData)=>{
+    console.log(authData,'authdata');
+    
+    if (err){ return res.status(403).send('token is not valid')}
+    else{
+        return  res.json(post.filter(p=>p.username === authData.user.name))
+    }
+})
+}
+
+function getPost(req,res,){
+    //!Verify the correct user
+    console.log(req.token,'res tok');
+jwt.verify(req.token,'secretkey',(err,authData)=>{
+    console.log(authData,'authdata');
+    
     if (err){ return res.status(403).send('token is not valid')}
     else{
         return  res.json(post.filter(p=>p.username === authData.user.name))
