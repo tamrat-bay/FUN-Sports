@@ -101,19 +101,22 @@ class Football extends Component
     {
         axios.get('https://www.scorebat.com/video-api/v1/')
       .then((res)=> {
-        let competitionGamesVideo = [];
-        for(let i=0; i<res.data.length; i++)
-        {
-            let cgvObj = 
-            {
-                competition: res.data[i].competition.name,
-                game: res.data[i].title,
-                video: res.data[i].videos[0].embed.split("'")[3]
-            }
-            competitionGamesVideo.push(cgvObj);
-        }
-        
-        this.setState({competitionGamesVideo: competitionGamesVideo})
+          if (res.status === 200) {
+                        let competitionGamesVideo = [];
+                for(let i=0; i<res.data.length; i++)
+                {
+                    let cgvObj = 
+                    {
+                        competition: res.data[i].competition.name,
+                        game: res.data[i].title,
+                        video: res.data[i].videos[0].embed.split("'")[3]
+                    }
+                    competitionGamesVideo.push(cgvObj);
+                }
+                
+                this.setState({competitionGamesVideo: competitionGamesVideo})
+          }
+   
         })
         .catch((error)=> {
             console.log(error);

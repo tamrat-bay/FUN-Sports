@@ -1,6 +1,7 @@
 .Footer{
-  position: absolute;
+  position: relative;
   width: 100%;
+  bottom: 0;
 }
 footer {
   background: #343a40;

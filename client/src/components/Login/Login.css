@@ -4,6 +4,8 @@
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://cdn.pixabay.com/photo/2016/11/29/02/05/audience-1866738_1280.jpg);
     background-attachment: fixed;
     color: white;
+    min-height: 100vh;
+    margin: 0;
 }
 .Login h2 {
     text-align: center;
