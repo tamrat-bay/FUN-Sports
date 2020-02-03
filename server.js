@@ -5,6 +5,7 @@ mongoose = require('mongoose'),
 port = process.env.PORT || 8080 ;
 users = require('./UsersModule');
 app.use(express.json());
+const PostsHandler = require('./PostsHandler')
 const axios = require('axios').default;
 
 // // axios.get('https://www.scorebat.com/video-api/v1/')
@@ -12,7 +13,7 @@ const axios = require('axios').default;
 //? DB Config 
 const db = require('./config/Keys').MongoURI;
 //? Connect to mongo
-mongoose.connect(db,{useNewUrlParser:true, useUnifiedTopology:true }).then(()=>console.log('MongoDB is Conenected...'))
+mongoose.connect(db,{useNewUrlParser:true, useUnifiedTopology:true,useFindAndModify:false }).then(()=>console.log('MongoDB is Conenected...'))
 .catch(err=>console.log(err))
 
 // //  console.log(res.data);
@@ -76,10 +77,6 @@ app.get('/ufc/:fighter',(req,res)=>{
     UFC.getFighter(req,res);
 });
 
-
-app.get('/post',users.authenticateToken,(req,res)=>{
-users.getPost(req,res);
-});
 //?Register handler
 app.post('/users/register',(req,res)=>{
     users.registerHandler(req,res)
@@ -87,6 +84,23 @@ app.post('/users/register',(req,res)=>{
 //?Login Handler
 app.post('/users/login',(req,res)=>{
     users.loginHandler(req,res)
+});
+
+//! GET POSTS
+app.get('/posts',users.authenticateToken,(req,res)=>{  
+    PostsHandler.getPosts(req,res);
+});
+//! Post to POSTS
+app.post('/posts',users.authenticateToken,(req,res)=>{  
+    PostsHandler.addPost(req,res);
+});
+//! Update  POSTS
+app.put('/posts/:id',users.authenticateToken,(req,res)=>{  
+    PostsHandler.updatePost(req,res);
+});
+//! Delete POSTS
+app.delete('/posts/:id',users.authenticateToken,(req,res)=>{  
+    PostsHandler.deletePost(req,res);
 });
 
 app.listen(port,()=>console.log(`Server is listening on port ${port}`))

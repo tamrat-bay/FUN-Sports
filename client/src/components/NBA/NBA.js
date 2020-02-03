@@ -93,9 +93,8 @@ class NBA extends Component {
 
             }
             
-            this.setState({timeTeamsArena: timeTeamsArena})
+            this.setState({timeTeamsArena: timeTeamsArena,month: correntMonth, day: todayDay})
             
-            this.setState({month: correntMonth, day: todayDay});
 
         })
         .catch((error)=> {
