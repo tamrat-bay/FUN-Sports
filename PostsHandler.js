@@ -27,7 +27,7 @@ function addPost(req,res){
     
     //!Verify the correct user
     const {name,subject,content,email} = req.body;
-    // console.log(req.token,'res tok');
+    console.log(req.token,'res tok');
    jwt.verify(req.token,'secretkey',(err,authData)=>{    
     if (err){ return res.status(403).send('token is not valid')}
     else{
@@ -46,6 +46,9 @@ function addPost(req,res){
 function updatePost(req,res){
     //!Verify the correct user
     const id = req.params.id
+    console.log(id);
+    console.log(req.body);
+    
    jwt.verify(req.token,'secretkey',(err,authData)=>{
     if (err){ return res.status(403).send('token is not valid')}
     else{

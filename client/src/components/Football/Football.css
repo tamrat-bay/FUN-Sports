@@ -2,6 +2,7 @@
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2015/09/02/13/01/stadium-918830_1280.jpg);
     background-attachment: fixed;
     color: white;
+    min-height: 100vh;  
 }
 
 .football > button {
