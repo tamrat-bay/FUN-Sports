@@ -1,90 +1,60 @@
- .homepage-link {
-    padding: 3px;
-}
 
 .images {
   background-color: #f5f5f5bd;
   height: 80%;
-  width: 75%;
+  width: 70%;
   margin: 0% auto;
   border-radius: 10px;
   box-sizing: border-box;
   text-align: center;
+  position: relative;
+  top: 45px;
 }
 
-.images > img {
+.images > a > img {
   width: 20%;
-  /* height: 150px; */
   display: inline-block;
-  margin: 5px auto;
+  margin: 7px 15px;
   padding: 5px;
 }
-.justify-content-around{
-    /* justify-content: center!important; */
-    background-color: #00000075;
-    height: 60px;
-    align-items: center;
-    font-size: 1.4em;
-    transition: all .8s;
-}
-.justify-content-around:hover{
-    background-color: #050505d2;
-}
-a.nav-link{
-    color: #ffffff;
-    text-decoration: none;
-    letter-spacing: 4px;
-    font-family: inherit;
-    font-weight: 200;
-    background-color: transparent;
-    transition: all .1s;
 
-}
-a.nav-link:hover{
-    transform: scale(1.03);
-}
-.Homepage_logo{
-  height: 30%;
+.fun-logo {
   width: 20%;
-  margin: 0 auto;
 }
-.Homepage_logo img{
-height: 100%;
-width: 100%;
-}
+
 .football-logo{
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: space-around;
 }
-.images > .football-logo > img:nth-child(1) {
-    /* width: 170px;
-    height: 150px; */
+
+/* ITALY */
+.images > .football-logo > a > img:nth-child(1) {
     width: 10%;  
-      /* height: 200px; */
 }
-.images > .football-logo > img:nth-child(2) {
-    /* height: 170px;
-    width: 230px; */
-     /* height: 215px; */
-     width: 20%;
+
+/* ENGLAND */
+.Premier-League  {
+    width: 15%;
+    border: solid 1px red;
 }
+/* SPAIN */
 .images > .football-logo > img:nth-child(3) {
-    /* width: 170px;
-    height: 170px; */
     width: 14%;
 }
+
 .Homepage.frame {
   background-color: #eee;
   background-position: center;
   background-size: cover;
   animation: image 35s infinite linear;
-  min-height: 100vh;
+  min-height: 90vh;
   width: 100%;
   margin: 0;
   }
   
-  @keyframes image {
+@keyframes image 
+{
     0% {
       background-image: url('./HomeImages/Dortmound.png');
     }  
@@ -104,4 +74,16 @@ width: 100%;
         background-image: url('./HomeImages/NbaARena.png');
       }
     
-  }
+}
+
+.welcome-para {
+  margin-bottom: 0px;
+  padding: 0 5px;
+}
+
+@media only screen and (max-width: 650px)
+{
+    .welcome-para {
+        font-size: 90%;
+    }
+}

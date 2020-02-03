@@ -12,11 +12,11 @@ class NBA extends Component {
             <div className='div-pic'>
                 <TeamLogo/>
                 <h1 className='nba-title'>NBA schedule</h1>
-                <Table striped bordered hover>
+                <Table striped bordered hover className='schedule-table'>
                     <thead>
                         <tr className='main-th'>
                         <th>Date</th>
-                        <th>Timea</th>
+                        <th>Time</th>
                         <th>Teams</th>
                         <th>Arena</th>
                         </tr>
@@ -30,13 +30,13 @@ class NBA extends Component {
                                 <div className='week'>WEEK {g.week}</div>
                                 <div className='week'>{this.state.timeTeamsArena.length} GAMES</div>
                             </td>
-                            <td>{g.time}</td>
+                            <td className='time-td'>{g.time}</td>
                             <td className='teams'>
                                 <p>{g.team1} {g.team1Nick}</p> 
                                 <p>{g.team2} {g.team2Nick}</p>
                                
                             </td>
-                            <td>
+                            <td className='arena-td'>
                                 {g.arena} <br></br>
                                 {g.place1}, {g.place2}
                             </td>
@@ -44,7 +44,6 @@ class NBA extends Component {
                             )})}
                     </tbody>
                 </Table>
-
             </div>
         );
     }

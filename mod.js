@@ -32,6 +32,7 @@ let fighters = [
   {name: "Brian Ortega", data:"https://www.sherdog.com/fighter/Brian-Ortega-65310"},
   {name: "Marlon Moraes", data:"https://www.sherdog.com/fighter/Marlon-Moraes-30936"},
   {name: "Alistair Overeem", data:"https://www.sherdog.com/fighter/Alistair-Overeem-461"},
+  {name: "Jose Aldo", data:"https://www.sherdog.com/fighter/Jose-Aldo-11506"}
 ]
 // sherdog.getFighter(fighters.Tony_Ferguson, ()=>{
 

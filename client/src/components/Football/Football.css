@@ -1,9 +1,11 @@
 .football {
-    /* background-color: violet;
-     */
-     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://cdn.pixabay.com/photo/2015/09/02/13/01/stadium-918830_1280.jpg);
-     background-attachment: fixed;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2015/09/02/13/01/stadium-918830_1280.jpg);
+    background-attachment: fixed;
     color: white;
+}
+
+.football > button {
+    border-radius: 24px;
 }
 
 .video-div {
@@ -18,8 +20,8 @@
 }
 
 .football-title {
-    color: #1570B5;
-    /* padding: 5px 0px 5px 39px; */
+    /* color: #1570B5; */
+    padding: 5px 0px 5px 12px;
 }
 
 .each-game {

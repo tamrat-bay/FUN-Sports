@@ -16,7 +16,7 @@
     top: 10%;
     right: 24%;
     height: auto;
-    background-color: rgb(155, 255, 255);
+    background-color:  rgba(165, 117, 27, 0.9);
     position: fixed;
     text-align: center;
 }
@@ -28,4 +28,8 @@
 
 .logo-in-div {
     width: 20%;
+}
+
+.logo-title {
+    color: rgb(235, 155, 8);
 }

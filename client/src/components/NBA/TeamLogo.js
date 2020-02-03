@@ -30,7 +30,7 @@ class TeamLogo extends Component {
         
         return (
             <div >
-                <h3>NBA Teams</h3>
+                <h3 className='logo-title'>NBA Teams</h3>
                 <div className='logos'>
                     {teams.map((team, i) => <img
                     key={i}

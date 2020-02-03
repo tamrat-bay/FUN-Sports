@@ -6,6 +6,7 @@
 }
 .Ufc h1{
     text-align: center;
+    color: white;
 }
 .carousel {
     position: relative;
@@ -36,12 +37,15 @@ display: contents;
 }
 .Ufc-fighters{
     position: relative;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://wallpaperset.com/w/full/2/8/d/510333.jpg);
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://cdn.wallpapersafari.com/73/83/snV0ix.jpg); */
     color: white;
     background-attachment: fixed;
 
 }
 
-.ufc {
-    color: yellow;
+.Ufc {
+    /* background-color: black; */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://cdn.wallpapersafari.com/73/83/snV0ix.jpg);
+    background-attachment: fixed;
+
 }
