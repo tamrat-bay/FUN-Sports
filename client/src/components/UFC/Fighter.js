@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './Fighter.css'
+import './Fighter.css';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 export default class Fighter extends Component {
-   state = {fighter:{}}
+   state = {fighter:{}, loading: ''}
     render() {
         const {fighterDetailes,dev} = this.props;
         // console.log(this.props);
@@ -25,6 +27,7 @@ export default class Fighter extends Component {
         }
          return(
             <div className="Fighter" id={this.props.name} onClick={(e)=>fighterDetailes(e,this.state.fighter)}>
+            {this.state.loading}
             <h2>{this.state.fighter.name}</h2>
             <h3>{this.state.fighter.nickname}</h3>
             <p>Is Ufc Fighter in the {this.state.fighter.weight_class} devision</p>
@@ -33,11 +36,16 @@ export default class Fighter extends Component {
          )
     }
     componentDidMount(){
-        
+        this.setState({loading: <Spinner animation="border" role="status">
+        <span className="sr-only">Loading...</span>
+        </Spinner>})
         axios.get(`/ufc/${this.props.name}`)
         .then((response)=> {
-
-            this.setState({fighter: response.data})
+            if(response.status == 200)
+            {
+                this.setState({fighter: response.data})  
+            }
+        this.setState({loading: ''})
            
         })
         .catch((error)=> {

@@ -3,14 +3,17 @@ import axios from 'axios';
 import './NBA.css';
 import Table from 'react-bootstrap/Table'
 import TeamLogo from './TeamLogo';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 class NBA extends Component {
-    state = {month:'', day:'', week:'',  timeTeamsArena: [{}]}
+    state = {month:'', day:'', week:'',  timeTeamsArena: [{}], loading: ''}
     render() 
     {
         return (
             <div className='div-pic'>
                 <TeamLogo/>
+                {/* {this.state.loading} */}
                 <h1 className='nba-title'>NBA schedule</h1>
                 <Table striped bordered hover className='schedule-table'>
                     <thead>
@@ -50,9 +53,13 @@ class NBA extends Component {
     
     componentDidMount() 
     {
-        
+        this.setState({loading: <Spinner animation="border" role="status">
+        <span className="sr-only">Loading...</span>
+        </Spinner>});
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
       .then((res)=> {
+        if(res.status == 200)
+        {
        
             let index = new Date().getMonth()+4;
             let todayDay = new Date().getDate(); 
@@ -93,8 +100,8 @@ class NBA extends Component {
             }
             
             this.setState({timeTeamsArena: timeTeamsArena,month: correntMonth, day: todayDay})
-            
-
+        }
+        this.setState({loading: ''})
         })
         .catch((error)=> {
             console.log(error);

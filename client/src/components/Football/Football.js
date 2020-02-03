@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './Football.css';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 class Football extends Component 
 {
-    state = {choosenGames:[{}], competitionGamesVideo: [{}], noGames:'No games', returnFlag: false, return: false}
+    state = {
+        choosenGames:[{}], competitionGamesVideo: [{}], noGames:'No games', returnFlag: false, return: false,
+        loading: ''
+    }
     render() 
     {
         const getCountry = (country, data) =>
@@ -24,7 +29,6 @@ class Football extends Component
             console.log(this.state.choosenGames.length, 'games length');
             console.log(e.target.innerText);
             
-            
         }
  
         if(this.state.returnFlag)
@@ -39,7 +43,8 @@ class Football extends Component
                 <button onClick={(e) => displayLeague(e)}>FRANCE</button>
                 <button onClick={(e) => displayLeague(e)}>GERMANY</button>
                 <button onClick={() => this.setState({returnFlag: false})}>Return</button>
-                     <div className='main-div'>
+                
+                <div className='main-div'>
                          
                { this.state.choosenGames.length > 0 ? 
                     
@@ -59,7 +64,6 @@ class Football extends Component
                             <div className='no-games'>
                                 <h4>{this.state.noGames}</h4>
                             </div>
-
                         }
                          </div>
                     </div>
@@ -78,11 +82,15 @@ class Football extends Component
 
 
                 <div className='main-div'>
+                {/* <span className='loading-spinner'>{this.state.loading}</span> */}
               {  this.state.competitionGamesVideo.map((g, i) => {
                     if(i < 6)
                     {
                     return (
+                        
                         <div key={i} className='each-game'>
+                            <span className='loading-spinner'>{this.state.loading}</span>
+
                             <h4>{g.competition}</h4>
                             <h5>{g.game}</h5>
                             <div className="video-div">
@@ -99,21 +107,29 @@ class Football extends Component
     }
     componentDidMount() 
     {
+        this.setState({loading: <Spinner animation="border" role="status">
+        <span className="sr-only">Loading...</span>
+        </Spinner>});
         axios.get('https://www.scorebat.com/video-api/v1/')
       .then((res)=> {
-        let competitionGamesVideo = [];
-        for(let i=0; i<res.data.length; i++)
+        if(res.status == 200)
         {
-            let cgvObj = 
+            
+            let competitionGamesVideo = [];
+            for(let i=0; i<res.data.length; i++)
             {
-                competition: res.data[i].competition.name,
-                game: res.data[i].title,
-                video: res.data[i].videos[0].embed.split("'")[3]
-            }
-            competitionGamesVideo.push(cgvObj);
+                let cgvObj = 
+                {
+                    competition: res.data[i].competition.name,
+                    game: res.data[i].title,
+                    video: res.data[i].videos[0].embed.split("'")[3]
+                }
+                competitionGamesVideo.push(cgvObj);
+            }            
+            this.setState({competitionGamesVideo: competitionGamesVideo})
         }
-        
-        this.setState({competitionGamesVideo: competitionGamesVideo})
+
+        this.setState({loading: ''})
         })
         .catch((error)=> {
             console.log(error);

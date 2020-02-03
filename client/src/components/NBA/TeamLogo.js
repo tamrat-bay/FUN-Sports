@@ -42,7 +42,7 @@ class TeamLogo extends Component {
                 </div>
                
                 {this.state.info ? <div className='team-info'>
-                    <p onClick={() => this.setState({info: false})} className='exit-btn'>exit</p>
+                    <p onClick={() => this.setState({info: false})} className='exit-btn'><i class="fa fa-times-circle"></i></p>
                     
                     <img className='logo-in-div' alt='logo' src={this.state.singleTeamData.img}></img>
 

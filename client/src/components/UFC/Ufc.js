@@ -6,7 +6,7 @@ import fightersList from './FightersList';
 import FightersDetails from './FightersDetails';
 
 export default class Ufc extends Component {
-    state = {fighterData:false, singleFighterData:{},fighters:[],fightersDisplay:false }
+    state = {fighterData:false, singleFighterData:{},fighters:[],fightersDisplay:false, loading: ''}
 
     backToUfcPage=()=>
     {
@@ -46,7 +46,6 @@ export default class Ufc extends Component {
 
                 <CarouselComp img1='img/UFCImages/ConorVsCowboy.jpg' img4='img/UFCImages/Tony.jpg'
                     img2='img/UFCImages/Octagon.jpg' img3='img/UFCImages/NateDiaz.jpg' />   
-                {/* Strawweight Bantamweight Flyweight  Featherweight Bantamweight  Welterweight Middleweight Lightweight Heavyweight  */}
 
                 <h1>UFC</h1>
                 <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Heavyweight</button>
@@ -59,6 +58,7 @@ export default class Ufc extends Component {
 
 
                 <div className="Ufc-fighters">
+
                 {!this.state.fightersDisplay ? this.state.fighters.map((f,i)=> i < 8 ? f : '') : this.state.fighters }
                 {this.state.fighterData ? <FightersDetails backToUfcPage={this.backToUfcPage} data={this.state.singleFighterData} name='' /> : '' }
              

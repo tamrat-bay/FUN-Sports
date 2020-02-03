@@ -42,3 +42,10 @@
         margin-bottom: 30px;
     }
 }
+
+.loading-spinner {
+    position: relative;
+    left: 45%;
+    top: 50%;
+
+}
