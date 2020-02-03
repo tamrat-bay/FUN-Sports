@@ -58,7 +58,7 @@ function loginHandler(req,res){
             if(err) throw err;      
             if(isMatch){
             jwt.sign({user},'secretkey',{expiresIn: '20h'},(err,token)=>{
-                const responseData = {name:user.name, id: user.id, token : token}
+                const responseData = {name:user.name, id: user.id, token : token, email:user.email}
                 res.status(200).send(responseData);
             })
             }else{
