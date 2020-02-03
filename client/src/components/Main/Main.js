@@ -9,8 +9,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 class Main extends Component {
-    state = {video: '', game:'', nbagames: [], mma: '',posts:[]}
-    commnet = {name:localStorage.name,subject:'',content:''}
+    state = {video: '', game:'', nbagames: [], mma: '',posts:[],commentFlag:false}
+    
+    commnet = {name:localStorage.name,subject:'',content:'',email:localStorage.email}
 
 newPost = ()=>{
   this.commnet.date = new Date().toDateString();
@@ -29,15 +30,19 @@ newPost = ()=>{
         console.log(error);
     });
       }
+
     render() {
         return (
             <div className="Main">                 
                 <Container>                        
                 <div  className="Main_forum"> 
                 <h1>Fun - Forum</h1>
-                <button>Add Comment</button>
+                <button onClick={()=>this.setState({commnetFlag:!this.state.commentFlag})}>
+                  {this.state.commentFlag ? 'Close Window' :'Add Comment'}</button>
+
+                {this.state.commentFlag ?
                 <div className="Comment">
-                <Form onSubmit={(e)=>e.preventDefault()}>
+                   <Form onSubmit={(e)=>e.preventDefault()}>
                     <Form.Group controlId="exampleForm.ControlInput1">
                       <Form.Label>Subject</Form.Label>
                       <Form.Control onChange={(e)=>this.commnet.subject = e.target.value}  type="text" placeholder="UFC 246 / LAL vs " />
@@ -47,10 +52,12 @@ newPost = ()=>{
                       <Form.Control onChange={(e)=>this.commnet.content = e.target.value} as="textarea" rows="3" />
                     </Form.Group>
                     <Form.Group as={Row}>
-                            <Button type="submit" onClick={()=>this.newPost()}>Submit</Button>
-                        </Form.Group>
+                    <Button type="submit" onClick={()=>this.newPost()}>Submit</Button>
+                  </Form.Group>
                   </Form>
                 </div>
+                : ''}
+               
              </div>
 
                   <Row>
@@ -88,26 +95,26 @@ newPost = ()=>{
 
     componentDidMount(){
       // FOOTBALL
-      axios.get('https://www.scorebat.com/video-api/v1/')
-      .then((response)=> {
-            let game = response.data[0].title;
-            let video = response.data[1].videos[0].embed;
-            this.setState({video: video.split("'")[3], game: game});
-        })
-        .catch((error)=> {
-            console.log(error);
-        });
+      // axios.get('https://www.scorebat.com/video-api/v1/')
+      // .then((response)=> {
+      //       let game = response.data[0].title;
+      //       let video = response.data[1].videos[0].embed;
+      //       this.setState({video: video.split("'")[3], game: game});
+      //   })
+      //   .catch((error)=> {
+      //       console.log(error);
+      //   });
 
-        const AuthStr = 'Bearer ' + localStorage.token;
-        axios.get('/posts',
-        { 'headers': { 'Authorization': AuthStr } }
-        )
-        .then((res)=> {
-              this.setState({posts:res.data})
-          })
-          .catch((error)=> {
-              console.log(error);
-          });
+      //   const AuthStr = 'Bearer ' + localStorage.token;
+      //   axios.get('/posts',
+      //   { 'headers': { 'Authorization': AuthStr } }
+      //   )
+      //   .then((res)=> {
+      //         this.setState({posts:res.data})
+      //     })
+      //     .catch((error)=> {
+      //         console.log(error);
+      //     });
 
         // NBA
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
