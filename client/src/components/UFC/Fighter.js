@@ -41,7 +41,7 @@ export default class Fighter extends Component {
         </Spinner>})
         axios.get(`/ufc/${this.props.name}`)
         .then((response)=> {
-            if(response.status == 200)
+            if(response.status === 200)
             {
                 this.setState({fighter: response.data})  
             }

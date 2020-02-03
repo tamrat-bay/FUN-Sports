@@ -22,7 +22,7 @@ class Main extends Component {
     updateFlag : false
   };
 
-  post = { name: localStorage.name, subject: "", content: "" ,email:localStorage.email,id:''};
+  post = { name: localStorage.name, subject: "",img:'', content: "" ,email:localStorage.email,id:'',comments:[]};
 
   newPost = () => {
     this.post.date = new Date().toDateString();
@@ -89,12 +89,12 @@ class Main extends Component {
               {this.state.postFlag ? "Close Window" : "Post"}
             </button>
             {this.state.postFlag ? (
-              <NewPost newPost={this.newPost} post={this.post}/>
+              <NewPost newPost={this.newPost} post={this.post} cancel={()=>this.setState({postFlag:false})}/>
             ) : (
               ""
             )}
              {this.state.updateFlag ? (
-              <UpdatePost updatePost={this.updatePost} post={this.post}/>
+              <UpdatePost updatePost={this.updatePost} post={this.post} cancel={()=>this.setState({updateFlag:false})}/>
             ) : (
               ""
             )}
@@ -103,6 +103,8 @@ class Main extends Component {
                     <div className="Main_posts_singlePost" key={i}>
                       <h2>User : {p.name}</h2>
                       <h4>{p.subject}</h4>
+                      {p.img ? <img src={p.img} alt="img" /> : ''}
+                  {p.comments.length > 0 ? p.comments.map(c=><div>Comentetor : {c.comentor} <p>{c.body}</p></div>) : ''}
                       <p>{p.content}</p>
                       {p.email === localStorage.email ? (
                         <div>
@@ -120,7 +122,11 @@ class Main extends Component {
                         </div>
                       ) : (
                         ""
-                      )}
+                      )} 
+                         <h4>Comment <i className="fa fa-comments"></i></h4>
+                        <div className="comments">
+                          <input type="text"></input>
+                        </div>
                     </div>
                   ))}
                 </div>

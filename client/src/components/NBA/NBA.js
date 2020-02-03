@@ -58,7 +58,7 @@ class NBA extends Component {
         </Spinner>});
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
       .then((res)=> {
-        if(res.status == 200)
+        if(res.status === 200)
         {
        
             let index = new Date().getMonth()+4;

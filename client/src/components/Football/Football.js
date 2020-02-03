@@ -112,7 +112,7 @@ class Football extends Component
         </Spinner>});
         axios.get('https://www.scorebat.com/video-api/v1/')
       .then((res)=> {
-        if(res.status == 200)
+        if(res.status === 200)
         {
             
             let competitionGamesVideo = [];

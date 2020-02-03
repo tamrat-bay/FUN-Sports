@@ -18,6 +18,14 @@ export default class NewPost extends Component {
                   placeholder="UFC 246 / LAL vs "
                 />
               </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1">
+                <Form.Label>Image</Form.Label>
+                <Form.Control
+                  onChange={e => (this.props.post.img = e.target.value)}
+                  type="text"
+                  placeholder="url "
+                />
+              </Form.Group>
               <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Contenet</Form.Label>
                 <Form.Control
@@ -33,6 +41,12 @@ export default class NewPost extends Component {
                     this.props.newPost()}}
                 >
                   Add Post
+                </Button>
+                <Button
+                  onClick={() => {
+                    this.props.cancel()}}
+                >
+                  Cancel
                 </Button>
               </Form.Group>
             </Form>

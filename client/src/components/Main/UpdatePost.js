@@ -8,7 +8,7 @@ export default class UpdatePost extends Component {
 
     render() {
         return (
-            <div className="post">
+            <div className="UpdatePost">
                 <h3>Update Post</h3>
             <Form onSubmit={e => e.preventDefault()}>
               <Form.Group controlId="exampleForm.ControlInput1">
@@ -17,6 +17,14 @@ export default class UpdatePost extends Component {
                   onChange={e => (this.props.post.subject = e.target.value)}
                   type="text"
                   placeholder="UFC 246 / LAL vs "
+                />
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1">
+                <Form.Label>Image</Form.Label>
+                <Form.Control
+                  onChange={e => (this.props.post.img = e.target.value)}
+                  type="text"
+                  placeholder="url "
                 />
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -29,11 +37,17 @@ export default class UpdatePost extends Component {
 
                 <Button
                   type="submit"
-                //   href="/Main"
+                  href="/Main"
                   onClick={() => {
                     this.props.updatePost(this.props.post.id,this.props.post.index)}}
                 >
-                  Add Post
+                  Change post
+                </Button>
+                <Button
+                  onClick={() => {
+                    this.props.cancel()}}
+                >
+                  Cancel
                 </Button>
               </Form.Group>
             </Form>

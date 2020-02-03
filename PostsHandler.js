@@ -4,7 +4,6 @@ const express = require('express'),
 Joi = require('@hapi/joi'),
 mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-// const post = [{username:'tamrat',title:'tamrat Post'}, {username:'yuval',title:'yuval'}]
 const Post = require('./model/PostsModel'),
 app = express();
 app.use(express.json());
@@ -12,7 +11,6 @@ app.use(express.json());
 function getPosts(req,res){
     //!Verify the correct user
 jwt.verify(req.token,'secretkey',(err,authData)=>{
-    // console.log(authData,'authdata');
     
     if (err){ return res.status(403).send('token is not valid')}
     else{
@@ -23,11 +21,10 @@ jwt.verify(req.token,'secretkey',(err,authData)=>{
 })
 }
 
-function addPost(req,res){
-    
+function addPost(req,res){ 
     //!Verify the correct user
-    const {name,subject,content,email} = req.body;
-    console.log(req.token,'res tok');
+    const {name,subject,content,email,img,comments} = req.body;
+    // console.log(req.token,'res tok');
    jwt.verify(req.token,'secretkey',(err,authData)=>{    
     if (err){ return res.status(403).send('token is not valid')}
     else{
@@ -35,7 +32,9 @@ function addPost(req,res){
             name,
             subject,
             content,
-            email
+            email,
+            img,
+            comments
         });
         return newPost.save()
         .then((post)=>{console.log('new post added'); res.status(201).send(post)})

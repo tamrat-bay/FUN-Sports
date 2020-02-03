@@ -12,6 +12,12 @@ PostSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    img:{
+        type:String
+    },
+    comments:{
+        type:Array
+    },
     email:{
         type:String,
         required:true
