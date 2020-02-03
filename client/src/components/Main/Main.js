@@ -29,6 +29,26 @@ newPost = ()=>{
         console.log(error);
     });
       }
+
+deletePost = (id, index) => 
+{
+
+  this.commnet.date = new Date().toDateString();
+  const AuthStr = 'Bearer ' + localStorage.token;
+  axios.delete(`/posts/${id}`, { 'headers': { 'Authorization': AuthStr } })
+    .then((res) => {
+      if(res.status === 200)
+      {
+        let temp = [...this.state.posts];
+        temp.splice(index, 1);
+        this.setState({posts: temp});
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
+
     render() {
         return (
             <div className="Main">                 
@@ -70,11 +90,13 @@ newPost = ()=>{
                     </Col>
                   </Row>
                   <div className="Main_posts">
-                    {this.state.posts.map((p,i)=> 
+                    {this.state.posts.map((p,i,email)=> 
                     <div className="Main_posts_singlePost" key={i}>
                       <h2>{p.name}</h2>
                       <h4>{p.subject}</h4>
                        <p>{p.content}</p>
+                       {/* {p.email === localStorage.email} */}
+                       <button onClick={() => this.deletePost(p._id, i)}>click</button>
                     </div>
                     )}
                   </div>
