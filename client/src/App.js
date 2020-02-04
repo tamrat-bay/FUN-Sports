@@ -28,7 +28,7 @@ export default class App extends Component {
                     <Route exact path='/' component={Homepage}/>
                     <Route exact path='/Login' render={()=><Login loginHandler={this.loginHandler} />}/>
                     <Route exact path='/Signup' component={Signup}/>
-                    <Route exact path='/Main' render={()=><Main/>}/>
+                    <Route exact path='/Main' component={Main}/>
                     <Route exact path='/Football' component={Football}/>
                     <Route exact path='/NBA' component={NBA}/>
                     <Route exact path='/Ufc' component={Ufc}/>
