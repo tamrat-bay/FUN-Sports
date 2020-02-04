@@ -48,13 +48,16 @@ export default class Ufc extends Component {
                     img2='img/UFCImages/Octagon.jpg' img3='img/UFCImages/NateDiaz.jpg' />   
 
                 <h1>UFC</h1>
-                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Heavyweight</button>
-                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightheavyweight</button>
-                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Middleweight</button>
-                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightweight</button>
-                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Featherweight</button>
-                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Bantamweight</button>
-                <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Flyweight</button>
+                <div className='buttons'>
+                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Heavyweight</button>
+                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightheavyweight</button>
+                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Middleweight</button>
+                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightweight</button>
+                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Featherweight</button>
+                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Bantamweight</button>
+                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Flyweight</button>
+                </div>
+                
 
 
                 <div className="Ufc-fighters">

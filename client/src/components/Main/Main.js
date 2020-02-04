@@ -24,6 +24,7 @@ class Main extends Component {
 
   post = { name: localStorage.name, subject: "",img:'', content: "" ,email:localStorage.email,id:'',comments:[]};
   singleComment = {comment:''}
+  
   newPost = () => {
     this.post.date = new Date().toDateString();
     const AuthStr = "Bearer " + localStorage.token;
