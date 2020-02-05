@@ -7,6 +7,8 @@ export default class NewPost extends Component {
     // props.post = { name: localStorage.name, subject: "", content: "" ,email:localStorage.email};
 
     render() {
+      console.log(this.props, 'this.props');
+      
         return (
             <div className="post">
             <Form onSubmit={e => e.preventDefault()}>
@@ -15,6 +17,7 @@ export default class NewPost extends Component {
                 <Form.Control
                   onChange={e => (this.props.post.subject = e.target.value)}
                   type="text"
+                  required min="2"
                   placeholder="UFC 246 / LAL vs "
                 />
               </Form.Group>
@@ -30,7 +33,7 @@ export default class NewPost extends Component {
                 <Form.Label>Contenet</Form.Label>
                 <Form.Control
                   onChange={e => (this.props.post.content = e.target.value)}
-                  as="textarea"
+                  as="textarea" required min="5"
                   rows="3"
                 />
 

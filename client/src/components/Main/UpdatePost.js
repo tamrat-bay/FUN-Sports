@@ -19,7 +19,7 @@ export default class UpdatePost extends Component {
                   onChange={e => (this.props.post.subject = e.target.value)}
                   type="text"
                   defaultValue={this.props.post.subject}
-                  placeholder="UFC 246 / LAL vs "
+                  placeholder="UFC 246 / LAL vs " required min="2"
                 />
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlInput1">
@@ -35,7 +35,7 @@ export default class UpdatePost extends Component {
                 <Form.Control
                   onChange={e => (this.props.post.content = e.target.value)}
                   as="textarea" defaultValue={this.props.post.content}
-                  rows="3"
+                  rows="3" required min="4"
                 />
 
                 <Button
