@@ -46,7 +46,7 @@ function updatePost(req,res){
    jwt.verify(req.token,'secretkey',(err,authData)=>{
     if (err){ return res.status(403).send('token is not valid')}
     else{
-      return  Post.findByIdAndUpdate(id,req.body)
+      return  Post.findByIdAndUpdate(id,req.body,{new:true})
         .then(data=> res.status(200).send(data))
         .catch(err=> console.log(err))
     }
