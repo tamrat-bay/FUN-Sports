@@ -1,5 +1,3 @@
-
-
 const express = require('express'),
 Joi = require('@hapi/joi'),
 mongoose = require('mongoose');
@@ -44,10 +42,7 @@ function addPost(req,res){
 }
 function updatePost(req,res){
     //!Verify the correct user
-    const id = req.params.id
-    console.log(id);
-    console.log(req.body);
-    
+    const id = req.params.id 
    jwt.verify(req.token,'secretkey',(err,authData)=>{
     if (err){ return res.status(403).send('token is not valid')}
     else{
@@ -60,9 +55,7 @@ function updatePost(req,res){
 
 function deletePost(req,res){
     //!Verify the correct user
-    const id = req.params.id
-    console.log(id);
-    
+    const id = req.params.id  
    jwt.verify(req.token,'secretkey',(err,authData)=>{
     if (err){ return res.status(403).send('token is not valid')}
     else{

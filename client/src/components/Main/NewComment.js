@@ -6,11 +6,9 @@ import Button from 'react-bootstrap/Button';
 export default class NewComment extends Component {
 
     singleComment = { comment: '' }
-// this.post this.state.posts[i] , this,updatePost(_id , index)
     render() {
-        console.log(this.props.updatePost);
-        console.log(this.props.post);
-        console.log(this.props.post._id, this.props.index);
+        // console.log(this.props.post);
+        // console.log(this.props.post._id, this.props.index);
 
         return (
             <div className="NewComment">
@@ -30,7 +28,7 @@ export default class NewComment extends Component {
                               date: new Date().toDateString(), id: localStorage.id
                             });
                             this.props.updatePost(this.props.post._id, this.props.index)
-                            console.log(this.props.post,this.props.index);
+                            // console.log(this.props.post,this.props.index);
                             
                           }}>Add
                                 </button>

@@ -63,6 +63,9 @@ class Main extends Component {
   updatePost = (id, index) => {
     const AuthStr = "Bearer " + localStorage.token;
     this.post = this.state.posts[index]
+ console.log(this.post , index);
+ 
+    // this.post.name = localStorage.name; this.post.email = localStorage.email;
     axios.put(`/posts/${id}`, this.post, { headers: { Authorization: AuthStr } })
       .then(res => {
         if (res.status === 200) {
@@ -136,12 +139,12 @@ class Main extends Component {
                     )}
                   <div className="commentsDisplay">
                     {p.comments.length > 0 ? p.comments.map((c, j) =>
-                      <span key={j} >Commentator  : {c.comentor} <p>{c.body} </p>
-                        {c.id === localStorage.id ? <button onClick={() =>{
+                      <div key={j} className="singleComment" >Commentator  : {c.comentor} <p>{c.body} </p>
+                        {c.id === localStorage.id ?  <div className="deleteCommnet"> <button onClick={() =>{
                           this.post = this.state.posts[i];                       
                           this.post.index = i; this.deleteComment(j)
-                          }}>Delete Comment</button> : ''}                 
-                      </span>) : ''}
+                          }}>Delete Comment</button> </div>: ''}                 
+                      </div>) : ''}
                   </div>
                   {/* {this.post = this.state.posts[i]} */}
                   <NewComment post={this.post = this.state.posts[i]} index={i} updatePost={this.updatePost} />
@@ -182,8 +185,7 @@ class Main extends Component {
 
   componentDidMount() {
     const AuthStr = "Bearer " + localStorage.token;
-    axios
-      .get("/posts", { headers: { Authorization: AuthStr } })
+    axios.get("/posts", { headers: { Authorization: AuthStr } })
       .then(res => {
         this.setState({ posts: res.data });
       })
