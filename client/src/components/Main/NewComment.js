@@ -8,7 +8,7 @@ export default class NewComment extends Component {
     singleComment = { comment: '' }
     render() {
         // console.log(this.props.post);
-        // console.log(this.props.post._id, this.props.index);
+        // console.log(this.props.post,'New Comment postData');
 
         return (
             <div className="NewComment">
