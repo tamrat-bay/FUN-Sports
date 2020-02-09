@@ -21,7 +21,7 @@ render() {
                               </Nav>
                               <Nav>
                               <Nav.Item>
-                              <Nav.Link className="disabled" > <span className="userWelcome">Hello Guest</span></Nav.Link>
+                              <Nav.Link className="disabled" > <span className="guestWelcome">Hello Guest</span></Nav.Link>
                                   </Nav.Item>
                                   <Nav.Item>
                                   <Nav.Link href="/Signup">Sign up</Nav.Link>
@@ -46,9 +46,12 @@ render() {
                       </Nav>
                       <Nav>
                          <Nav.Item>
-                         <Nav.Link ><span className="userWelcome">Hello {localStorage.name}</span></Nav.Link>
+                         <Nav.Link ><span className="userWelcome">Hello {localStorage.name}</span>
+                         
+                         </Nav.Link>
                          </Nav.Item>
-
+                        <div className="profileImg"> {localStorage.image ? <img className="avatar" src={localStorage.image} alt="man"/> : ''}
+                        </div>
                          <Nav.Item>
                          <Nav.Link  onClick={this.signOut} href="/"> Exit</Nav.Link>
                         </Nav.Item>

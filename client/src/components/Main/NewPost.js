@@ -4,9 +4,12 @@ import Button from "react-bootstrap/Button";
 
 export default class NewPost extends Component {
 
-    // props.post = { name: localStorage.name, subject: "", content: "" ,email:localStorage.email};
 
     render() {
+      this.props.post.name = localStorage.name;
+      this.props.post.userImage = localStorage.image;
+      this.props.post.email = localStorage.email;
+      this.props.post.comments = [];
       console.log(this.props.post,' Inside new post');
       
         return (
@@ -22,7 +25,7 @@ export default class NewPost extends Component {
                 />
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>Image</Form.Label>
+                <Form.Label>Image <i className="fa fa-image"></i> </Form.Label>
                 <Form.Control
                   onChange={e => (this.props.post.img = e.target.value)}
                   type="text"

@@ -10,7 +10,7 @@
 }
 .carousel {
     position: relative;
-    background-color: #000000;
+    background-color: #00000047;
 }
 .carousel-indicators li {
     box-sizing: content-box;

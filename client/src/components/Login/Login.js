@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './Login.css'
-// import Homepage from './Homepage';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import Alert from 'react-bootstrap/Alert'
 
 class Login extends Component {
-    state = {btnFlag: false, user: localStorage}
+    state = {user: localStorage,validationFlag:false}
     
     loginData = {email:'', password:''}
 
@@ -17,10 +16,7 @@ class Login extends Component {
       return type === 'email' ? this.loginData.email = e.target.value :
       this.loginData.password = e.target.value 
     }
-    changeState = ()=>{
-        this.setState({btnFlag: true})
-        console.log(this.state.btnFlag,'inside func');
-    }
+ 
     loginRequest = (e) => {
         e.preventDefault();
         axios.post('/users/login/', this.loginData)
@@ -30,24 +26,33 @@ class Login extends Component {
                 localStorage.name = response.data.name;
                 localStorage.id = response.data.id;
                 localStorage.email = response.data.email;
+                localStorage.image =response.data.image;
                 localStorage.token =response.data.token;
                 localStorage.guest = false;
-               this.setState({btnFlag:true,user: localStorage})
+               this.setState({user: localStorage})
+               this.props.history.push("/Main");
                this.props.loginHandler(true)
+            }else{
+                this.setState({validationFlag:true})      
             }
           })
           .catch((error)=> {
+            this.setState({validationFlag:true})      
             console.log(error);
           });
           
     }
-    render() {        
-        if(this.state.btnFlag) {
-           
-            return <Redirect to="/Main" />
-        }
+    render() {    
         return (
             <div className='Login'>
+                    {this.state.validationFlag ?
+                   <Alert variant='warning' onClick={()=>this.setState({validationFlag:false})}>  
+                        Please try again. 
+                        <p>Make sure user Email and Password are correct</p>
+                        <p>
+                       <Alert.Link >CLick here to close this window</Alert.Link>
+                      </p>
+                    </Alert> : ''} 
                 <h2>Login</h2>
                 <Form onSubmit={(e)=>this.loginRequest(e)} className="Login_form">
                     <Form.Group as={Row} controlId="formHorizontalEmail">

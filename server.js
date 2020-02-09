@@ -4,9 +4,10 @@ UFC = require('./mod'),
 mongoose = require('mongoose'),
 port = process.env.PORT || 8080 ;
 users = require('./UsersModule');
+
 app.use(express.json());
-const PostsHandler = require('./PostsHandler')
-const axios = require('axios').default;
+const PostsHandler = require('./PostsHandler');
+// const axios = require('axios').default;
 
 // // axios.get('https://www.scorebat.com/video-api/v1/')
 // // .then((res)=> {
@@ -14,7 +15,33 @@ const axios = require('axios').default;
 const db = require('./config/Keys').MongoURI;
 //? Connect to mongo
 mongoose.connect(db,{useNewUrlParser:true, useUnifiedTopology:true,useFindAndModify:false }).then(()=>console.log('MongoDB is Conenected...'))
-.catch(err=>console.log(err))
+.catch(err=>console.log(err));
+
+
+const path = require('path');
+
+const multer  = require('multer');
+
+const uploadDir = 'uploads';
+
+app.use(express.static(path.join(__dirname,uploadDir)));
+
+// console.log(path.join(__dirname,uploadDir));
+
+const Storage = multer.diskStorage({
+    destination: 'uploads',
+    filename :function (req,file,clb){
+        console.log(file.originalname,'original');
+        
+        clb(null,Date.now()+file.originalname); 
+          console.log('finish func');
+    }  
+});
+
+const upload = multer({
+    storage: Storage,
+    limits : {fileSize:2000000}
+});
 
 // //  console.log(res.data);
 
@@ -78,7 +105,7 @@ app.get('/ufc/:fighter',(req,res)=>{
 });
 
 //?Register handler
-app.post('/users/register',(req,res)=>{
+app.post('/users/register',upload.single('userFile'),(req,res)=>{
     users.registerHandler(req,res)
 });
 //?Login Handler
