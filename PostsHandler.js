@@ -21,7 +21,7 @@ jwt.verify(req.token,'secretkey',(err,authData)=>{
 
 function addPost(req,res){ 
     //!Verify the correct user
-    const {name,subject,content,email,img,comments} = req.body;
+    const {name,subject,content,email,img,userImage,comments} = req.body;
     console.log(req.body,'Post Data');
    jwt.verify(req.token,'secretkey',(err,authData)=>{    
     if (err){ return res.status(403).send('token is not valid')}
@@ -32,6 +32,7 @@ function addPost(req,res){
             content,
             email,
             img,
+            userImage,
             comments
         });
         return newPost.save()

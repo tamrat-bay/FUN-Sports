@@ -11,6 +11,7 @@ import NavbarComp from './components/NavbarComp/NavbarComp';
 import Footer from './components/Footer/Footer'
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import NotFound from './components/NotFound/NotFound';
 
 
 export default class App extends Component {
@@ -26,12 +27,13 @@ export default class App extends Component {
                     <NavbarComp loginHandler={this.loginHandler} />
                   <Switch>
                     <Route exact path='/' component={Homepage}/>
-                    <Route exact path='/Login' render={()=><Login loginHandler={this.loginHandler} />}/>
+                    <Route exact path='/Login' render={(props)=><Login loginHandler={this.loginHandler} {...props} />}/>
                     <Route exact path='/Signup' component={Signup}/>
                     <Route exact path='/Main' component={Main}/>
                     <Route exact path='/Football' component={Football}/>
                     <Route exact path='/NBA' component={NBA}/>
                     <Route exact path='/Ufc' component={Ufc}/>
+                    <Route component={NotFound}/>
                 </Switch>  
                 <Footer />                
             </BrowserRouter> 

@@ -1,19 +1,20 @@
-const express = require('express'),
-Joi = require('@hapi/joi'),
-mongoose = require('mongoose'),
-User = require('./model/User'),
-jwt = require('jsonwebtoken'),
-bcrypt = require('bcryptjs');
-app = express();
+const express = require('express');
+const Joi = require('@hapi/joi');
+const mongoose = require('mongoose');
+const User = require('./model/User');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const app = express();
 app.use(express.json());
 
 
 function registerHandler(req,res){
-    const {name,email,password} = req.body
-    // console.log(req.body,'user handler');
+    const {name,email,password} = req.body;
+    const image = req.file.filename;    
     let {error} = userValidation(req.body)
-    // if not send error and status 400    
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error) {console.log(error.details[0].message)
+    }
+if (error) return res.status(400).send(error.details[0].message);
     //?Validation Passed
     User.findOne({email:email})
     .then(user=>{
@@ -21,22 +22,25 @@ function registerHandler(req,res){
         //!User exists send err
     res.status(400).send('User already exists')
     }else{
+
         const newUser = new User({
             name,
             email,
-            password
+            password,
+            image
         });
+
         //todo Hash Password
         bcrypt.genSalt(10,(err,salt)=>
         bcrypt.hash(newUser.password,salt,(err,hash)=>{
         if(err) throw err;
         //? Set passwoed to has
         newUser.password = hash;
+
         //! Save User
         newUser.save()
         .then(newUser=>res.status(201).send(newUser))
         .catch(err=> res.status(500).send(err))
-        // return res.status(201).send(newUser);
         }))     
     }
     });
@@ -44,12 +48,9 @@ function registerHandler(req,res){
 
 function loginHandler(req,res){
     //!Authenticate user
-    const {email,password} = req.body;
-    // console.log(req.body,'login');
-    
+    const {email,password} = req.body;    
     User.findOne({email:email})
       .then(user=>{
-        // console.log(user,'this is user then');
         if (!user) {
             return res.status(404).send('That email is not registered')
         }
@@ -58,7 +59,7 @@ function loginHandler(req,res){
             if(err) throw err;      
             if(isMatch){
             jwt.sign({user},'secretkey',{expiresIn: '20h'},(err,token)=>{
-                const responseData = {name:user.name, id: user.id, token : token, email:user.email}
+                const responseData = {name:user.name, id: user.id, token : token, email:user.email , image :user.image}
                 res.status(200).send(responseData);
             })
             }else{
@@ -69,13 +70,11 @@ function loginHandler(req,res){
     .catch(err=>{console.log(err);res.status(404).send(err)})
     
 }
-// const post = [{username:'tamrat',title:'tamrat Post'}, {username:'yuval',title:'yuval'}]
 
 function getPost(req,res,){
     //!Verify the correct user
     console.log(req.token,'res tok');
 jwt.verify(req.token,'secretkey',(err,authData)=>{
-    console.log(authData,'authdata');
     
     if (err){ return res.status(403).send('token is not valid')}
     else{
@@ -86,9 +85,7 @@ jwt.verify(req.token,'secretkey',(err,authData)=>{
 
 function getPost(req,res,){
     //!Verify the correct user
-    console.log(req.token,'res tok');
-jwt.verify(req.token,'secretkey',(err,authData)=>{
-    console.log(authData,'authdata');
+  jwt.verify(req.token,'secretkey',(err,authData)=>{
     
     if (err){ return res.status(403).send('token is not valid')}
     else{

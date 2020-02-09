@@ -21,16 +21,16 @@ export default class NewComment extends Component {
                       </Card.Header>
                       <Accordion.Collapse eventKey="0">
                         <Card.Body>
-                          <input type="text" onChange={(e) => { this.singleComment.comment = e.target.value; }}></input>
+                          <input type="text" placeholder="Add a comment..." onChange={(e) =>{ this.singleComment.comment = e.target.value; }}></input>
                           <button onClick={() => {
                             this.props.post.comments.push({
                               comentor: localStorage.name, body: this.singleComment.comment,
-                              date: new Date().toDateString(), id: localStorage.id
+                              date: new Date().toDateString(), id: localStorage.id,image:localStorage.image
                             });
                             this.props.updatePost(this.props.post._id, this.props.index)
                             // console.log(this.props.post,this.props.index);
                             
-                          }}>Add
+                          }}>Post
                                 </button>
                         </Card.Body>
                       </Accordion.Collapse>

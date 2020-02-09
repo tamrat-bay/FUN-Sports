@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
 import "./Main.css";
-// import MainCarusel from "./MainCarusel";
 import NewPost from "./NewPost";
 import NewComment from "./NewComment";
 import UpdatePost from "./UpdatePost";
-// import Accordion from 'react-bootstrap/Accordion';
-// import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
+import DropdownDeleteUpdate from "./DropdownDeleteUpdate";
 
 
 class Main extends Component {
@@ -25,6 +23,7 @@ class Main extends Component {
      content: "",
      email: localStorage.email,
      id: '',
+     userImage:localStorage.image ? localStorage.image : '',
      comments: [],
      date: new Date().toDateString()
      };
@@ -64,15 +63,15 @@ class Main extends Component {
 
   updatePost = (id, index) => {
     const AuthStr = "Bearer " + localStorage.token;
-    this.post = this.state.posts[index]
-    // console.log(this.post , index);
-    // this.post.name = localStorage.name; this.post.email = localStorage.email;
+    this.post = this.state.posts[index];
+
     axios.put(`/posts/${id}`, this.post, { headers: { Authorization: AuthStr } })
       .then(res => {
         if (res.status === 200) {
           let temp = [...this.state.posts];
           temp[index] = this.post;
           this.setState({ posts: temp, updateFlag: false });
+          this.post={};
         }
       })
       .catch(err => {
@@ -96,16 +95,29 @@ class Main extends Component {
   }
 
   render() {
-    // console.log(this.post,'Post insde main');
-    
+if (localStorage.length < 4) {
+  return <div  className="Main">
+    <div className="Main_guest">
+    <h1 >This page is saved for members Only</h1>
+    <h1 >Please Signup or Login to join our community</h1>
+    <div>
+    <Link to="/signup">Signup</Link>
+    <Link to="/Login">Login</Link>
+    </div>
+    </div>
+  </div>
+}    
     return (
       <div className="Main">
-        <Container>
+        {/* <Container> */}
           <div className="Main_forum">
-            <h1>Fun - Forum</h1>
+            <h1>Fun - Sports</h1>
+
+            <div  className="Main_writePost">
             <button onClick={() =>this.setState({ postFlag: true })}>
-             New Post
-             </button> 
+             Start Post
+             </button>
+             </div> 
 
             {this.state.postFlag ? (<NewPost newPost={this.newPost} post={this.post} 
              cancel={() => this.setState({postFlag:false})} />
@@ -120,68 +132,58 @@ class Main extends Component {
             <div className="Main_posts">
               {this.state.posts.map((p, i) => (
                 <div className="Main_posts_singlePost" key={i}>
-                  <h2>User : {p.name}</h2>
-                  <h4>{p.subject}</h4>
-                  {p.img ? <img src={p.img} alt="img" /> : ''}
-                  <p>{p.content}</p>
-                  {p.email === localStorage.email ? (
-                    <div>
-                      <button onClick={() => {this.deletePost(p._id, i);}}>
-                        Delete
-                      </button>
-                      <button onClick={() => {
-                        this.setState({ updateFlag: true });
+
+                  <div className="Main_posts_userImage">
+
+                    {p.userImage ? <img  src={p.userImage} alt=" user"/> :
+                     <img src="img/imagelessuser.png" alt=" user"/> }               
+                    <h4>{p.name}</h4>
+                    </div>          
+
+                    {p.email === localStorage.email ? (  
+                     <DropdownDeleteUpdate updateHandler={() =>
+                       {this.setState({ updateFlag: true });
                         this.post = this.state.posts[i];
-                        this.post.index = i;
-                       }}>
-                        Update
-                        </button>
-                    </div>
-                  ) : (
+                        this.post.index = i;}} 
+                        deleteHandler={() =>
+                       {this.deletePost(p._id, i);}}/>
+                   )
+                  : (
                       ""
                     )}
-                  <div className="commentsDisplay">
+
+                   <h4>{p.subject}</h4>
+                    {p.img ? <img src={p.img} alt="img" /> : ''}
+                    <p className="content">{p.content}</p>
+                    <div className="commentsDisplay">
                     {p.comments.length > 0 ? p.comments.map((c, j) =>
-                      <div key={j} className="singleComment" >Commentator  : {c.comentor} <p>{c.body} </p>
-                        {c.id === localStorage.id ?  <div className="deleteCommnet"> <button onClick={() =>{
+                      <div key={j} className="singleComment" >
+
+                        <div className="singleComment_user">
+                          {c.image ? <img className="commnetatorImage" src={c.image} alt="img"/>
+                          : <img className="commnetatorImage" src="img/imagelessuser.png" alt=" user"/>} 
+                          {c.comentor} 
+                        </div>
+                        <p>{c.body}</p>
+                        {c.id === localStorage.id ?  <div className="deleteCommnet"> <i className="fa fa-trash" onClick={() =>{
                           this.post = this.state.posts[i];                       
                           this.post.index = i; this.deleteComment(j)
-                          }}>Delete Comment</button> </div>: ''}                 
-                      </div>) : ''}
+                          }}> Delete 
+                          </i>
+                            <img className="commentsIcon" src="/favicon.ico"  alt="Fun"/>
+                          </div>: 
+                          <div><img className="commentsIcon" src="/favicon.ico"  alt="Fun"/></div>  }     
+                                   
+                      </div>
+                      ) :
+                       ''}
                   </div>
-                  {/* {this.post = this.state.posts[i]} */}
                   <NewComment post={{...this.state.posts[i]}} index={i} updatePost={this.updatePost} />
-                  {/* <Accordion>
-                  // this.post this.state.posts[i] , this,updatePost(_id , index)
-
-                    <Card>
-                      <Card.Header>
-                        <Accordion.Toggle as={Button} className="comments" variant="link" eventKey="0">
-                          Add Comment <i className="fa fa-comments"></i>
-                        </Accordion.Toggle>
-                      </Card.Header>
-                      <Accordion.Collapse eventKey="0">
-                        <Card.Body>
-                          <input type="text" onChange={(e) => { this.singleComment.comment = e.target.value; }}></input>
-                          <button onClick={() => {
-                            this.post = this.state.posts[i]
-                            this.post.comments.push({
-                              comentor: localStorage.name, body: this.singleComment.comment,
-                              date: new Date().toDateString(), id: localStorage.id
-                            });
-                            this.updatePost(p._id, i)
-                          }}>Add
-                                </button>
-                        </Card.Body>
-                      </Accordion.Collapse>
-                    </Card>
-                  </Accordion> */}
                 </div>
               ))}
             </div>
           </div>
-          {/* <MainCarusel /> */}
-        </Container>
+        {/* </Container> */}
       </div>
     );
   }
@@ -190,7 +192,7 @@ class Main extends Component {
     const AuthStr = "Bearer " + localStorage.token;
     axios.get("/posts", { headers: { Authorization: AuthStr } })
       .then(res => {
-        this.setState({ posts: res.data });
+        this.setState({ posts: res.data  });
       })
       .catch(error => {
         console.log(error);

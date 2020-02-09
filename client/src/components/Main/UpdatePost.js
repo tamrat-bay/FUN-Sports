@@ -3,9 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 export default class UpdatePost extends Component {
-
-    // props.post = { name: localStorage.name, subject: "", content: "" ,email:localStorage.email};
-
     render() {
         console.log(this.props.post);
         
@@ -40,7 +37,6 @@ export default class UpdatePost extends Component {
 
                 <Button
                   type="submit"
-                  href="/Main"
                   onClick={() => {
                     this.props.updatePost(this.props.post._id,this.props.post.index)}}
                 >

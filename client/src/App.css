@@ -2,18 +2,35 @@ html ,body{
   margin: 0;
   padding: 0;
 }
-.userWelcome{
-  color: #15fc9c;
+.guestWelcome{
+  color: #dfdfdf;
   text-shadow: 1px 2px #000000;
   letter-spacing: 2px;
   font-size: 1.02em;
   font-family: inherit;
   text-transform: capitalize;
   margin: 0;
-  /* position: relative;
-  left: 20%; */
 }
-
+.userWelcome{
+  color: #ffed48;
+  text-shadow: 1px 2px #000000;
+  letter-spacing: 2px;
+  font-size: 1.02em;
+  font-family: inherit;
+  text-transform: capitalize;
+  margin: 0;
+  vertical-align: -webkit-baseline-middle;
+}
+.avatar{
+  width: 70px;
+  border: 1px solid whitesmoke;
+  border-radius: 13px;
+  max-height: 50px;
+}
+.profileImg{
+border-radius: 8px;
+box-shadow: 3px 3px 5px;
+}
 /* .App > a {
   padding: 10px 20px;
   margin: 44px;

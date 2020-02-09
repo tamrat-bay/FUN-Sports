@@ -21,3 +21,12 @@
     /* background-attachment: fixed; */
     color: white;
 }
+.alert-warning {
+    color: #856404;
+    background-color: #f4db8ef2;
+    border-color: #ffeeba;
+    width: 60%;
+    font-size: 1.1em;
+    text-align: center;
+    margin: 0 auto;
+}

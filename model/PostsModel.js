@@ -15,6 +15,9 @@ PostSchema = new mongoose.Schema({
     img:{
         type:String
     },
+    userImage:{
+        type:String
+    },
     comments:{
         type:Array
     },

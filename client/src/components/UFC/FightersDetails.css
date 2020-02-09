@@ -6,6 +6,7 @@
     position: fixed;
     top: 8%;
     box-sizing: border-box;
+    background-color: #6e6e6ed9;
 }
 .FightersDetails h1 , h3{
 text-align: left;
@@ -60,6 +61,3 @@ text-align: left;
     color: #212529;
 }
 
-.FightersDetails {
-    background-color: rgba(0,0,0,0.95);
-}
