@@ -4,6 +4,8 @@ import './Ufc.css'
 import Fighter from './Fighter';
 import fightersList from './FightersList';
 import FightersDetails from './FightersDetails';
+import Nav from 'react-bootstrap/Nav';
+
 
 export default class Ufc extends Component {
     state = {fighterData:false, singleFighterData:{},fighters:[],fightersDisplay:false, loading: ''}
@@ -49,13 +51,40 @@ export default class Ufc extends Component {
 
                 <h1>UFC</h1>
                 <div className='buttons'>
-                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Heavyweight</button>
+                    {/* <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Heavyweight</button>
                     <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightheavyweight</button>
                     <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Middleweight</button>
                     <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightweight</button>
                     <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Featherweight</button>
                     <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Bantamweight</button>
-                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Flyweight</button>
+                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Flyweight</button> */}
+
+                    <Nav defaultActiveKey="/home" as="ul">
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} href=""> Heavyweight</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} eventKey="link-1">Lightheavyweight</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} eventKey="link-2">Middleweight</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} eventKey="link-3">Lightweight</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} eventKey="link-3">Featherweight</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} eventKey="link-4">Bantamweight</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} eventKey="link-5">Flyweight</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link eventKey="link-6"></Nav.Link>
+                    </Nav.Item>
+                </Nav> 
                 </div>
                 
 

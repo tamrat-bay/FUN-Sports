@@ -7,7 +7,7 @@ export default class NewPost extends Component {
     // props.post = { name: localStorage.name, subject: "", content: "" ,email:localStorage.email};
 
     render() {
-      console.log(this.props, 'this.props');
+      console.log(this.props.post,' Inside new post');
       
         return (
             <div className="post">
@@ -39,7 +39,7 @@ export default class NewPost extends Component {
 
                 <Button
                   type="submit"
-                  href="/Main"
+                  // href="/Main"
                   onClick={() => {
                     this.props.newPost()}}
                 >

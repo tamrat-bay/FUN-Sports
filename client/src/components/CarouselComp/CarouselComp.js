@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
-import Carousel from 'react-bootstrap/Carousel'
+import Carousel from 'react-bootstrap/Carousel';
+import './CarouselComp.css';
 
 export default class CarouselComp extends Component {
 
@@ -15,8 +16,8 @@ export default class CarouselComp extends Component {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          {/* <h3>Welcome To UFC Page</h3> */}
+          <p classname='p-slider'>Welcome To UFC Page</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -27,8 +28,8 @@ export default class CarouselComp extends Component {
         />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          {/* <h3>Second slide label</h3> */}
+          <p classname='p-slider'>Here you can find all information about your favorite fighers</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -39,8 +40,8 @@ export default class CarouselComp extends Component {
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          {/* <h3>Third slide label</h3> */}
+          <p classname='p-slider'>Including fighters records history evants and much more </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -50,8 +51,8 @@ export default class CarouselComp extends Component {
           alt="Tony"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          {/* <h3>First slide label</h3> */}
+          <p classname='p-slider'>Sing up and tell us your thought!</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

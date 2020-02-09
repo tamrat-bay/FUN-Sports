@@ -18,7 +18,8 @@ class Main extends Component {
     updateFlag: false
   };
 
-  post = { name:localStorage.name,
+  post = { 
+    name:localStorage.name,
      subject: "",
      img: '',
      content: "",
@@ -29,14 +30,15 @@ class Main extends Component {
      };
 
   newPost = () => {
-    this.post.date = new Date().toDateString();
+    console.log(this.post,'Post to server');
+    
     const AuthStr = "Bearer " + localStorage.token;
     axios.post("/posts", this.post, { headers: { Authorization: AuthStr } })
       .then(res => {
         if (res.status === 201) {
           let tmp = [...this.state.posts];
-          tmp.push(this.post);
-          this.setState({ posts: tmp });
+          tmp.push(res.data);
+          this.setState({ posts: tmp , postFlag:false});
         }
       })
       .catch(error => {
@@ -63,8 +65,7 @@ class Main extends Component {
   updatePost = (id, index) => {
     const AuthStr = "Bearer " + localStorage.token;
     this.post = this.state.posts[index]
- console.log(this.post , index);
- 
+    // console.log(this.post , index);
     // this.post.name = localStorage.name; this.post.email = localStorage.email;
     axios.put(`/posts/${id}`, this.post, { headers: { Authorization: AuthStr } })
       .then(res => {
@@ -95,6 +96,8 @@ class Main extends Component {
   }
 
   render() {
+    // console.log(this.post,'Post insde main');
+    
     return (
       <div className="Main">
         <Container>
@@ -147,7 +150,7 @@ class Main extends Component {
                       </div>) : ''}
                   </div>
                   {/* {this.post = this.state.posts[i]} */}
-                  <NewComment post={this.post = this.state.posts[i]} index={i} updatePost={this.updatePost} />
+                  <NewComment post={{...this.state.posts[i]}} index={i} updatePost={this.updatePost} />
                   {/* <Accordion>
                   // this.post this.state.posts[i] , this,updatePost(_id , index)
 

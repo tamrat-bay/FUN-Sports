@@ -24,3 +24,24 @@
     justify-content: space-around;
     align-items: center;
 }
+
+@media only screen and (max-width: 1100px)
+{
+    .Fighter{
+        width: 33%;
+    }
+}
+
+@media only screen and (max-width: 890px)
+{
+    .Fighter{
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 660px)
+{
+    .Fighter{
+        width: 95%;
+    }
+}
