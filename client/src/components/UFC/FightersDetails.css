@@ -6,7 +6,7 @@
     position: fixed;
     top: 8%;
     box-sizing: border-box;
-    background-color: #6e6e6ed9;
+    background-color: #272727f1;
 }
 .FightersDetails h1 , h3{
 text-align: left;
@@ -61,3 +61,24 @@ text-align: left;
     color: #212529;
 }
 
+@media only screen and (max-width: 1100px)
+{
+    p {font-size: 85%}
+    h1 {font-size: 200%}
+    h4 {font-size: 140%}
+}
+
+@media only screen and (max-width: 900px)
+{
+    p {font-size: 80%}
+    h1 {font-size: 185%}
+    h4 {font-size: 125%}
+}
+
+@media only screen and (max-width: 750px)
+{
+    p {font-size: 70%}
+    h1 {font-size: 170%}
+    h4 {font-size: 110%}
+    .FightersDetails_img {display: none;}
+}

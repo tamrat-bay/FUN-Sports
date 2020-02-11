@@ -17,7 +17,7 @@ class Main extends Component {
   };
 
   post = { 
-    name:localStorage.name,
+    name: localStorage.name,
      subject: "",
      img: '',
      content: "",
@@ -35,8 +35,8 @@ class Main extends Component {
     axios.post("/posts", this.post, { headers: { Authorization: AuthStr } })
       .then(res => {
         if (res.status === 201) {
-          let tmp = [...this.state.posts];
-          tmp.push(res.data);
+          let tmp = [...this.state.posts]; // array of all the post
+          tmp.push(res.data); // current user detail & comment
           this.setState({ posts: tmp , postFlag:false});
         }
       })
@@ -114,21 +114,15 @@ if (localStorage.length < 4) {
             <h1>Fun - Sports</h1>
 
             <div  className="Main_writePost">
-            <button onClick={() =>this.setState({ postFlag: true })}>
-             Start Post
-             </button>
-             </div> 
+              <button onClick={() => this.setState({ postFlag: true })}>Start Post</button>
+            </div> 
 
             {this.state.postFlag ? (<NewPost newPost={this.newPost} post={this.post} 
              cancel={() => this.setState({postFlag:false})} />
-            ) : (
-                ""
-              )}
+            ) : ("")}
             {this.state.updateFlag ? (<UpdatePost updatePost={this.updatePost} post={this.post}
              cancel={() => this.setState({updateFlag: false})} />
-            ) : (
-                ""
-              )}
+            ) : ("")}
             <div className="Main_posts">
               {this.state.posts.map((p, i) => (
                 <div className="Main_posts_singlePost" key={i}>
@@ -143,7 +137,7 @@ if (localStorage.length < 4) {
                     {p.email === localStorage.email ? (  
                      <DropdownDeleteUpdate updateHandler={() =>
                        {this.setState({ updateFlag: true });
-                        this.post = this.state.posts[i];
+                        this.post = this.state.posts[i]; // wanted current comment
                         this.post.index = i;}} 
                         deleteHandler={() =>
                        {this.deletePost(p._id, i);}}/>

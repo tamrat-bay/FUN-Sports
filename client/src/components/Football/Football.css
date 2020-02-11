@@ -8,6 +8,15 @@
 
 .football > button {
     border-radius: 24px;
+    padding: 8px 25px;
+    background-color: rgb(90, 199, 90);
+    border: solid 1px rgb(90, 199, 90);
+}
+
+.football > button:hover {
+    background-color: rgb(68, 173, 68);
+    border: solid 1px rgb(68, 173, 68);
+    transition: .2s;
 }
 
 .video-div {
@@ -33,6 +42,11 @@
     background-color: #D6D6D624;
     border-radius: 6px;
     box-shadow: 4px 6px 5px black;
+}
+
+.btn {
+    border-radius: 20px;
+    padding: 8px 20px;
 }
 
 

@@ -8,9 +8,9 @@ class Homepage extends Component {
             <div className="Homepage frame">
                 <div className='images'>
                     <p className='welcome-para'> 
-                        welcome to fun-sport. here you can get the best coverage of your favourite sports:
-                        football, UFC and NBA. here you can find football highlights, UFC fighers infotmation 
-                        and NBA schedule. sign up and share your opinion with us.
+                        welcome to FUN-sports. Here you can get the best coverage of your favourite sports:
+                        football, UFC and NBA. You can find football highlights, UFC fighers information 
+                        and NBA schedule. Sign up and share your opinion with us.
                     </p>
                     <img className='fun-logo' src='img/logodefault.png' alt="logo"/>
                     <div className='football-logo'>

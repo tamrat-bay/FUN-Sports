@@ -10,7 +10,7 @@ export default class FightersDetails extends Component {
                
                 <div className="FightersDetails_flex" >
                 <div className="FightersDetails_img" >
-                <img  src={`https://www.sherdog.com${data.image_url}`} alt={data.name} />
+                    <img className='ftr_img' src={`https://www.sherdog.com${data.image_url}`} alt={data.name} />
                 </div>
                 <div className="FightersDetails_Detailes">
                 <h1>{data.name} {data.nickname.length > 0 ? `(${data.nickname})`: ''}</h1>

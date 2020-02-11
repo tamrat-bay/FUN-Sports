@@ -8,7 +8,7 @@ import axios from 'axios';
 import Alert from 'react-bootstrap/Alert'
 
 class Login extends Component {
-    state = {user: localStorage,validationFlag:false}
+    state = {user: localStorage, validationFlag: false}
     
     loginData = {email:'', password:''}
 
@@ -29,7 +29,8 @@ class Login extends Component {
                 localStorage.image =response.data.image;
                 localStorage.token =response.data.token;
                 localStorage.guest = false;
-               this.setState({user: localStorage})
+               this.setState({user: localStorage});
+            //    console.log(localStorage);
                this.props.history.push("/Main");
                this.props.loginHandler(true)
             }else{
@@ -50,8 +51,8 @@ class Login extends Component {
                         Please try again. 
                         <p>Make sure user Email and Password are correct</p>
                         <p>
-                       <Alert.Link >CLick here to close this window</Alert.Link>
-                      </p>
+                            <Alert.Link >Click here to close this window</Alert.Link>
+                        </p>
                     </Alert> : ''} 
                 <h2>Login</h2>
                 <Form onSubmit={(e)=>this.loginRequest(e)} className="Login_form">
