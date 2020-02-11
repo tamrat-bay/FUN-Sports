@@ -8,19 +8,19 @@ class TeamLogo extends Component {
     render() {
 
         let teams = [
-        'logo/ATL_logo.svg' ,'logo/BKN_logo.svg', 'logo/BOS_logo.svg', 'logo/CHA_logo.svg',
-        'logo/CHI_logo.svg', 'logo/CLE_logo.svg', 'logo/DAL_logo.svg' ,'logo/DEN_logo.svg',
-        'logo/DET_logo.svg', 'logo/GSW_logo.svg', 'logo/HOU_logo.svg', 'logo/IND_logo.svg', 'logo/LAC_logo.svg',
-        'logo/LAL_logo.svg', 'logo/MEM_logo.svg', 'logo/MIA_logo.svg', 'logo/MIL_logo.svg', 'logo/MIN_logo.svg',
-        'logo/NOP_logo.svg','logo/NYK_logo.svg', 'logo/OKC_logo.svg', 'logo/ORL_logo.svg',
-        'logo/PHI_logo.svg', 'logo/PHX_logo.svg', 'logo/POR_logo.svg', 'logo/SAC_logo.svg', 'logo/SAS_logo.svg',
-        'logo/TOR_logo.svg', 'logo/UTA_logo.svg', 'logo/WAS_logo.svg'
+        'img/nbateamslogo/ATL_logo.svg' ,'img/nbateamslogo/BKN_logo.svg', 'img/nbateamslogo/BOS_logo.svg', 'img/nbateamslogo/CHA_logo.svg',
+        'img/nbateamslogo/CHI_logo.svg', 'img/nbateamslogo/CLE_logo.svg', 'img/nbateamslogo/DAL_logo.svg' ,'img/nbateamslogo/DEN_logo.svg',
+        'img/nbateamslogo/DET_logo.svg', 'img/nbateamslogo/GSW_logo.svg', 'img/nbateamslogo/HOU_logo.svg', 'img/nbateamslogo/IND_logo.svg', 'img/nbateamslogo/LAC_logo.svg',
+        'img/nbateamslogo/LAL_logo.svg', 'img/nbateamslogo/MEM_logo.svg', 'img/nbateamslogo/MIA_logo.svg', 'img/nbateamslogo/MIL_logo.svg', 'img/nbateamslogo/MIN_logo.svg',
+        'img/nbateamslogo/NOP_logo.svg','img/nbateamslogo/NYK_logo.svg', 'img/nbateamslogo/OKC_logo.svg', 'img/nbateamslogo/ORL_logo.svg',
+        'img/nbateamslogo/PHI_logo.svg', 'img/nbateamslogo/PHX_logo.svg', 'img/nbateamslogo/POR_logo.svg', 'img/nbateamslogo/SAC_logo.svg', 'img/nbateamslogo/SAS_logo.svg',
+        'img/nbateamslogo/TOR_logo.svg', 'img/nbateamslogo/UTA_logo.svg', 'img/nbateamslogo/WAS_logo.svg'
         ];
 
         const getData = (evant) =>
         { 
             
-           let abb = evant.split('/')[1].split('_')[0];
+           let abb = evant.split('/')[2].split('_')[0];
            console.log(abb);
            let compareTeams = this.state.teamsData.filter(t => t.abbreviation === abb);
            compareTeams[0].img = evant;

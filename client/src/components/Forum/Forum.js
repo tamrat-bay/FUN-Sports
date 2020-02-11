@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
-import "./Main.css";
+import "./Forum.css";
 import NewPost from "./NewPost";
 import NewComment from "./NewComment";
 import UpdatePost from "./UpdatePost";
@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import DropdownDeleteUpdate from "./DropdownDeleteUpdate";
 
 
-class Main extends Component {
+class Forum extends Component {
   state = {
     posts: [],
     postFlag: false,
@@ -96,8 +96,8 @@ class Main extends Component {
 
   render() {
 if (localStorage.length < 4) {
-  return <div  className="Main">
-    <div className="Main_guest">
+  return <div  className="Forum">
+    <div className="Forum_guest">
     <h1 >This page is saved for members Only</h1>
     <h1 >Please Signup or Login to join our community</h1>
     <div>
@@ -108,12 +108,12 @@ if (localStorage.length < 4) {
   </div>
 }    
     return (
-      <div className="Main">
+      <div className="Forum">
         {/* <Container> */}
-          <div className="Main_forum">
+          <div className="Forum_forum">
             <h1>Fun - Sports</h1>
 
-            <div  className="Main_writePost">
+            <div  className="Forum_writePost">
               <button onClick={() => this.setState({ postFlag: true })}>Start Post</button>
             </div> 
 
@@ -123,11 +123,11 @@ if (localStorage.length < 4) {
             {this.state.updateFlag ? (<UpdatePost updatePost={this.updatePost} post={this.post}
              cancel={() => this.setState({updateFlag: false})} />
             ) : ("")}
-            <div className="Main_posts">
+            <div className="Forum_posts">
               {this.state.posts.map((p, i) => (
-                <div className="Main_posts_singlePost" key={i}>
+                <div className="Forum_posts_singlePost" key={i}>
 
-                  <div className="Main_posts_userImage">
+                  <div className="Forum_posts_userImage">
 
                     {p.userImage ? <img  src={p.userImage} alt=" user"/> :
                      <img src="img/imagelessuser.png" alt=" user"/> }               
@@ -162,7 +162,7 @@ if (localStorage.length < 4) {
                         {c.id === localStorage.id ?  <div className="deleteCommnet"> <i className="fa fa-trash" onClick={() =>{
                           this.post = this.state.posts[i];                       
                           this.post.index = i; this.deleteComment(j)
-                          }}> Delete 
+                          }}> 
                           </i>
                             <img className="commentsIcon" src="/favicon.ico"  alt="Fun"/>
                           </div>: 
@@ -194,4 +194,4 @@ if (localStorage.length < 4) {
   }
 }
 
-export default Main;
+export default Forum;

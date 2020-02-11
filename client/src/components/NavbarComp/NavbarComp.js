@@ -14,7 +14,7 @@ render() {
                           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                           <Navbar.Collapse id="responsive-navbar-nav">
                               <Nav className="mr-auto">
-                              <Nav.Link href="/Main" >Home</Nav.Link>
+                              <Nav.Link href="/Forum" >Forum</Nav.Link>
                               <Nav.Link href="/Football">Football</Nav.Link>
                               <Nav.Link href="/NBA">NBA</Nav.Link>
                               <Nav.Link href="/UFC">UFC</Nav.Link>
@@ -39,7 +39,7 @@ render() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav className="mr-auto">
-                        <Nav.Link href="/Main">Main Page</Nav.Link>
+                        <Nav.Link href="/Forum">Forum</Nav.Link>
                         <Nav.Link href="/Football">Football</Nav.Link>
                         <Nav.Link href="/NBA">NBA</Nav.Link>
                         <Nav.Link href="/UFC">UFC</Nav.Link>
