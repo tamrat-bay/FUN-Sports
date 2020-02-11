@@ -31,7 +31,7 @@ class Login extends Component {
                 localStorage.guest = false;
                this.setState({user: localStorage});
             //    console.log(localStorage);
-               this.props.history.push("/Main");
+               this.props.history.push("/Forum");
                this.props.loginHandler(true)
             }else{
                 this.setState({validationFlag:true})      
