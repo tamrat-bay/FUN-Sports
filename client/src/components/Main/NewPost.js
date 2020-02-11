@@ -40,20 +40,9 @@ export default class NewPost extends Component {
                   rows="3"
                 />
 
-                <Button
-                  type="submit"
-                  // href="/Main"
-                  onClick={() => {
-                    this.props.newPost()}}
-                >
-                  Add Post
-                </Button>
-                <Button
-                  onClick={() => {
-                    this.props.cancel()}}
-                >
-                  Cancel
-                </Button>
+                <Button type="submit" onClick={() => {this.props.newPost()}}>Add Post</Button>
+
+                <Button onClick={() => {this.props.cancel()}}>Cancel </Button>
               </Form.Group>
             </Form>
           </div>

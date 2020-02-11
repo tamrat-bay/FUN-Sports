@@ -83,7 +83,7 @@
 @media only screen and (max-width: 650px)
 {
     .welcome-para {
-      font-size: 85%;
+      /* font-size: 85%; */
       padding-top: 15px;
     }
     .fun-logo {

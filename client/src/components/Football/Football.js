@@ -4,6 +4,7 @@ import './Football.css';
 import Spinner from 'react-bootstrap/Spinner';
 
 
+
 class Football extends Component 
 {
     state = {
@@ -35,14 +36,15 @@ class Football extends Component
         {
             return (
                 <div className='football'>
-                <h1 className='football-title'>Football Highlights</h1>
-                <button onClick={(e) => displayLeague(e)}>ENGLAND</button>
-                <button onClick={(e) => displayLeague(e)}>SPAIN</button>
-                <button onClick={(e) => displayLeague(e)}>ITALY</button>
-                <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
-                <button onClick={(e) => displayLeague(e)}>FRANCE</button>
-                <button onClick={(e) => displayLeague(e)}>GERMANY</button>
-                <button onClick={() => this.setState({returnFlag: false})}>Return</button>
+                    <h1 className='football-title'>Football Highlights</h1>
+                    <button className='eng-btn' onClick={(e) => displayLeague(e)}>ENGLAND</button>
+                    <button onClick={(e) => displayLeague(e)}>SPAIN</button>
+                    <button onClick={(e) => displayLeague(e)}>ITALY</button>
+                    <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
+                    <button onClick={(e) => displayLeague(e)}>FRANCE</button>
+                    <button onClick={(e) => displayLeague(e)}>GERMANY</button>
+                    <button onClick={() => this.setState({returnFlag: false})}>Return</button>
+                    
                 
                 <div className='main-div'>
                          
@@ -79,7 +81,7 @@ class Football extends Component
                 <button onClick={(e) => displayLeague(e)}>FRANCE</button>
                 <button onClick={(e) => displayLeague(e)}>GERMANY</button>
                 <button onClick={() => this.setState({returnFlag: false})}>Return</button>
-
+                
 
                 <div className='main-div'>
                 {/* <span className='loading-spinner'>{this.state.loading}</span> */}

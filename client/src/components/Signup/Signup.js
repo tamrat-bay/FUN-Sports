@@ -10,6 +10,7 @@ import { Redirect } from "react-router-dom";
 
 class Signup extends Component {
   state = {signInFlag: false, validationFlag:false}
+
   signUpData = {
     name:'',
     email:'',
@@ -18,9 +19,10 @@ class Signup extends Component {
     image:'' //!add anonymous pic src as default
 }
   getInputsData = (e)=>{
-    this.signUpData[e.target.name] = e.target.value
+    this.signUpData[e.target.name] = e.target.value; // get every input data (w onChange)
     if(e.target.name === 'image') return this.signUpData[e.target.name] = e.target.files[0];
   }
+
   signUpRequest = (e)=>{
 
     let formData = new FormData();
@@ -59,10 +61,10 @@ class Signup extends Component {
               {this.state.validationFlag ?
                    <Alert variant='warning' onClick={()=>this.setState({validationFlag:false})}>  
                         Please try again. Make sure user name doesn't contains blank spaces,
-                        Make sure user contains only alphanumeric symbols
+                        make sure user contains only alphanumeric symbols
                         and that the passwords match   
                         <p>
-                       <Alert.Link >CLick here to close this window</Alert.Link>
+                       <Alert.Link >Click here to close this window</Alert.Link>
                       </p>
                     </Alert> : ''} 
            

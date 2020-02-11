@@ -16,11 +16,6 @@
     width: 60%;
     margin: 0 auto;
 }
-input, button {
-    margin: 10px;
-    padding: 10px 40px;
-    border-radius: 20px;
-}
 
 .Login button {
     cursor: pointer;
