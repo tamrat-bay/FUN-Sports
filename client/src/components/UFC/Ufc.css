@@ -47,6 +47,7 @@ display: contents;
     /* background-color: black; */
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://cdn.wallpapersafari.com/73/83/snV0ix.jpg);
     background-attachment: fixed;
+    background-size: cover;
 
 }
 
