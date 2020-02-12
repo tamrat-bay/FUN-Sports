@@ -118,8 +118,8 @@ class Signup extends Component {
 
               <Form.Group as={Row}>
                 <Col sm={{ span: 10, offset: 2 }}>
-                  <Button type="submit">Sign Up</Button>
-                  <Button name="signUp" onClick={this.props.returnToHome} >Return</Button>
+                  <Button className='buttons' type="submit">Sign Up</Button>
+                  <Button className='buttons' name="signUp" onClick={this.props.returnToHome} >Return</Button>
                 </Col>
               </Form.Group>
             </Form>

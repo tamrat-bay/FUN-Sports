@@ -52,7 +52,7 @@ export default function Footer() {
             </div>
             <div className="row">
                 <div className="col-md-12 copy">
-                    <p className="text-center">&copy; Copyright 2020 - Fun - Sports.  All rights reserved.</p>
+                    <p className="text-center">&copy; Copyright 2020 - FUN - Sports.  All rights reserved.</p>
                 </div>
             </div>
         </div>
