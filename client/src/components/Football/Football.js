@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './Football.css';
 import Spinner from 'react-bootstrap/Spinner';
+import Nav from 'react-bootstrap/Nav';
 
 
 
@@ -37,13 +38,39 @@ class Football extends Component
             return (
                 <div className='football'>
                     <h1 className='football-title'>Football Highlights</h1>
-                    <button className='eng-btn' onClick={(e) => displayLeague(e)}>ENGLAND</button>
-                    <button onClick={(e) => displayLeague(e)}>SPAIN</button>
-                    <button onClick={(e) => displayLeague(e)}>ITALY</button>
-                    <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
-                    <button onClick={(e) => displayLeague(e)}>FRANCE</button>
-                    <button onClick={(e) => displayLeague(e)}>GERMANY</button>
-                    <button onClick={() => this.setState({returnFlag: false})}>Return</button>
+                    <div className='country-buttons'>
+                        <button onClick={(e) => displayLeague(e)}>ENGLAND</button>
+                        <button onClick={(e) => displayLeague(e)}>SPAIN</button>
+                        <button onClick={(e) => displayLeague(e)}>ITALY</button>
+                        <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
+                        <button onClick={(e) => displayLeague(e)}>FRANCE</button>
+                        <button onClick={(e) => displayLeague(e)}>GERMANY</button>
+                        <button onClick={() => this.setState({returnFlag: false})}>Return</button>
+                    </div>
+
+                    {/* <Nav defaultActiveKey="/home" as="ul">
+                        <Nav.Item as="li">
+                            <Nav.Link className='country-link' onClick={(e) => displayLeague(e)}>ENGLAND</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={(e) => displayLeague(e)}>SPAIN</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={(e) => displayLeague(e)}>ITALY</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={(e) => displayLeague(e)}>PORTUGAL</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={(e) => displayLeague(e)}>FRANCE</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={(e) => displayLeague(e)}>GERMANY</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={() => this.setState({returnFlag: false})}>Return</Nav.Link>
+                        </Nav.Item>
+                    </Nav>  */}
                     
                 
                 <div className='main-div'>
@@ -74,14 +101,40 @@ class Football extends Component
         return (
             <div className='football'>
                 <h1 className='football-title'>Football Highlights</h1>
-                <button onClick={(e) => displayLeague(e)}>ENGLAND</button>
-                <button onClick={(e) => displayLeague(e)}>SPAIN</button>
-                <button onClick={(e) => displayLeague(e)}>ITALY</button>
-                <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
-                <button onClick={(e) => displayLeague(e)}>FRANCE</button>
-                <button onClick={(e) => displayLeague(e)}>GERMANY</button>
-                <button onClick={() => this.setState({returnFlag: false})}>Return</button>
+                <div className='country-buttons'>
+                    <button onClick={(e) => displayLeague(e)}>ENGLAND</button>
+                    <button onClick={(e) => displayLeague(e)}>SPAIN</button>
+                    <button onClick={(e) => displayLeague(e)}>ITALY</button>
+                    <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
+                    <button onClick={(e) => displayLeague(e)}>FRANCE</button>
+                    <button onClick={(e) => displayLeague(e)}>GERMANY</button>
+                    <button onClick={() => this.setState({returnFlag: false})}>Return</button>
+                </div>
                 
+
+                {/* <Nav defaultActiveKey="/home" as="ul">
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={(e) => displayLeague(e)}>ENGLAND</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={(e) => displayLeague(e)}>SPAIN</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={(e) => displayLeague(e)}>ITALY</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={(e) => displayLeague(e)}>PORTUGAL</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={(e) => displayLeague(e)}>FRANCE</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={(e) => displayLeague(e)}>GERMANY</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Nav.Link onClick={() => this.setState({returnFlag: false})}>Return</Nav.Link>
+                        </Nav.Item>
+                    </Nav>  */}
 
                 <div className='main-div'>
                 {/* <span className='loading-spinner'>{this.state.loading}</span> */}
