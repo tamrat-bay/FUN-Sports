@@ -92,10 +92,10 @@ class Forum extends Component {
   }
 
   render() {
-if (localStorage.length < 4) {
+if (localStorage.length < 4) { console.log(localStorage.length);
   return <div  className="Forum">
     <div className="Forum_guest">
-    <h1 >This page is saved for members Only</h1>
+    <h1 >This page is saved for members only</h1>
     <h1 >Please Signup or Login to join our community</h1>
     <div>
     <Link to="/signup">Signup</Link>

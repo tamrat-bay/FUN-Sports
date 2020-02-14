@@ -5,7 +5,6 @@ import Spinner from 'react-bootstrap/Spinner';
 import Nav from 'react-bootstrap/Nav';
 
 
-
 class Football extends Component 
 {
     state = {
@@ -22,15 +21,11 @@ class Football extends Component
 
         const displayLeague = (e) =>
         {           
-        
 
             let games =  getCountry(e.target.innerText, this.state.competitionGamesVideo);
-            
+        
             this.setState({choosenGames: games});
-            console.log(this.state.choosenGames, 'games');
-            console.log(this.state.choosenGames.length, 'games length');
-            console.log(e.target.innerText);
-            
+
         }
  
         if(this.state.returnFlag)
@@ -38,13 +33,6 @@ class Football extends Component
             return (
                 <div className='football'>
                     <h1 className='football-title'>Football Highlights</h1>
-                    {/* <button className='eng-btn' onClick={(e) => displayLeague(e)}>ENGLAND</button>
-                    <button onClick={(e) => displayLeague(e)}>SPAIN</button>
-                    <button onClick={(e) => displayLeague(e)}>ITALY</button>
-                    <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
-                    <button onClick={(e) => displayLeague(e)}>FRANCE</button>
-                    <button onClick={(e) => displayLeague(e)}>GERMANY</button>
-                    <button onClick={() => this.setState({returnFlag: false})}>Return</button> */}
                     <Nav className="Football_nav" as="ul">
                     <Nav.Item as="li">
                         <Nav.Link onClick={(e) => displayLeague(e)} href=""> SPAIN</Nav.Link>
@@ -94,14 +82,6 @@ class Football extends Component
         return (
             <div className='football'>
                 <h1 className='football-title'>Football Highlights</h1>
-                {/* <button onClick={(e) => displayLeague(e)}>ENGLAND</button>
-                <button onClick={(e) => displayLeague(e)}>SPAIN</button>
-                <button onClick={(e) => displayLeague(e)}>ITALY</button>
-                <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
-                <button onClick={(e) => displayLeague(e)}>FRANCE</button>
-                <button onClick={(e) => displayLeague(e)}>GERMANY</button>
-                <button onClick={() => this.setState({returnFlag: false})}>Return</button> */}
-
            <Nav className="Football_nav" as="ul">
                     <Nav.Item as="li">
                         <Nav.Link onClick={(e) => displayLeague(e)} href=""> SPAIN</Nav.Link>
@@ -125,7 +105,7 @@ class Football extends Component
                 
 
                 <div className='main-div'>
-                {/* <span className='loading-spinner'>{this.state.loading}</span> */}
+                
               {  this.state.competitionGamesVideo.map((g, i) => {
                     if(i < 6)
                     {

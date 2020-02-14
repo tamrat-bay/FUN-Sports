@@ -73,8 +73,8 @@ class Login extends Component {
                     </Form.Group>
                     <Form.Group as={Row}>
                         <Col sm={{span: 10, offset: 2 }}>
-                        <Button type="submit" >Login</Button>
-                        <Button name="login" href="/">Return</Button>
+                        <Button className='buttons' type="submit" >Login</Button>
+                        <Button className='buttons' name="login" href="/">Return</Button>
                         </Col>
                     </Form.Group>
                     </Form>

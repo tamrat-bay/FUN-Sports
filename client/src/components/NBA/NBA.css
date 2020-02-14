@@ -11,7 +11,7 @@
 .date {
     font-weight: bold;
     font-size: 105%;
-    color: #1570B5;
+    color: rgb(16, 129, 214);
 }
 
 .date-time {
@@ -43,7 +43,7 @@
 }
 
 .teams > p {
-    color: #1570B5;
+    color: rgb(16, 129, 214);
     font-weight: bold;
 }
 
