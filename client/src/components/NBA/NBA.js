@@ -13,7 +13,7 @@ class NBA extends Component {
         return (
             <div className='div-pic'>
                 <TeamLogo/>
-                {/* {this.state.loading} */}
+                {this.state.loading}
                 <h1 className='nba-title'>NBA schedule</h1>
                 <Table striped bordered hover className='schedule-table'>
                     <thead>
@@ -54,7 +54,7 @@ class NBA extends Component {
     componentDidMount() 
     {
         this.setState({loading: <Spinner animation="border" role="status">
-        <span className="sr-only">Loading...</span>
+        
         </Spinner>});
         axios.get('https://raw.githubusercontent.com/mtthai/nba-pbp-video/master/schedule.json')
       .then((res)=> {
@@ -80,7 +80,7 @@ class NBA extends Component {
 
             let todayGames = currentMonthGames.filter((g, i) => g.gdte.split("-")[2] === todayDay.toString());
 
-            let timeTeamsArena = []; // team1 = [];
+            let timeTeamsArena = []; 
             for(let i=0; i<todayGames.length; i++)
             {
                 let ttaObj = 
