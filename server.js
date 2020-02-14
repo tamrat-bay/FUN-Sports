@@ -1,40 +1,28 @@
-const express = require('express'),
-app = express(),
-UFC = require('./mod'),
-mongoose = require('mongoose'),
-port = process.env.PORT || 8080 ;
-users = require('./UsersModule');
-
+const express = require('express');
+const app = express();
+const UFC = require('./mod');
+const mongoose = require('mongoose');
+const port = process.env.PORT || 8080 ;
+const users = require('./UsersModule');
 app.use(express.json());
 const PostsHandler = require('./PostsHandler');
-// const axios = require('axios').default;
 
-// // axios.get('https://www.scorebat.com/video-api/v1/')
-// // .then((res)=> {
 //? DB Config 
 const db = require('./config/Keys').MongoURI;
 //? Connect to mongo
-mongoose.connect(db,{useNewUrlParser:true, useUnifiedTopology:true,useFindAndModify:false }).then(()=>console.log('MongoDB is Conenected...'))
+mongoose.connect(db,{useNewUrlParser:true, useUnifiedTopology:true,useFindAndModify:false })
+.then(()=>console.log('MongoDB is Conenected...'))
 .catch(err=>console.log(err));
 
-
 const path = require('path');
-
 const multer  = require('multer');
-
 const uploadDir = 'uploads';
-
 app.use(express.static(path.join(__dirname,uploadDir)));
-
-// console.log(path.join(__dirname,uploadDir));
 
 const Storage = multer.diskStorage({
     destination: 'uploads',
     filename :function (req,file,clb){
-        console.log(file.originalname,'original');
-        
         clb(null,Date.now()+file.originalname); 
-          console.log('finish func');
     }  
 });
 
@@ -42,61 +30,6 @@ const upload = multer({
     storage: Storage,
     limits : {fileSize:2000000}
 });
-
-// //  console.log(res.data);
-
-// //   })
-// //   .catch((error)=> {
-// //       console.log(error);
-// //   });
-
-//    let OldFootballGamesSchema = new mongoose.Schema({
-//         date:String,
-//         data:Array,
-//     });
-//     let OldFootBallGames = mongoose.model("OldFootBallGames",OldFootballGamesSchema)
-
-
-// if(new Date().getHours() === 18){
-
-// axios.get('https://www.scorebat.com/video-api/v1/')
-// .then((res)=> {
-
-//   let a =  OldFootBallGames.findOne((err,res)=>{
-//       if (err) {
-//           console.log(err);        
-//       }else{
-//           console.log(res,'this is res');
-//       }
-//   })
-//   console.log(a,'this is a');
-  
-//     // mongoose.connection.db.dropCollection('oldfootballgames', (err, result)=>
-//     //  {if (err) {console.log(err);}
-//     // else{
-//     //     console.log(result);
-        
-//     // }})
-        
-  
-
-// //!Add Games to db
-//      const oldGame = new OldFootBallGames({
-//           date:new Date().toDateString(),
-//           data:res.data
-//     });
-//     // oldGame.save()
-//     // .then(o=>console.log('games saved in db'))
-//     // .catch(err=> console.log(err))
-//   })
-
-//   .catch((error)=> {
-//       console.log(error);
-//   });
-// }
-// console.log(new Date().toDateString().split(" "));
-// console.log(new Date().getHours() === 15);
-
 
 
 

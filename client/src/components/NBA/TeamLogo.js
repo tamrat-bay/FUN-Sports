@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import './TeamLogo.css'
 import axios from 'axios';
-// import { MDBCloseIcon } from "mdbreact";
 
 class TeamLogo extends Component {
     state = {teamsData: [], info: false, singleTeamData: {}, loading: '', abb: ''}
     render() {
 
-        let teams = [
+        const teams = [
         'img/nbateamslogo/ATL_logo.svg' ,'img/nbateamslogo/BKN_logo.svg', 'img/nbateamslogo/BOS_logo.svg', 'img/nbateamslogo/CHA_logo.svg',
         'img/nbateamslogo/CHI_logo.svg', 'img/nbateamslogo/CLE_logo.svg', 'img/nbateamslogo/DAL_logo.svg' ,'img/nbateamslogo/DEN_logo.svg',
         'img/nbateamslogo/DET_logo.svg', 'img/nbateamslogo/GSW_logo.svg', 'img/nbateamslogo/HOU_logo.svg', 'img/nbateamslogo/IND_logo.svg', 'img/nbateamslogo/LAC_logo.svg',

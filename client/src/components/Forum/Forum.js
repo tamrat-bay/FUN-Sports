@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Container from "react-bootstrap/Container";
 import axios from "axios";
 import "./Forum.css";
 import NewPost from "./NewPost";
@@ -28,9 +27,7 @@ class Forum extends Component {
      date: new Date().toDateString()
      };
 
-  newPost = () => {
-    console.log(this.post,'Post to server');
-    
+  newPost = () => {    
     const AuthStr = "Bearer " + localStorage.token;
     axios.post("/posts", this.post, { headers: { Authorization: AuthStr } })
       .then(res => {
@@ -109,12 +106,11 @@ if (localStorage.length < 4) {
 }    
     return (
       <div className="Forum">
-        {/* <Container> */}
           <div className="Forum_forum">
             <h1>Fun - Sports</h1>
 
             <div  className="Forum_writePost">
-              <button onClick={() => this.setState({ postFlag: true })}>Start Post</button>
+              <button onClick={() => this.setState({ postFlag: true })}>New Post</button>
             </div> 
 
             {this.state.postFlag ? (<NewPost newPost={this.newPost} post={this.post} 
@@ -137,7 +133,7 @@ if (localStorage.length < 4) {
                     {p.email === localStorage.email ? (  
                      <DropdownDeleteUpdate updateHandler={() =>
                        {this.setState({ updateFlag: true });
-                        this.post = this.state.posts[i]; // wanted current comment
+                        this.post = this.state.posts[i];
                         this.post.index = i;}} 
                         deleteHandler={() =>
                        {this.deletePost(p._id, i);}}/>
@@ -164,9 +160,9 @@ if (localStorage.length < 4) {
                           this.post.index = i; this.deleteComment(j)
                           }}> 
                           </i>
-                            <img className="commentsIcon" src="/favicon.ico"  alt="Fun"/>
+                            <img className="commentsIcon" src="img/LogoOnly.svg"  alt="Fun"/>
                           </div>: 
-                          <div><img className="commentsIcon" src="/favicon.ico"  alt="Fun"/></div>  }     
+                          <div><img className="commentsIcon" src="img/LogoOnly.svg"  alt="Fun"/></div>  }     
                                    
                       </div>
                       ) :
@@ -177,7 +173,6 @@ if (localStorage.length < 4) {
               ))}
             </div>
           </div>
-        {/* </Container> */}
       </div>
     );
   }

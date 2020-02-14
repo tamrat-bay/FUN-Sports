@@ -31,12 +31,30 @@ html ,body{
 border-radius: 8px;
 box-shadow: 3px 3px 5px;
 }
-/* .App > a {
-  padding: 10px 20px;
-  margin: 44px;
-  background-color: lightgray;
-  border-radius: 25px;
-  text-decoration: none;
-  width: 30px;
-  color: black;
-} */
+.NavbarComp {
+  background-color: #000105bf!important;
+  height: 70px;
+}
+.Navlogo{
+  width: 25%;
+}
+a.navbar-brand {
+margin: 0;
+justify-content: center;
+display: flex;
+align-items: center;
+}
+a.nav-link {
+  color: rgba(255, 255, 255, 0.82);
+}
+a.nav-link:hover {
+  color: rgb(255, 255, 255);
+}
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+  background-color: #404144!important;
+  color: #fdfdfd;
+  z-index: 16;
+}

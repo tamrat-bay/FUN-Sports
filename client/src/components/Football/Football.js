@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './Football.css';
 import Spinner from 'react-bootstrap/Spinner';
+import Nav from 'react-bootstrap/Nav';
 
 
 
@@ -37,14 +38,33 @@ class Football extends Component
             return (
                 <div className='football'>
                     <h1 className='football-title'>Football Highlights</h1>
-                    <button className='eng-btn' onClick={(e) => displayLeague(e)}>ENGLAND</button>
+                    {/* <button className='eng-btn' onClick={(e) => displayLeague(e)}>ENGLAND</button>
                     <button onClick={(e) => displayLeague(e)}>SPAIN</button>
                     <button onClick={(e) => displayLeague(e)}>ITALY</button>
                     <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
                     <button onClick={(e) => displayLeague(e)}>FRANCE</button>
                     <button onClick={(e) => displayLeague(e)}>GERMANY</button>
-                    <button onClick={() => this.setState({returnFlag: false})}>Return</button>
-                    
+                    <button onClick={() => this.setState({returnFlag: false})}>Return</button> */}
+                    <Nav className="Football_nav" as="ul">
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) => displayLeague(e)} href=""> SPAIN</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) => displayLeague(e)} eventKey="link-1">ITALY</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) => displayLeague(e)} eventKey="link-2">PORTUGAL</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) => displayLeague(e)} eventKey="link-3">FRANCE</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) => displayLeague(e)} eventKey="link-3">GERMANY</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={() => this.setState({returnFlag: false})} eventKey="link-3">Return</Nav.Link>
+                    </Nav.Item>
+                </Nav> 
                 
                 <div className='main-div'>
                          
@@ -74,13 +94,34 @@ class Football extends Component
         return (
             <div className='football'>
                 <h1 className='football-title'>Football Highlights</h1>
-                <button onClick={(e) => displayLeague(e)}>ENGLAND</button>
+                {/* <button onClick={(e) => displayLeague(e)}>ENGLAND</button>
                 <button onClick={(e) => displayLeague(e)}>SPAIN</button>
                 <button onClick={(e) => displayLeague(e)}>ITALY</button>
                 <button onClick={(e) => displayLeague(e)}>PORTUGAL</button> 
                 <button onClick={(e) => displayLeague(e)}>FRANCE</button>
                 <button onClick={(e) => displayLeague(e)}>GERMANY</button>
-                <button onClick={() => this.setState({returnFlag: false})}>Return</button>
+                <button onClick={() => this.setState({returnFlag: false})}>Return</button> */}
+
+           <Nav className="Football_nav" as="ul">
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) => displayLeague(e)} href=""> SPAIN</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) => displayLeague(e)} eventKey="link-1">ITALY</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) => displayLeague(e)} eventKey="link-2">PORTUGAL</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) => displayLeague(e)} eventKey="link-3">FRANCE</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={(e) => displayLeague(e)} eventKey="link-3">GERMANY</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link onClick={() => this.setState({returnFlag: false})} eventKey="link-3">Return</Nav.Link>
+                    </Nav.Item>
+                </Nav> 
                 
 
                 <div className='main-div'>

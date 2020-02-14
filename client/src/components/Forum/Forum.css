@@ -1,78 +1,25 @@
-/* .Forum_iframe {
-    width: 100%;
-    height: 412px;
-    overflow: hidden;
-}
-
-.nba-games{
-    text-align: left;
-}
-.Forum{
-  min-height: 100vh;
-} */
-/* @keyframes tickerv {
-    0% {margin-top: 0;}
-    25% {margin-top: -26px;}
-    50% {margin-top: -52px;}
-    75% {margin-top: -78px;}
-    100% {margin-top: 0;}
-  }
-.Forum_tickerv-wrap {
-  box-sizing: content-box;
-  height: 82%;
-  overflow: hidden;
-  padding: 10px;
-  position: absolute;
-  top: 95px;
-  border-radius: 5px;
-  background-color: #0000003b;
-  } 
-.Forum_tickerv-wrap ul {
-    padding:0;
-    margin:0;
-    list-style-type: none;
-    animation-name: tickerv;
-    animation-duration:12s;
-    animation-iteration-count: infinite ;
-    animation-timing-function: cubic-bezier(1, 0, .5, 0);
-  }
-.Forum_tickerv-wrap ul:hover {
-    animation-play-state: paused;
-  }
-.Forum_tickerv-wrap ul li {
-    font-size:18px;
-    line-height: 26px
-  }
-
-.nba-Schedule, .football-vid {
-  font-weight: bold;
-  margin: 5% 0;
-  /* border-bottom: 1px solid; */
-  /* font-family: monospace; */
-  /* width: 93%; */
-  /* text-decoration: underline; */
-  /* letter-spacing: 0px; */
 .Forum{
     min-height: 100vh;
     background-color: #15202B;
     } 
 .Forum_forum{
-  margin: 0 auto;
+  margin: 0px  auto;
   color: white;
-  padding: 10px 10px;
-  border: 1px solid rgb(199, 199, 199);
+  padding: 80px 10px;
+  /* border: 1px solid rgb(199, 199, 199); */
   overflow: overlay;
   text-align: center;
-  width: 90%;
+  width: 75%;
 }
 .Forum_posts_singlePost{
-  border: .8px solid #a6a6a7c2;
+  border: 3px solid #15ac5973;
+  box-shadow: 4px 4px black;
   color: white;
   border-radius: 7px;
   width: 95%;
   text-align: center;
-  margin: 9px auto;
-  transition: all .3s;
+  margin: 10px auto;
+  transition: all .4s;
   position: relative;
 }
 .Forum_posts_singlePost:hover{
@@ -119,13 +66,16 @@
     margin: 0 auto;
   }
   .singleComment{
-    border-top: .1px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+    border-radius: 13px;
     background-color: #8d8d8d1f;
     display: flex;
     justify-content: space-between;
     padding: 12px 40px;
     align-items: center;
-    transition: all .3s;
+    transition: all .4s;
+    width: 95%;
+    margin: 0 auto;
   }
   .singleComment p{
     margin: 0;
@@ -135,16 +85,15 @@
   }
   .singleComment:hover{
     background-color: #7e8a9741;
-
+    transform: scale(1.03);
   }
 
   .Forum_posts_singlePost .card-header{
-    height: 50px;
     border-radius: 0;
     padding: 5px;
     margin-bottom: -1px;
-    background-color:#15202B;
-  }
+    background-color: #1e2730;
+    }
 
   .Forum_posts_singlePost .card button{
     border: .8px solid;
@@ -211,30 +160,40 @@
   margin: 0 0 40px 0;
 }
 .Forum_writePost{
-  border: 1px solid;
-  background-color: #1a193e;
-  width: 95%;
-  margin: auto;
+  border: 1px solid #15AC59;
+    width: 95%;
+    margin: auto;
+    transition: all .4s;
+    border-radius: 5px;
 }
+.Forum_writePost:hover{
+ background-color: #15AC59;
+}
+
 .Forum_writePost button{
-border: none;
-border-radius: 4px;
-background-color: #5f9ea0ab;
-height: 50px;  
-margin: 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #6161611c;
+  height: 50px;
+  margin: 4px;
+  width: 45%;
+  border: .5px solid #15AC59;
+  color: white;
+  font-size: 2em;
+  box-shadow: 1px 1px 3px black;
 }
 
 .NewComment .card-body{
-  background-color: #e5e5e5;
   border: none;
   outline: none;
-  background-color:#34495e2e;
+  background-color: #34495e;
   padding: 8px;
 }
 .NewComment .card-body input{
- width: 40%; 
- border-radius: 10px;
-
+  width: 40%;
+  height: 40px;
+  text-align: center;
+  border-radius: 10px;
 }
 .NewComment .card-body button{
   background-color: rgba(0, 0, 0, 0);
@@ -285,8 +244,13 @@ margin: 0;
   background-color: rgba(5, 3, 3, 0.308);
   border-radius: 10px;
 }
+ 
+.card{
+  border:  none;
+}
 
-/* Media Query */
+
+/* Media Query ____________________________________________________________________________________________________*/
 @media only screen and (max-width: 731px) {
 
 .Forum_forum{

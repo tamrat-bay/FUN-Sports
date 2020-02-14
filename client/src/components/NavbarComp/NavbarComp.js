@@ -9,8 +9,8 @@ export default class NavbarComp extends Component {
 render() {
     if (localStorage.length < 4) {
             return (
-                      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                          <Navbar.Brand href="/">FUN-Sports</Navbar.Brand>
+                      <Navbar collapseOnSelect expand="lg" className="NavbarComp" variant="dark">
+                          <Navbar.Brand href="/"> <img className="Navlogo" src="img/LogoOnly.svg" alt="logo" /> FUN-Sports</Navbar.Brand>
                           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                           <Navbar.Collapse id="responsive-navbar-nav">
                               <Nav className="mr-auto">
@@ -34,8 +34,8 @@ render() {
                           </Navbar>)
     }else{
         return (
-                    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand href="/">FUN-Sports</Navbar.Brand>
+                    <Navbar collapseOnSelect expand="lg" className="NavbarComp" variant="dark">
+                    <Navbar.Brand href="/"> <img className="Navlogo" src="img/LogoOnly.svg" alt="logo" /> FUN-Sports</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav className="mr-auto">

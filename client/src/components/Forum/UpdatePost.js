@@ -10,15 +10,17 @@ export default class UpdatePost extends Component {
             <div className="UpdatePost">
                 <h3>Update Post</h3>
             <Form onSubmit={e => e.preventDefault()}>
-              <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>Subject</Form.Label>
-                <Form.Control
-                  onChange={e => (this.props.post.subject = e.target.value)}
-                  type="text"
-                  defaultValue={this.props.post.subject}
-                  placeholder="UFC 246 / LAL vs " required min="2"
-                />
-              </Form.Group>
+
+            <Form.Group controlId="exampleForm.ControlSelect1">
+                      <Form.Label>Topic</Form.Label>
+                      <Form.Control as="select"  defaultValue = {this.props.post.subject }required onChange={e => (this.props.post.subject = e.target.value)}>
+                      <option disabled value="Choose" >Choose</option>
+                        <option>Football</option>
+                        <option>UFC</option>
+                        <option >NBA</option>
+                      </Form.Control>
+                    </Form.Group>
+                    
               <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Image</Form.Label>
                 <Form.Control

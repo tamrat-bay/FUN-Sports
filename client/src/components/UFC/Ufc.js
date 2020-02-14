@@ -42,17 +42,8 @@ export default class Ufc extends Component {
                 <CarouselComp img1='img/UFCImages/ConorVsCowboy.jpg' img4='img/UFCImages/Tony.jpg'
                     img2='img/UFCImages/Octagon.jpg' img3='img/UFCImages/NateDiaz.jpg' />   
 
-                <h1>UFC</h1>
-                <div className='buttons'>
-                    {/* <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Heavyweight</button>
-                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightheavyweight</button>
-                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Middleweight</button>
-                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Lightweight</button>
-                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Featherweight</button>
-                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Bantamweight</button>
-                    <button onClick={(e) =>  getFighterByDevision(e.target.innerText)}>Flyweight</button> */}
-
-                    <Nav defaultActiveKey="/home" as="ul">
+                <h1>UFC</h1>            
+                    <Nav className="Ufc_nav" as="ul">
                     <Nav.Item as="li">
                         <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} href=""> Heavyweight</Nav.Link>
                     </Nav.Item>
@@ -74,14 +65,8 @@ export default class Ufc extends Component {
                     <Nav.Item as="li">
                         <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} eventKey="link-5">Flyweight</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item as="li">
-                        <Nav.Link eventKey="link-6"></Nav.Link>
-                    </Nav.Item>
                 </Nav> 
-                </div>
                 
-
-
                 <div className="Ufc-fighters">
                 {!this.state.fightersDisplay ? this.state.fighters.map((f,i)=> i < 8 ? f : '') : this.state.fighters}
                 {this.state.fighterDataFlag ? <FightersDetails backToUfcPage={this.backToUfcPage} data={this.state.singleFighterData} name='' /> : '' }         

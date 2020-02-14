@@ -12,8 +12,6 @@ function registerHandler(req,res){
     const {name,email,password} = req.body;
     const image = req.file.filename;    
     let {error} = userValidation(req.body)
-    if (error) {console.log(error.details[0].message)
-    }
 if (error) return res.status(400).send(error.details[0].message);
     //?Validation Passed
     User.findOne({email:email})
@@ -73,7 +71,6 @@ function loginHandler(req,res){
 
 function getPost(req,res,){
     //!Verify the correct user
-    console.log(req.token,'res tok');
 jwt.verify(req.token,'secretkey',(err,authData)=>{
     
     if (err){ return res.status(403).send('token is not valid')}

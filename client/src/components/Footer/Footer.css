@@ -4,10 +4,8 @@
   bottom: 0;
 }
 footer {
-  background: #343a40;
-  /* background: linear-gradient(59deg, #1d503d, #350604); */
+  background-color: #404144!important;
   color: white;
-  /* margin-top: 100px; */
   }
   
   footer a {

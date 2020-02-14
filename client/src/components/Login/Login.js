@@ -21,7 +21,6 @@ class Login extends Component {
         e.preventDefault();
         axios.post('/users/login/', this.loginData)
           .then((response)=> {
-            console.log(response.data,'resdata');
             if (response.status === 200) {   
                 localStorage.name = response.data.name;
                 localStorage.id = response.data.id;
@@ -30,7 +29,6 @@ class Login extends Component {
                 localStorage.token =response.data.token;
                 localStorage.guest = false;
                this.setState({user: localStorage});
-            //    console.log(localStorage);
                this.props.history.push("/Forum");
                this.props.loginHandler(true)
             }else{

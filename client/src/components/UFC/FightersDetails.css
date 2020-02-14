@@ -1,12 +1,11 @@
 .FightersDetails{
-    width: 80%;
-    max-height: 84%;
-    background-color: #e1e1e1;
+    width: 84%;
     z-index: 15 !important;
     position: fixed;
-    top: 8%;
+    top: 7.8%;
     box-sizing: border-box;
-    background-color: #272727f1;
+    background-color: #707070f1;
+    line-height: .9;
 }
 .FightersDetails h1 , h3{
 text-align: left;
@@ -44,8 +43,10 @@ text-align: left;
     margin: 0 auto;
 }
 .FightersDetails_flex{
-    display: flex;
-    height: 100%;
+    display: inline-flex;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: overlay;
 }
 .FightersDetails_Table{
     max-height: 37%;
@@ -61,14 +62,32 @@ text-align: left;
     color: #212529;
 }
 
-@media only screen and (max-width: 1100px)
+@media only screen and (max-width: 950px)
 {
-    p {font-size: 85%}
-    h1 {font-size: 200%}
-    h4 {font-size: 140%}
+    .FightersDetails_flex {
+        display: inline-block;
+        text-align: center;
+        height: 500px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: overlay;
+    }
+    .FightersDetails h1 , h3{
+        text-align: center;
+        }
+        .FightersDetails {
+            width: 95%;
+            z-index: 15 !important;
+            position: fixed;
+            top: 7.8%;
+            box-sizing: border-box;
+            background-color: #707070f1;
+            line-height: .9;
+        }
+        
 }
 
-@media only screen and (max-width: 900px)
+/* @media only screen and (max-width: 900px)
 {
     p {font-size: 80%}
     h1 {font-size: 185%}
@@ -81,4 +100,4 @@ text-align: left;
     h1 {font-size: 170%}
     h4 {font-size: 110%}
     .FightersDetails_img {display: none;}
-}
+} */
