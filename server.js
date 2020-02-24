@@ -32,6 +32,8 @@ const upload = multer({
 });
 
 
+//todo Save Last Day FB Games in the DB 
+
 
 app.get('/ufc/:fighter',(req,res)=>{
     UFC.getFighter(req,res);

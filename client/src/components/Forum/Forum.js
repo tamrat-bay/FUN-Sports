@@ -108,29 +108,27 @@ if (localStorage.length < 4) { console.log(localStorage.length);
       <div className="Forum">
           <div className="Forum_forum">
             <h1>Fun - Sports</h1>
-
             <div  className="Forum_writePost">
               <button onClick={() => this.setState({ postFlag: true })}>New Post</button>
             </div> 
 
-            {this.state.postFlag ? (<NewPost newPost={this.newPost} post={this.post} 
+            { this.state.postFlag ?(
+            <NewPost newPost={this.newPost} post={this.post} 
              cancel={() => this.setState({postFlag:false})} />
-            ) : ("")}
-            {this.state.updateFlag ? (<UpdatePost updatePost={this.updatePost} post={this.post}
+            ) : 
+            ("")}
+
+            {this.state.updateFlag ? (
+            <UpdatePost updatePost={this.updatePost} post={this.post}
              cancel={() => this.setState({updateFlag: false})} />
-            ) : ("")}
+            ) : 
+            ("")}
+
             <div className="Forum_posts">
               {this.state.posts.map((p, i) => (
                 <div className="Forum_posts_singlePost" key={i}>
 
-                  <div className="Forum_posts_userImage">
-
-                    {p.userImage ? <img  src={p.userImage} alt=" user"/> :
-                     <img src="img/imagelessuser.png" alt=" user"/> }               
-                    <h4>{p.name}</h4>
-                    </div>          
-
-                    {p.email === localStorage.email ? (  
+               {p.email === localStorage.email ? (  
                      <DropdownDeleteUpdate updateHandler={() =>
                        {this.setState({ updateFlag: true });
                         this.post = this.state.posts[i];
@@ -140,14 +138,24 @@ if (localStorage.length < 4) { console.log(localStorage.length);
                    )
                   : (
                       ""
-                    )}
+                    )}   
+                    
+                  <div className="Forum_posts_userImage">
+                    {p.userImage ? <img  src={p.userImage} alt=" user"/> :
+                    <img src="img/imagelessuser.png" alt=" user"/> }               
+                    <h4>{p.name}</h4>
+                  </div> 
 
-                   <h4>{p.subject}</h4>
-                    {p.img ? <img src={p.img} alt="img" /> : ''}
+                 <h4 className="Forum_posts_title">{p.subject}</h4>
+
+                <div className="Forum_posts_mainContent"> 
+                    {p.img ? <img className="subjectImg" src={p.img} alt="img" /> : ''}
                     <p className="content">{p.content}</p>
+                </div>
+
                     <div className="commentsDisplay">
                     {p.comments.length > 0 ? p.comments.map((c, j) =>
-                      <div key={j} className="singleComment" >
+                    <div key={j} className="singleComment" >
 
                         <div className="singleComment_user">
                           {c.image ? <img className="commnetatorImage" src={c.image} alt="img"/>

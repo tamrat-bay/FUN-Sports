@@ -4,25 +4,42 @@
     background-size: cover;
     background-position: center;
 }
-
 .About_us{
     border: 2px solid white;
     height: 400px;
     margin: 70px auto;
     width: 95%;
     display: flex;
-     justify-content: space-around;
+    justify-content: space-around;
 }
 .About_us_details{
-    background-color: rgba(0, 0, 0, 0.493);
+    background-color: rgba(255, 255, 255, 0.77);
     height: 100%;
-    width: 30%;
+    width: 40%;
     text-align: center;
+    font-family: cursive;
+}
+.About_us_details img{
+    width: 60%;
+    display: inline-block;
+    border: 1px solid #727272;
+    border-radius: 101px;
+    box-shadow: 1px 1px 4px;
 }
 
-.About_us_details img{
-width: 70%;
-display: inline-block;
-border: 2px solid white;
-border-radius: 101px;
+.About_us_details_link {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.About_us_details_link a{
+     text-decoration: none;
+}
+.About_us_details_link  i{
+    color: rgb(0, 224, 49);
+    font-size: 2.2em;
+    background-color: #503535c7;
+    border-radius: 60px;
+    padding: 10px;
+    width: 55px;
 }
