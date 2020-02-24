@@ -10,7 +10,6 @@
     font-size: 110%;
     background: none;
     border: none;
-    /* background-color: rgba(0, 128, 128, 0.349); */
     margin: 2px 28px 18px 34px;
     border-radius: 20px;
     color: white;
@@ -47,17 +46,6 @@
     box-shadow: 4px 6px 5px black;
 }
 
-
-
-@media only screen and (max-width: 800px)
-{
-    .each-game {
-        width: 90%;
-        height: 50%;
-        margin-bottom: 30px;
-    }
-}
-
 .loading-spinner {
     position: relative;
     left: 45%;
@@ -72,6 +60,16 @@
     border: 1px solid #000000;
     width: 90%;
     background-color: #08600873;
-    margin: 0 auto;
+    margin: 20px auto;
     box-shadow: 1px 1px 5px black;
 }
+
+@media only screen and (max-width: 800px)
+{
+    .each-game {
+        width: 90%;
+        height: 50%;
+        margin-bottom: 30px;
+    }
+}
+

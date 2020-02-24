@@ -32,8 +32,9 @@ border-radius: 8px;
 box-shadow: 3px 3px 5px;
 }
 .NavbarComp {
-  background-color: #000105bf!important;
+  background-color: #354166!important;
   height: 70px;
+  box-shadow: 2px 6px 4px #303030;
 }
 .Navlogo{
   width: 25%;
@@ -54,7 +55,7 @@ a.nav-link:hover {
   flex-basis: 100%;
   flex-grow: 1;
   align-items: center;
-  background-color: #404144!important;
-  color: #fdfdfd;
+  background-color: #354166!important;
+    color: #fdfdfd;
   z-index: 16;
 }

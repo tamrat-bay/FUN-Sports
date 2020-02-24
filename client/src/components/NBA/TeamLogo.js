@@ -3,7 +3,7 @@ import './TeamLogo.css'
 import axios from 'axios';
 
 class TeamLogo extends Component {
-    state = {teamsData: [], info: false, singleTeamData: {}, loading: '', abb: ''}
+    state = {teamsData: [], info: false, singleTeamData: {}}
     render() {
 
         const teams = [
@@ -20,10 +20,8 @@ class TeamLogo extends Component {
         { 
             
            let abb = evant.split('/')[2].split('_')[0];
-           console.log(abb);
            let compareTeams = this.state.teamsData.filter(t => t.abbreviation === abb);
            compareTeams[0].img = evant;
-           console.log(compareTeams[0]);
            this.setState({singleTeamData: compareTeams[0]});
         }
         

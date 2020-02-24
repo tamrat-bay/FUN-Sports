@@ -35,3 +35,17 @@
 .buttons {
     margin: 2px;
 }
+.signupdiv .btn-primary {
+    color: #fff;
+    background-color: #1d1c1c;
+    width: 120px;
+    font-size: 1.5em;
+    border-color: #289c119d;
+    border-radius: 9px;
+}
+.signupdiv .btn-primary:hover {
+    color: #fff;
+    background-color: #000000;
+    border-color: #1b9b00e8;
+    box-shadow: 2px 2px 5px #1b9b00e8;
+}

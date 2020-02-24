@@ -48,7 +48,7 @@ export default class Ufc extends Component {
                         <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} href=""> Heavyweight</Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li">
-                        <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} eventKey="link-1">Lightheavyweight</Nav.Link>
+                        <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} eventKey="link-1">Light Heavyweight</Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li">
                         <Nav.Link onClick={(e) =>  getFighterByDevision(e.target.innerText)} eventKey="link-2">Middleweight</Nav.Link>

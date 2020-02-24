@@ -14,6 +14,8 @@ class NBA extends Component {
             <div className='div-pic'>
                 <TeamLogo/>
                 {this.state.loading}
+                {this.state.timeTeamsArena.length > 1 ?
+                <div> 
                 <h1 className='nba-title'>NBA schedule</h1>
                 <Table striped bordered hover className='schedule-table'>
                     <thead>
@@ -25,6 +27,7 @@ class NBA extends Component {
                         </tr>
                     </thead>
                     <tbody>
+                        
                         {this.state.timeTeamsArena.map((g, i) => {
                             return(
                         <tr key={i}>
@@ -44,9 +47,17 @@ class NBA extends Component {
                                 {g.place1}, {g.place2}
                             </td>
                         </tr>
-                            )})}
-                    </tbody>
-                </Table>
+                            )}) 
+                            }
+                    </tbody>  
+                    </Table>
+                    </div>
+                    : 
+                            <div className="NBA_noGames">
+                            <h1> There Are No Games Today</h1>
+                            <h1>We Will Be Back Soon</h1>
+                            </div>}
+              
             </div>
         );
     }

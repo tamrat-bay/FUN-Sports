@@ -18,6 +18,7 @@ render() {
                               <Nav.Link href="/Football">Football</Nav.Link>
                               <Nav.Link href="/NBA">NBA</Nav.Link>
                               <Nav.Link href="/UFC">UFC</Nav.Link>
+                              <Nav.Link href="/About">About</Nav.Link>
                               </Nav>
                               <Nav>
                               <Nav.Item>
@@ -43,6 +44,7 @@ render() {
                         <Nav.Link href="/Football">Football</Nav.Link>
                         <Nav.Link href="/NBA">NBA</Nav.Link>
                         <Nav.Link href="/UFC">UFC</Nav.Link>
+                        <Nav.Link href="/About">About</Nav.Link>
                       </Nav>
                       <Nav>
                          <Nav.Item>

@@ -62,3 +62,12 @@
 .schedule-table {
     margin-bottom: 0px;
 }
+
+.NBA_noGames  {
+    text-align: center;
+    color: #ff001f;
+    text-shadow: 2px 2px black;
+    margin: 0;
+    height: 50vh;
+    padding: 30px;
+}

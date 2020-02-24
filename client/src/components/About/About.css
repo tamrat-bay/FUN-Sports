@@ -1,0 +1,28 @@
+.About{
+    height: 100vh;
+    background-image: url("https://images.unsplash.com/photo-1510681146573-81fe839ff6ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=1780&q=80");
+    background-size: cover;
+    background-position: center;
+}
+
+.About_us{
+    border: 2px solid white;
+    height: 400px;
+    margin: 70px auto;
+    width: 95%;
+    display: flex;
+     justify-content: space-around;
+}
+.About_us_details{
+    background-color: rgba(0, 0, 0, 0.493);
+    height: 100%;
+    width: 30%;
+    text-align: center;
+}
+
+.About_us_details img{
+width: 70%;
+display: inline-block;
+border: 2px solid white;
+border-radius: 101px;
+}

@@ -11,6 +11,7 @@ import NavbarComp from './components/NavbarComp/NavbarComp';
 import Footer from './components/Footer/Footer'
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import About from './components/About/About';
 import NotFound from './components/NotFound/NotFound';
 
 
@@ -33,6 +34,8 @@ export default class App extends Component {
                     <Route exact path='/Football' component={Football}/>
                     <Route exact path='/NBA' component={NBA}/>
                     <Route exact path='/Ufc' component={Ufc}/>
+                    <Route exact path='/About' component={About}/>
+
                     <Route component={NotFound}/>
                 </Switch>  
                 <Footer />                
