@@ -2,7 +2,7 @@ const express = require('express'),
 Joi = require('@hapi/joi'),
 mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const Post = require('./model/PostsModel'),
+const Post = require('../model/PostsModel'),
 app = express();
 app.use(express.json());
 

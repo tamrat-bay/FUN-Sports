@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const UFC = require('./mod');
+const UFC = require('./CustomModules/ufcModule');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 8080 ;
-const users = require('./UsersModule');
+const users = require('./CustomModules/usersModule');
 app.use(express.json());
-const PostsHandler = require('./PostsHandler');
+const PostsHandler = require('./CustomModules/postsModule');
 
 //? DB Config 
 const db = require('./config/Keys').MongoURI;

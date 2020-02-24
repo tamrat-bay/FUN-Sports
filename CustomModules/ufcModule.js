@@ -34,10 +34,6 @@ let fighters = [
   {name: "Alistair Overeem", data:"https://www.sherdog.com/fighter/Alistair-Overeem-461"},
   {name: "Jose Aldo", data:"https://www.sherdog.com/fighter/Jose-Aldo-11506"}
 ]
-// sherdog.getFighter(fighters.Tony_Ferguson, ()=>{
-
-// })
-
 
 
 module.exports.getFighter = function getFighter (req,res){
