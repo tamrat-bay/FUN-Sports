@@ -21,7 +21,7 @@
   "homepage": "https://github.com/tamrat-bay/FUN-Sports-Web#readme",
   "dependencies": {
     "@hapi/joi": "^17.0.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.0.2",
     "express": "^4.17.1",
